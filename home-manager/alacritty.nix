@@ -3,7 +3,7 @@
     enable = true;
     settings = {
       shell = {
-        program = "/bin/bash";
+        program = "/run/current-system/sw/bin/bash";
         args = [ "-l" "-c" "tmux attach || tmux" ];
       };
     };

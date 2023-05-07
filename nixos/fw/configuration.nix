@@ -5,7 +5,7 @@
 { config, pkgs, lib, inputs, ... }:
 
 {
-  imports = [ ./alacritty.nix ./overlays.nix ./hardware-configuration.nix ];
+  imports = [ ./hardware-configuration.nix ./overlays.nix ./tmux.nix ];
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;

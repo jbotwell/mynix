@@ -7,7 +7,7 @@ let
   configHome = "${homeDirectory}/${configName}";
 in {
 
-  imports = [ ../nixos/fw/overlays.nix ];
+  imports = [ ../nixos/fw/overlays.nix ./alacritty.nix ./tmux.nix ];
 
   home = {
     inherit username homeDirectory;
