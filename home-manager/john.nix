@@ -23,7 +23,6 @@ in {
   programs.home-manager.enable = true;
 
   # Bash
-  home.file.".bashrc".source = ./files/bashrc;
   programs.bash.enable = true;
   programs.bash.initExtra = ''
       export BASH_IT="/home/john/.bash_it"
