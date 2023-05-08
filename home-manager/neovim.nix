@@ -1,6 +1,10 @@
 { pkgs, ... }: {
   programs.neovim = {
-    plugins = [ pkgs.vimPlugins.nvim-tree-lua ];
+    plugins = [
+      pkgs.vimPlugins.nvim-tree-lua
+      pkgs.vimPlugins.nvim-web-devicons
+      pkgs.vimPlugins.nvim-treesitter.withAllGrammars
+    ];
     viAlias = true;
     vimAlias = true;
     vimdiffAlias = true;
@@ -13,19 +17,10 @@
       -- set termguicolors to enable highlight groups
       vim.opt.termguicolors = true
 
-      -- OR setup with some options
-      require("nvim-tree").setup({
-        sort_by = "case_sensitive",
-        view = {
-          width = 30,
-        },
-        renderer = {
-          group_empty = true,
-        },
-        filters = {
-          dotfiles = true,
-        },
-      })
+      require("nvim-tree").setup({})
+
+      -- toggle open for nvim-tree
+      vim.api.nvim_set_keymap('n', '<leader>e', ':NvimTreeToggle<CR>', { noremap = true, silent = true })
     '';
   };
 }

@@ -82,6 +82,9 @@
   # Enable touchpad support (enabled default in most desktopManager).
   services.xserver.libinput.enable = true;
 
+  # keyring
+  services.gnome.gnome-keyring.enable = true;
+
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.john = {
     isNormalUser = true;
@@ -92,6 +95,7 @@
       "$6$nhupSF2Neq$m61opyOxxlZAt10pdgSw/ORYlLOGa8efAF7dfKVRas8Wl4hVaSUI4d5poAk9VnMFY/xejKkZjst26INwMWrZZ.";
     packages = with pkgs; [
       xclip
+
       firefox
       vim
       unstable.vscode
@@ -102,7 +106,6 @@
       neovim
       wofi
       waybar
-      waybar-backlight
       nodejs
       tmux
       wl-clipboard
@@ -122,7 +125,7 @@
   };
   programs.hyprland.enable = true;
   programs.waybar.enable = true;
-  fonts.fonts = with pkgs; [ font-awesome ];
+  fonts.fonts = with pkgs; [ font-awesome nerdfonts ];
 
   nix = {
     # This will add each flake input as a registry
