@@ -4,8 +4,11 @@
       vimPlugins.nvim-tree-lua
       vimPlugins.nvim-web-devicons
       vimPlugins.nvim-treesitter.withAllGrammars
-      vimPlugins.nvim-treesitter.builtGrammars
+      vimPlugins.nvim-lsputils
       vimPlugins.neorg
+
+      # language specific
+      vimPlugins.vim-nix
     ];
     viAlias = true;
     vimAlias = true;
@@ -25,4 +28,6 @@
       vim.api.nvim_set_keymap('n', '<leader>e', ':NvimTreeToggle<CR>', { noremap = true, silent = true })
     '';
   };
+
+  home.packages = with pkgs; [ nixfmt ];
 }
