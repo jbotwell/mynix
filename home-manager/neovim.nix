@@ -1,9 +1,11 @@
 { pkgs, ... }: {
-  programs.neovim = {
+  programs.neovim = with pkgs; {
     plugins = [
-      pkgs.vimPlugins.nvim-tree-lua
-      pkgs.vimPlugins.nvim-web-devicons
-      pkgs.vimPlugins.nvim-treesitter.withAllGrammars
+      vimPlugins.nvim-tree-lua
+      vimPlugins.nvim-web-devicons
+      vimPlugins.nvim-treesitter.withAllGrammars
+      vimPlugins.nvim-treesitter.builtGrammars
+      vimPlugins.neorg
     ];
     viAlias = true;
     vimAlias = true;

@@ -96,6 +96,7 @@
     packages = with pkgs; [
       xclip
 
+      unstable.brave
       firefox
       vim
       unstable.vscode
@@ -137,6 +138,13 @@
     nixPath = lib.mapAttrsToList (key: value: "${key}=${value.to.path}")
       config.nix.registry;
   };
+
+  # Enable the X11 windowing system.
+  services.xserver.enable = true;
+
+  # Enable the GNOME Desktop Environment.
+  services.xserver.displayManager.gdm.enable = true;
+  services.xserver.desktopManager.gnome.enable = true;
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;

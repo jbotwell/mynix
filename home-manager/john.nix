@@ -13,7 +13,7 @@ in {
   home = {
     inherit username homeDirectory;
 
-    packages = with pkgs; [ unstable.brave ];
+    packages = with pkgs; [ calibre libreoffice slack vlc zathura zoom-us ];
   };
 
   xdg = {
