@@ -6,6 +6,13 @@
       vimPlugins.nvim-treesitter.withAllGrammars
       vimPlugins.nvim-lsputils
       vimPlugins.neorg
+      vimPlugins.vim-sneak
+      vimPlugins.vim-commentary
+      vimPlugins.vim-numbertoggle
+      vimPlugins.undotree
+      vimPlugins.vim-textobj-entire
+      vimPlugins.nvim-lspconfig
+      vimPlugins.nvim-compe
 
       # language specific
       vimPlugins.vim-nix
@@ -13,7 +20,19 @@
     viAlias = true;
     vimAlias = true;
     vimdiffAlias = true;
-    # config from nvim-tree gh
+    extraConfig = ''
+      " Enable relative line numbers by default
+      set number
+
+      " Define a mapping to toggle between relative and absolute line numbers
+      nnoremap <silent> <C-n> :set relativenumber!<cr>
+
+      " undotree to leader u
+      nnoremap <Leader>u :UndotreeToggle<CR>
+
+      " Autoformat nix code on save
+      autocmd BufWritePre *.nix :silent! %!nixfmt
+    '';
     extraLuaConfig = ''
       -- disable netrw at the very start of your init.lua (strongly advised)
       vim.g.loaded_netrw = 1
@@ -29,5 +48,5 @@
     '';
   };
 
-  home.packages = with pkgs; [ nixfmt ];
+  home.packages = with pkgs; [ nixfmt nodePackages.typescript-language-server ];
 }

@@ -13,7 +13,17 @@ in {
   home = {
     inherit username homeDirectory;
 
-    packages = with pkgs; [ calibre libreoffice slack vlc zathura zoom-us ];
+    packages = with pkgs; [
+      calibre
+      grim
+      libreoffice
+      signal-desktop
+      slack
+      slurp
+      vlc
+      zathura
+      zoom-us
+    ];
   };
 
   xdg = {
