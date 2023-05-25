@@ -112,6 +112,9 @@
       wl-clipboard
       xfce.thunar
       nmap
+
+      #lsp
+      rnix-lsp
     ];
   };
 

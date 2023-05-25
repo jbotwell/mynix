@@ -1,5 +1,5 @@
 { pkgs, ... }: {
-  imports = [ ./lsp.nix ];
+  imports = [ ./neovim-lsp.nix ];
   programs.neovim = with pkgs; {
     plugins = [
       vimPlugins.nvim-tree-lua
@@ -17,7 +17,6 @@
 
       # language specific
       vimPlugins.vim-nix
-      # rnix.lsp
     ];
     viAlias = true;
     vimAlias = true;
@@ -64,6 +63,9 @@
         -- Recommendation: set to false if you don't have `tree-sitter` CLI installed locally
         auto_install = false,
       }
+
+      -- format buffer with LSP
+      vim.api.nvim_set_keymap('n', '<Leader>f', ':lua vim.lsp.buf.format()<CR>', { noremap = true })
     '';
   };
 
