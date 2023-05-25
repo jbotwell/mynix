@@ -96,7 +96,7 @@
     packages = with pkgs; [
       xclip
 
-      unstable.brave
+      ungoogled-chromium
       firefox
       vim
       unstable.vscode
@@ -111,6 +111,7 @@
       tmux
       wl-clipboard
       xfce.thunar
+      nmap
     ];
   };
 
