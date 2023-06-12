@@ -5,15 +5,13 @@
       vimPlugins.nvim-tree-lua
       vimPlugins.nvim-web-devicons
       vimPlugins.nvim-treesitter.withAllGrammars
-      # vimPlugins.nvim-lsputils
       vimPlugins.neorg
       vimPlugins.vim-sneak
       vimPlugins.vim-commentary
       vimPlugins.vim-numbertoggle
       vimPlugins.undotree
       vimPlugins.vim-textobj-entire
-      # vimPlugins.nvim-lspconfig
-      # vimPlugins.nvim-cmp
+      vimPlugins.vim-surround
 
       # language specific
       vimPlugins.vim-nix
