@@ -15,8 +15,8 @@
 
           add_lsp("tsserver", lspconfig.tsserver, {})
           add_lsp("rnix-lsp", lspconfig.rnix, {})
-          -- add_lsp("rust-analyzer", lspconfig.rust_analyzer, {})
-          lspconfig.rust_analyzer.setup{}
+          add_lsp("marksman", lspconfig.marksman, {})
+          add_lsp("rust-analyzer", lspconfig.rust_analyzer, {})
 
           -- Global mappings.
           -- See `:help vim.diagnostic.*` for documentation on any of the below functions
@@ -98,5 +98,5 @@
     }
   ];
 
-  home.packages = with pkgs; [ rnix-lsp rust-analyzer ];
+  home.packages = with pkgs; [ marksman rnix-lsp rust-analyzer ];
 }
