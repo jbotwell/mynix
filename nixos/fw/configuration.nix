@@ -116,6 +116,7 @@
       rustfmt
       clippy
       pavucontrol
+      comrak
     ];
   };
 
