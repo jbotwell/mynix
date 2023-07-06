@@ -1,5 +1,8 @@
 { pkgs, ... }: {
   imports = [ ./neovim-lsp.nix ];
+
+  programs.neovim.enable = true;
+
   programs.neovim = with pkgs; {
     plugins = [
       vimPlugins.nvim-tree-lua

@@ -117,6 +117,8 @@
       clippy
       pavucontrol
       comrak
+      transmission
+      transmission-gtk
     ];
   };
 

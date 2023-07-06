@@ -47,6 +47,7 @@ in {
   # Syncthing
   services.syncthing.enable = true;
 
+  # Git
   programs.git = {
     enable = true;
     userName = "John Otwell";
@@ -58,8 +59,7 @@ in {
     };
   };
 
-  programs.neovim.enable = true;
-
+  # fzf
   programs.fzf = {
     enable = true;
     enableBashIntegration = true;
@@ -68,6 +68,7 @@ in {
     fileWidgetCommand = "fd --type file --follow"; # FZF_CTRL_T_COMMAND
   };
 
+  # htop
   programs.htop = {
     enable = true;
     settings = {
