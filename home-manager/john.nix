@@ -28,6 +28,9 @@ in {
       vlc
       zathura
       zoom-us
+      anki
+      obsidian
+      exercism
     ];
   };
 

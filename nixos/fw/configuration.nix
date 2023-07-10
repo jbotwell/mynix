@@ -119,6 +119,10 @@
       comrak
       transmission
       transmission-gtk
+      gparted
+      python3
+      tldr
+      redis
     ];
   };
 
