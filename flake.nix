@@ -17,6 +17,8 @@
     };
 
     hyprland.url = "github:hyprwm/Hyprland";
+
+    neorg-overlay.url = "github:nvim-neorg/nixpkgs-neorg-overlay";
   };
 
   outputs = { nixpkgs, home-manager, ... }@inputs: {
@@ -30,7 +32,7 @@
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
           }
-	  inputs.hyprland.nixosModules.default
+          inputs.hyprland.nixosModules.default
           ./nixos/fw/configuration.nix
         ];
       };

@@ -121,6 +121,7 @@
       transmission-gtk
       gparted
       python3
+      python310Packages.pytest
       tldr
       redis
     ];
@@ -189,7 +190,7 @@
   # services.openssh.enable = true;
 
   # Open ports in the firewall.
-  networking.firewall.allowedTCPPorts = [ 8384 22000 ];
+  networking.firewall.allowedTCPPorts = [ 8384 22000 53741 ];
   networking.firewall.allowedUDPPorts = [ 21027 22000 ];
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;

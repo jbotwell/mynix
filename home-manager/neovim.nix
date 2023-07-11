@@ -15,6 +15,7 @@
       vimPlugins.undotree
       vimPlugins.vim-textobj-entire
       vimPlugins.vim-surround
+      vimPlugins.plenary-nvim
 
       # language specific
       vimPlugins.vim-nix
@@ -67,6 +68,27 @@
 
       -- format buffer with LSP
       vim.api.nvim_set_keymap('n', '<Leader>f', ':lua vim.lsp.buf.format()<CR>', { noremap = true })
+
+      -- neorg
+      require('neorg').setup {
+        run = ":Neorg sync-parsers",
+        load = {
+          ["core.defaults"] = {},
+          ["core.norg.dirman"] = {
+            config = {
+              workspaces = {
+                gtd = "~/norg/gtd",
+                writing = "~/norg/writing",
+              }
+            }
+          },
+          ["core.norg.completion"] = {
+            config = {
+              engine = "nvim-cmp"
+            }
+          },
+        }
+      }
     '';
   };
 
