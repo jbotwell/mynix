@@ -124,6 +124,7 @@
       python310Packages.pytest
       tldr
       redis
+      jupyter
     ];
   };
 
