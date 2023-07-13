@@ -78,6 +78,7 @@
           ["core.norg.dirman"] = {
             config = {
               workspaces = {
+                notes = "~/norg/notes",
                 gtd = "~/norg/gtd",
                 writing = "~/norg/writing",
               }
