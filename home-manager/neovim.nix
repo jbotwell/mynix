@@ -74,6 +74,7 @@
         run = ":Neorg sync-parsers",
         load = {
           ["core.defaults"] = {},
+          ["core.norg.concealer"] = {},
           ["core.norg.dirman"] = {
             config = {
               workspaces = {
