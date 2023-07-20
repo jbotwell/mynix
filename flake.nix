@@ -3,20 +3,18 @@
 
   inputs = {
     #nixpkgs
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-22.11";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-23.05";
     unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
 
     # home-manager
     home-manager = {
-      url = "github:nix-community/home-manager/release-22.11";
+      url = "github:nix-community/home-manager/release-23.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     home-unstable = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "unstable";
     };
-
-    hyprland.url = "github:hyprwm/Hyprland";
 
     neorg-overlay.url = "github:nvim-neorg/nixpkgs-neorg-overlay";
   };
@@ -32,7 +30,6 @@
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
           }
-          inputs.hyprland.nixosModules.default
           ./nixos/fw/configuration.nix
         ];
       };

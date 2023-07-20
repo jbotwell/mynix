@@ -10,7 +10,7 @@ in {
   imports = [
     ../nixos/fw/overlays.nix
     ./alacritty.nix
-    ./hypr.nix
+    # ./hypr.nix
     ./neovim.nix
     ./tmux.nix
   ];
@@ -31,6 +31,7 @@ in {
       anki
       obsidian
       exercism
+      sox
     ];
   };
 
@@ -91,4 +92,10 @@ in {
   '';
 
   home = { stateVersion = "22.11"; };
+
+  # emacs, doom
+  # home.file.".emacs.d" = {
+  #   source = files/emacs.d;
+  #   recursive = true;
+  # };
 }

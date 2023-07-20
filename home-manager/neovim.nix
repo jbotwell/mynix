@@ -24,6 +24,21 @@
     vimAlias = true;
     vimdiffAlias = true;
     extraConfig = ''
+      " Enable italic font rendering
+      if has('nvim')
+      let &t_ZH = "\e[3m"
+      let &t_ZR = "\e[23m"
+      else
+      let &t_ZH = "\<Esc>[3m"
+      let &t_ZR = "\<Esc>[23m"
+      endif
+
+      " Enable italics in the terminal
+      if !has('gui_running') && &t_Co >= 256
+      " For 256-color terminals
+      silent !echo -ne "\e]12;gray40\a"
+      endif
+
       " Enable relative line numbers by default
       set number
 
@@ -74,17 +89,16 @@
         run = ":Neorg sync-parsers",
         load = {
           ["core.defaults"] = {},
-          ["core.norg.concealer"] = {},
-          ["core.norg.dirman"] = {
+          ["core.concealer"] = {},
+          ["core.summary"] = {},
+          ["core.dirman"] = {
             config = {
               workspaces = {
                 notes = "~/norg/notes",
-                gtd = "~/norg/gtd",
-                writing = "~/norg/writing",
               }
             }
           },
-          ["core.norg.completion"] = {
+          ["core.completion"] = {
             config = {
               engine = "nvim-cmp"
             }
