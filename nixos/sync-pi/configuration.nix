@@ -22,7 +22,7 @@
     isNormalUser = true;
     extraGroups = [ "wheel" ];
     shell = pkgs.bash;
-    hashedPassword = "$1$V5VtYHqj$/NuZcsPvT68xj0nU9/UZZ0";
+    hashedPassword = "$6$osTnlkRhKWgV3Boa$J6EhTtFPdswyNgHW3HdDUWCNOM5xIWfvU3QppVzFwffKqCugv/Rk3fTIrAaJt9ZOEl/EraF.SoIR5lXqjQCRg.";
   };
 
   environment.systemPackages = with pkgs; [ git vim wget ];
