@@ -1,4 +1,16 @@
-{
+let
+  mkSystem = additionalModules:
+    nixpkgs.lib.nixosSystem {
+      specialArgs = { inherit inputs; }; # Pass flake inputs to our config
+      modules = [
+        home-manager.nixosModules.home-manager
+        {
+          home-manager.useGlobalPkgs = true;
+          home-manager.useUserPackages = true;
+        }
+      ] ++ additionalModules;
+    };
+in {
   description = "john's nix config";
 
   inputs = {
@@ -22,17 +34,8 @@
   outputs = { nixpkgs, home-manager, ... }@inputs: {
     # NixOS configuration entrypoint
     nixosConfigurations = {
-      fw = nixpkgs.lib.nixosSystem {
-        specialArgs = { inherit inputs; }; # Pass flake inputs to our config
-        modules = [
-          home-manager.nixosModules.home-manager
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-          }
-          ./nixos/fw/configuration.nix
-        ];
-      };
+      fw = mkSystem [ ./nixos/fw/configuration.nix ];
+      sync-pi = mkSystem [ ./nixos/sync-pi/configuration.nix ];
     };
 
     # Standalone home-manager configuration entrypoint
@@ -50,4 +53,3 @@
     };
   };
 }
-
