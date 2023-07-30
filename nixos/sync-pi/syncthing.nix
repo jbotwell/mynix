@@ -8,6 +8,11 @@
       configDir = "/home/john/sync/.config/syncthing";
       overrideDevices = true;
       overrideFolders = true;
+      extraOptions.gui = {
+        user = "john";
+        password =
+          "$2y$10$.htCkolhvsPKzmznpq/SQOb3pVperpW4.urjOnelA6kBkD7cBPVRq";
+      };
       devices = {
         "pixel" = {
           id =
