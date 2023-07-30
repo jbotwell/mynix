@@ -50,6 +50,15 @@
         }; # Pass flake inputs to our config
         modules = [ ./home-manager/john.nix ];
       };
+      "john@sync-pi" = home-manager.lib.homeManagerConfiguration {
+        pkgs = import nixpkgs {
+          system = "aarch64-linux";
+        }; # Home-manager requires 'pkgs' instance
+        extraSpecialArgs = {
+          inherit inputs;
+        }; # Pass flake inputs to our config
+        modules = [ ./home-manager/john-sync-pi.nix ];
+      };
     };
   };
 }
