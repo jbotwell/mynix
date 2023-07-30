@@ -9,11 +9,6 @@
       # overrideDevices = true;
       # overrideFolders = true;
       guiAddress = "0.0.0.0:8384";
-      extraOptions.gui = {
-        user = "john";
-        password =
-          "sha256:2eabb82418d1665d6adfa8b9b60ddb752c000f95470436fdb66b0442255b7f66";
-      };
       # devices = {
       # "pixel" = {
       # id =
