@@ -48,8 +48,7 @@
       " undotree to leader u
       nnoremap <Leader>u :UndotreeToggle<CR>
 
-      " Autoformat nix code on save
-      autocmd BufWritePre *.nix :silent! %!nixfmt
+      set shiftwidth=2
     '';
     extraLuaConfig = ''
       -- disable netrw at the very start of your init.lua (strongly advised)
@@ -80,9 +79,6 @@
         -- Recommendation: set to false if you don't have `tree-sitter` CLI installed locally
         auto_install = false,
       }
-
-      -- format buffer with LSP
-      vim.api.nvim_set_keymap('n', '<Leader>f', ':lua vim.lsp.buf.format()<CR>', { noremap = true })
 
       -- neorg
       require('neorg').setup {

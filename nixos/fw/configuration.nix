@@ -120,6 +120,10 @@
       jupyter
       jq
       emacs
+      gnumake
+      gcc
+      audacity
+      ffmpeg
     ];
   };
 

@@ -18,9 +18,15 @@
           add_lsp("marksman", lspconfig.marksman, {})
           add_lsp("rust-analyzer", lspconfig.rust_analyzer, {})
           add_lsp("json-languageserver", lspconfig.jsonls, {
-          	cmd = { "json-languageserver", "--stdio" }
+            cmd = { "json-languageserver", "--stdio" }
           })
           add_lsp("lua-language-server", lspconfig.lua_ls, {})
+          add_lsp("pylsp", lspconfig.pylsp, {})
+
+          -- Autoformatters
+          vim.cmd [[autocmd BufWritePre *.nix :silent! %!nixfmt]]
+          vim.cmd [[autocmd BufWritePre *.py :silent! %!black - --quiet]]
+
 
           -- Global mappings.
           -- See `:help vim.diagnostic.*` for documentation on any of the below functions
@@ -106,8 +112,12 @@
     marksman
     rnix-lsp
     rust-analyzer
-    # nodePackages.vscode-json-languageserver
     nodePackages.vscode-json-languageserver-bin
     lua-language-server
+    python311Packages.python-lsp-server
+    python311Packages.python-lsp-black
+    python311Packages.black
+    python311Packages.pycodestyle
+    nodePackages.pyright
   ];
 }

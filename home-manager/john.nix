@@ -32,6 +32,7 @@ in {
       obsidian
       exercism
       sox
+      rpi-imager
     ];
   };
 
