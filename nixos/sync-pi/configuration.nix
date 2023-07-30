@@ -25,7 +25,7 @@
     hashedPassword = "$6$osTnlkRhKWgV3Boa$J6EhTtFPdswyNgHW3HdDUWCNOM5xIWfvU3QppVzFwffKqCugv/Rk3fTIrAaJt9ZOEl/EraF.SoIR5lXqjQCRg.";
   };
 
-  environment.systemPackages = with pkgs; [ git vim wget ];
+  environment.systemPackages = with pkgs; [ git vim syncthing wget ];
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
