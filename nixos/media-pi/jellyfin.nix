@@ -1,4 +1,4 @@
-{ pkgs, ...}:
+{ pkgs, ... }:
 
 {
   systemd.services.jellyfin = {
@@ -10,6 +10,7 @@
       User = "john";
       ExecStart = "${pkgs.jellyfin}/bin/jellyfin --service";
       Restart = "always";
+    };
   };
 
   environment.systemPackages = [ pkgs.jellyfin ];
