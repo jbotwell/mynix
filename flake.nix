@@ -36,6 +36,7 @@
     in {
       fw = mkSystem inputs [ ./nixos/fw/configuration.nix ];
       sync-pi = mkSystem inputs [ ./nixos/sync-pi/configuration.nix ];
+      media-pi = mkSystem inputs [ ./nixos/media-pi/configuration.nix ];
     };
 
     # Standalone home-manager configuration entrypoint
@@ -49,15 +50,6 @@
           inherit inputs;
         }; # Pass flake inputs to our config
         modules = [ ./home-manager/john.nix ];
-      };
-      "john@sync-pi" = home-manager.lib.homeManagerConfiguration {
-        pkgs = import nixpkgs {
-          system = "aarch64-linux";
-        }; # Home-manager requires 'pkgs' instance
-        extraSpecialArgs = {
-          inherit inputs;
-        }; # Pass flake inputs to our config
-        modules = [ ./home-manager/john-sync-pi.nix ];
       };
     };
   };
