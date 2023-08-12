@@ -8,6 +8,7 @@
   imports = [ # Include the results of the hardware scan.
     ./hardware-configuration.nix
     ./jellyfin.nix
+    ./transmission.nix
   ];
 
   # Use the extlinux boot loader. (NixOS wants to enable GRUB by default)
