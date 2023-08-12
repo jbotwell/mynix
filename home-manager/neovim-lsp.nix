@@ -21,7 +21,7 @@
             cmd = { "json-languageserver", "--stdio" }
           })
           add_lsp("lua-language-server", lspconfig.lua_ls, {})
-          add_lsp("pylsp", lspconfig.pylsp, {})
+          add_lsp("pyright", lspconfig.pyright, {})
 
           -- Autoformatters
           vim.cmd [[autocmd BufWritePre *.nix :silent! %!nixfmt]]
@@ -114,10 +114,7 @@
     rust-analyzer
     nodePackages.vscode-json-languageserver-bin
     lua-language-server
-    python311Packages.python-lsp-server
-    python311Packages.python-lsp-black
     python311Packages.black
-    python311Packages.pycodestyle
     nodePackages.pyright
   ];
 }
