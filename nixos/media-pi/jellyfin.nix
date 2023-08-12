@@ -4,7 +4,7 @@
   systemd.services.jellyfin = {
     wantedBy = [ "multi-user.target" ];
     after = [ "network.target" ];
-    description = [ "Jellyfin" ];
+    description = "Jellyfin";
     serviceConfig = {
       Type = "simple";
       User = "john";
@@ -13,5 +13,5 @@
     };
   };
 
-  environment.systemPackages = [ pkgs.jellyfin ];
+  environment.systemPackages = [pkgs.jellyfin];
 }

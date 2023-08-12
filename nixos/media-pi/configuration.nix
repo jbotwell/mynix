@@ -33,7 +33,7 @@
 
   # Open ports in the firewall.
   networking.firewall.allowedTCPPorts = [ 22 8096 8920 ];
-  networking.firewall.allowedUDPPorts = [ 1900 ];
+  networking.firewall.allowedUDPPorts = [ 1900 7359 ];
 
   system.stateVersion = "23.11"; # Did you read the comment?
 
