@@ -9,6 +9,7 @@
     ./hardware-configuration.nix
     ./jellyfin.nix
     ./transmission.nix
+    ./airsonic.nix
   ];
 
   # Use the extlinux boot loader. (NixOS wants to enable GRUB by default)
@@ -33,7 +34,7 @@
   services.openssh.enable = true;
 
   # Open ports in the firewall.
-  networking.firewall.allowedTCPPorts = [ 22 8096 8920 ];
+  networking.firewall.allowedTCPPorts = [ 22 4040 8096 8920 ];
   networking.firewall.allowedUDPPorts = [ 1900 7359 ];
 
   system.stateVersion = "23.11"; # Did you read the comment?
