@@ -9,7 +9,6 @@
     ./hardware-configuration.nix
     ./jellyfin.nix
     ./transmission.nix
-    ./airsonic.nix
   ];
 
   # Use the extlinux boot loader. (NixOS wants to enable GRUB by default)
