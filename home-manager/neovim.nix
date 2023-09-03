@@ -17,6 +17,8 @@
       vimPlugins.vim-surround
       vimPlugins.plenary-nvim
       vimPlugins.neoformat
+      vimPlugins.nvim-autopairs
+      unstable.vimPlugins.rainbow-delimiters-nvim
 
       # language specific
       vimPlugins.vim-nix
@@ -59,6 +61,9 @@
       nnoremap <Leader>f :Neoformat<CR>
       " Try local executable for node
       let g:neoformat_try_node_exe = 1
+
+      " Rainbow
+      let g:rainbow_active = 1
 
     '';
     extraLuaConfig = ''
@@ -112,8 +117,12 @@
           },
         }
       }
+
+      require("nvim-autopairs").setup {}
+
+      require 'rainbow-delimiters.setup' {}
+
+
     '';
   };
-
-  home.packages = with pkgs; [ nixfmt ];
 }
