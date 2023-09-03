@@ -16,9 +16,11 @@
       vimPlugins.vim-textobj-entire
       vimPlugins.vim-surround
       vimPlugins.plenary-nvim
+      vimPlugins.neoformat
 
       # language specific
       vimPlugins.vim-nix
+      unstable.vimPlugins.vim-astro
     ];
     viAlias = true;
     vimAlias = true;
@@ -49,6 +51,15 @@
       nnoremap <Leader>u :UndotreeToggle<CR>
 
       set shiftwidth=2
+
+      " vim-astro with TypeScript
+      let g:astro_typescript = 'enable'
+
+      " NeoFormat
+      nnoremap <Leader>f :Neoformat<CR>
+      " Try local executable for node
+      let g:neoformat_try_node_exe = 1
+
     '';
     extraLuaConfig = ''
       -- disable netrw at the very start of your init.lua (strongly advised)

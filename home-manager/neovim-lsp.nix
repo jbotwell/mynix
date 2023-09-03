@@ -22,10 +22,18 @@
           })
           add_lsp("lua-language-server", lspconfig.lua_ls, {})
           add_lsp("pyright", lspconfig.pyright, {})
+          -- astro-ls needs to be installed globally and typescript needs to be installed as dev dependency
+          add_lsp("astro-ls", lspconfig.astro, {
+            init_options = {
+              typescript = {
+                tsdk = 'node_modules/typescript/lib'
+              }
+            }
+          })
 
           -- Autoformatters
-          vim.cmd [[autocmd BufWritePre *.nix :silent! %!nixfmt]]
-          vim.cmd [[autocmd BufWritePre *.py :silent! %!black - --quiet]]
+          -- vim.cmd [[autocmd BufWritePre *.nix :silent! %!nixfmt]]
+          -- vim.cmd [[autocmd BufWritePre *.py :silent! %!black - --quiet]]
 
 
           -- Global mappings.
@@ -60,9 +68,6 @@
           		vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, opts)
           		vim.keymap.set({ 'n', 'v' }, '<space>ca', vim.lsp.buf.code_action, opts)
           		vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
-          		vim.keymap.set('n', '<space>f', function()
-          			vim.lsp.buf.format { async = true }
-          		end, opts)
           	end,
           })
         '';
@@ -109,12 +114,17 @@
   ];
 
   home.packages = with pkgs; [
+    # language servers
     marksman
     rnix-lsp
     rust-analyzer
     nodePackages.vscode-json-languageserver-bin
     lua-language-server
-    python311Packages.black
     nodePackages.pyright
+    nodePackages.typescript-language-server
+
+    # formatters
+    python311Packages.black
+    nodePackages.prettier
   ];
 }

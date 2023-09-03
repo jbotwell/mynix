@@ -45,7 +45,9 @@ in {
 
   # Bash
   programs.bash.enable = true;
+  # TODO Make bash_it integration more declarative
   programs.bash.initExtra = ''
+      export PATH=$PATH:/home/john/.npm/bin
       export BASH_IT="/home/john/.bash_it"
       export BASH_IT_THEME="bobby"
     if command -v fzf-share >/dev/null; then
