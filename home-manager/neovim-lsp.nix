@@ -127,5 +127,6 @@
     python311Packages.black
     nodePackages.prettier
     nixfmt
+    luaformatter
   ];
 }

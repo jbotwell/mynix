@@ -121,8 +121,6 @@
       require("nvim-autopairs").setup {}
 
       require 'rainbow-delimiters.setup' {}
-
-
     '';
   };
 }
