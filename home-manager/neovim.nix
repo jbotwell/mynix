@@ -114,6 +114,9 @@
       require("chatgpt").setup({
         api_key_cmd = "pass show openai"
       })
+
+      -- see diagnostics in popup
+      vim.api.nvim_set_keymap('n', '<space>e', '<cmd>lua vim.diagnostic.open_float()<CR>', { noremap = true, silent = true })
     '';
   };
 }
