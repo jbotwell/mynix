@@ -26,10 +26,14 @@
       vimPlugins.plenary-nvim
       vimPlugins.telescope-nvim
 
+      # copilot
+      vimPlugins.copilot-vim
+
       # language specific
       vimPlugins.vim-nix
       unstable.vimPlugins.vim-astro
     ];
+
     viAlias = true;
     vimAlias = true;
     vimdiffAlias = true;
