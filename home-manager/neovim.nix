@@ -20,6 +20,12 @@
       vimPlugins.nvim-autopairs
       unstable.vimPlugins.rainbow-delimiters-nvim
 
+      # chat-gpt and dependencies
+      vimPlugins.ChatGPT-nvim
+      vimPlugins.nui-nvim
+      vimPlugins.plenary-nvim
+      vimPlugins.telescope-nvim
+
       # language specific
       vimPlugins.vim-nix
       unstable.vimPlugins.vim-astro
@@ -96,31 +102,14 @@
         auto_install = false,
       }
 
-      -- neorg
-      require('neorg').setup {
-        run = ":Neorg sync-parsers",
-        load = {
-          ["core.defaults"] = {},
-          ["core.concealer"] = {},
-          ["core.summary"] = {},
-          ["core.dirman"] = {
-            config = {
-              workspaces = {
-                notes = "~/norg/notes",
-              }
-            }
-          },
-          ["core.completion"] = {
-            config = {
-              engine = "nvim-cmp"
-            }
-          },
-        }
-      }
-
       require("nvim-autopairs").setup {}
 
       require 'rainbow-delimiters.setup' {}
+
+      -- chat-gpt
+      require("chatgpt").setup({
+        api_key_cmd = "pass show openai"
+      })
     '';
   };
 }

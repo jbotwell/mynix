@@ -128,5 +128,6 @@
     nodePackages.prettier
     nixfmt
     luaformatter
+    jq
   ];
 }
