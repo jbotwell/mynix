@@ -10,7 +10,6 @@ in {
   imports = [
     ../nixos/fw/overlays.nix
     ./alacritty.nix
-    # ./hypr.nix
     ./neovim.nix
     ./tmux.nix
   ];
