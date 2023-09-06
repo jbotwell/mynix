@@ -1,0 +1,6 @@
+vim.keymap.set('n', '<Leader>dc', require('dap').continue)
+vim.keymap.set('n', '<Leader>db', require('dap').toggle_breakpoint)
+vim.keymap.set('n', '<Leader>ds', require('dap').step_over)
+vim.keymap.set('n', '<Leader>di', require('dap').step_into)
+vim.keymap.set('n', '<Leader>do', require('dap').step_out)
+vim.keymap.set('n', '<Leader>dl', require('dap').step_out)
