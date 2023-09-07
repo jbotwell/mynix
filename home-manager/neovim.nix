@@ -46,12 +46,26 @@
         config = builtins.readFile ./files/lsp-config.lua;
       }
 
+      # which-key
+      {
+        plugin = which-key-nvim;
+        type = "lua";
+        config = ''
+          require("which-key").setup {}
+        '';
+      }
+
       # chat-gpt and dependencies
       {
         plugin = ChatGPT-nvim;
         type = "lua";
         config = ''
           require("chatgpt").setup({api_key_cmd = "pass show openai"})
+          vim.keymap.set('n', '<Leader>ch', '<Cmd>ChatGPT<CR>')
+          vim.keymap.set('n', '<Leader>ca', '<Cmd>ChatGPTActAs<CR>')
+          vim.keymap.set('n', '<Leader>cc', '<Cmd>ChatGPTCompleteCode<CR>')
+          vim.keymap.set('n', '<Leader>ce', '<Cmd>ChatGPTEditWithInstructions<CR>')
+          vim.keymap.set('n', '<Leader>cr', '<Cmd>ChatGPTRun<CR>')
         '';
 
       }
@@ -74,7 +88,7 @@
         config = ''
           require("dapui").setup()
           vim.keymap.set('n', '<Leader>du', require('dapui').open)
-          vim.keymap.set('n', '<Leader>dc', require('dapui').close)
+          vim.keymap.set('n', '<Leader>de', require('dapui').close)
         '';
       }
       nvim-dap-virtual-text

@@ -125,6 +125,7 @@
       audacity
       ffmpeg
       pass
+      deno
     ];
   };
 

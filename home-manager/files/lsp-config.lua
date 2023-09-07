@@ -15,8 +15,13 @@ add_lsp("json-languageserver", lspconfig.jsonls,
 add_lsp("astro-ls", lspconfig.astro,
         {init_options = {typescript = {tsdk = 'node_modules/typescript/lib'}}})
 
+vim.keymap.set('n', '<Leader>lg', '<Cmd>LspStart<CR>')
+vim.keymap.set('n', '<Leader>lk', '<Cmd>LspStop<CR>')
+vim.keymap.set('n', '<Leader>li', '<Cmd>LspInfo<CR>')
+
 -- Global mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
+vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist)
 vim.keymap.set('n', '<space>e', vim.diagnostic.open_float)
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
