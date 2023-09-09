@@ -126,6 +126,7 @@
       ffmpeg
       pass
       deno
+      trezor-suite
     ];
   };
 
@@ -175,6 +176,7 @@
     '';
   };
 
+  # gnupg
   programs.gnupg = {
     agent = {
       enable = true;
@@ -182,6 +184,9 @@
       pinentryFlavor = "gnome3";
     };
   };
+
+  # Trezor
+  services.trezord.enable = true;
 
   # List services that you want to enable:
 
