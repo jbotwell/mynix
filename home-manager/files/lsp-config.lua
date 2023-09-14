@@ -14,6 +14,8 @@ add_lsp("json-languageserver", lspconfig.jsonls,
 -- astro-ls installed globally; typescript as dev dependency
 add_lsp("astro-ls", lspconfig.astro,
         {init_options = {typescript = {tsdk = 'node_modules/typescript/lib'}}})
+add_lsp("csharp-ls", lspconfig.csharp_ls, {})
+add_lsp("fsautocomplete", lspconfig.fsautocomplete, {})
 
 vim.keymap.set('n', '<Leader>lg', '<Cmd>LspStart<CR>')
 vim.keymap.set('n', '<Leader>lk', '<Cmd>LspStop<CR>')

@@ -15,6 +15,9 @@
     nixfmt
     luaformatter
     jq
+
+    # debuggers
+    netcoredbg
   ];
 
   programs.neovim = {
@@ -71,7 +74,17 @@
       }
       nui-nvim
       plenary-nvim
-      telescope-nvim
+      {
+      plugin = telescope-nvim;
+      type = "lua";
+      config = ''
+          vim.keymap.set('n', '<Leader>to', '<Cmd>Telescope oldfiles<CR>')
+          vim.keymap.set('n', '<Leader>tg', '<Cmd>Telescope live_grep<CR>')
+          vim.keymap.set('n', '<Leader>tf', '<Cmd>Telescope fd<CR>')
+          vim.keymap.set('n', '<Leader>tk', '<Cmd>Telescope keymaps<CR>')
+          vim.keymap.set('n', '<Leader>tc', '<Cmd>Telescope keymaps<CR>')
+      '';
+      }
 
       # copilot
       copilot-vim

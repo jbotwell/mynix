@@ -12,6 +12,7 @@
       bind c new-window -c "#{pane_current_path}"
       set-option -g focus-events on
       set -g default-terminal "tmux-256color"
+      set -g base-index 1
     '';
   };
 }

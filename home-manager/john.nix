@@ -7,12 +7,8 @@ let
   configHome = "${homeDirectory}/${configName}";
 in {
 
-  imports = [
-    ../nixos/fw/overlays.nix
-    ./alacritty.nix
-    ./neovim.nix
-    ./tmux.nix
-  ];
+  imports =
+    [ ../nixos/fw/overlays.nix ./alacritty.nix ./neovim.nix ./tmux.nix ];
 
   home = {
     inherit username homeDirectory;
@@ -32,6 +28,7 @@ in {
       exercism
       sox
       rpi-imager
+      hugo
     ];
   };
 
@@ -46,7 +43,7 @@ in {
   programs.bash.enable = true;
   # TODO Make bash_it integration more declarative
   programs.bash.initExtra = ''
-      export PATH=$PATH:/home/john/.npm/bin
+      export PATH=$PATH:/home/john/.npm/bin:/home/john/.dotnet/tools
       export BASH_IT="/home/john/.bash_it"
       export BASH_IT_THEME="bobby"
     if command -v fzf-share >/dev/null; then
@@ -54,6 +51,7 @@ in {
       source "$(fzf-share)/completion.bash"
     fi
         source "$BASH_IT"/bash_it.sh'';
+  programs.bash.sessionVariables = { DOTNET_ROOT = "${pkgs.dotnet-sdk_7}"; };
 
   # Syncthing
   services.syncthing.enable = true;

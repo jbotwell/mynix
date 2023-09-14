@@ -127,6 +127,7 @@
       pass
       deno
       trezor-suite
+      dotnet-sdk_7
     ];
   };
 

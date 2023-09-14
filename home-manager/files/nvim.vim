@@ -22,6 +22,9 @@ nnoremap <silent> <C-n> :set relativenumber!<cr>
 " undotree to leader u
 nnoremap <Leader>u :UndotreeToggle<CR>
 
+" make current file executable
+nnoremap <Leader>x :!chmod +x %<CR>
+
 set shiftwidth=2
 
 " vim-astro with TypeScript
@@ -34,3 +37,7 @@ let g:neoformat_try_node_exe = 1
 
 " Rainbow
 let g:rainbow_active = 1
+
+" F# is filetype for .fs, .fsx, .fsi
+autocmd BufNewFile,BufRead *.fs,*.fsx,*.fsi set filetype=fsharp
+
