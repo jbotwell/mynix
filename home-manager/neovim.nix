@@ -21,13 +21,10 @@ in {
     nixfmt
     luaformatter
     jq
-    uncrustify
 
     # debuggers
     netcoredbg
   ];
-
-  home.file."${configName}/uncrustify/uncrustify.cfg" = ./files/uncrustify.cfg;
 
   programs.neovim = {
     enable = true;
@@ -198,19 +195,7 @@ in {
           require 'rainbow-delimiters.setup' {}
         '';
       }
-      {
-        plugin = neoformat;
-        type = "lua";
-        config = ''
-          require('neoformat').custom_hook('csharp', {
-            exe = 'uncrustify',
-            args = {'-c', '${configHome}/uncrustify/uncrustify.cfg'},
-            stdin = true,
-            replace = true,
-            ignore_errors = true,
-          })
-        '';
-      }
+      neoformat
       nvim-web-devicons
       vim-sneak
       vim-commentary
