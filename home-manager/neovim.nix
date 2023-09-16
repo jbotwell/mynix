@@ -21,6 +21,7 @@ in {
     nixfmt
     luaformatter
     jq
+    clang
 
     # debuggers
     netcoredbg
@@ -66,16 +67,9 @@ in {
 
       # chat-gpt and dependencies
       {
-        plugin = ChatGPT-nvim;
+        plugin = pkgs.unstable.vimPlugins.ChatGPT-nvim;
         type = "lua";
-        config = ''
-          require("chatgpt").setup({api_key_cmd = "pass show openai"})
-          vim.keymap.set('n', '<Leader>ch', '<Cmd>ChatGPT<CR>')
-          vim.keymap.set('n', '<Leader>ca', '<Cmd>ChatGPTActAs<CR>')
-          vim.keymap.set('n', '<Leader>cc', '<Cmd>ChatGPTCompleteCode<CR>')
-          vim.keymap.set('n', '<Leader>ce', '<Cmd>ChatGPTEditWithInstructions<CR>')
-          vim.keymap.set('n', '<Leader>cr', '<Cmd>ChatGPTRun<CR>')
-        '';
+        config = builtins.readFile ./files/chatgpt-nvim.lua;
 
       }
       nui-nvim
