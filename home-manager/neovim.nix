@@ -1,4 +1,10 @@
-{ pkgs, ... }: {
+{ pkgs, ... }:
+let
+  username = "john";
+  homeDirectory = "/home/${username}";
+  configName = ".config";
+  configHome = "${homeDirectory}/${configName}";
+in {
   home.packages = with pkgs; [
     # language servers
     marksman
@@ -15,10 +21,13 @@
     nixfmt
     luaformatter
     jq
+    uncrustify
 
     # debuggers
     netcoredbg
   ];
+
+  home.file."${configName}/uncrustify/uncrustify.cfg" = ./files/uncrustify.cfg;
 
   programs.neovim = {
     enable = true;
@@ -75,15 +84,15 @@
       nui-nvim
       plenary-nvim
       {
-      plugin = telescope-nvim;
-      type = "lua";
-      config = ''
+        plugin = telescope-nvim;
+        type = "lua";
+        config = ''
           vim.keymap.set('n', '<Leader>to', '<Cmd>Telescope oldfiles<CR>')
           vim.keymap.set('n', '<Leader>tg', '<Cmd>Telescope live_grep<CR>')
           vim.keymap.set('n', '<Leader>tf', '<Cmd>Telescope fd<CR>')
           vim.keymap.set('n', '<Leader>tk', '<Cmd>Telescope keymaps<CR>')
           vim.keymap.set('n', '<Leader>tc', '<Cmd>Telescope keymaps<CR>')
-      '';
+        '';
       }
 
       # copilot
@@ -189,6 +198,19 @@
           require 'rainbow-delimiters.setup' {}
         '';
       }
+      {
+        plugin = neoformat;
+        type = "lua";
+        config = ''
+          require('neoformat').custom_hook('csharp', {
+            exe = 'uncrustify',
+            args = {'-c', '${configHome}/uncrustify/uncrustify.cfg'},
+            stdin = true,
+            replace = true,
+            ignore_errors = true,
+          })
+        '';
+      }
       nvim-web-devicons
       vim-sneak
       vim-commentary
@@ -197,7 +219,6 @@
       vim-textobj-entire
       vim-surround
       plenary-nvim
-      neoformat
       nvim-autopairs
     ];
   };
