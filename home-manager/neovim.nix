@@ -21,7 +21,7 @@ in {
     nixfmt
     luaformatter
     jq
-    clang
+    clang-tools
 
     # debuggers
     netcoredbg
@@ -199,6 +199,7 @@ in {
       vim-surround
       plenary-nvim
       nvim-autopairs
+      vim-nix
     ];
   };
 }

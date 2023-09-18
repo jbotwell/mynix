@@ -5,8 +5,6 @@
     syncthing = {
       enable = true;
       user = "john";
-      # dataDir = "/home/john/sync";
-      # configDir = "/home/john/sync/.config/syncthing";
       overrideDevices = true;
       overrideFolders = true;
       guiAddress = "0.0.0.0:8384";
@@ -17,7 +15,7 @@
         };
         "fw" = {
           id =
-            "2XTRIZJ-H53W4R3-AZTV7YL-4KT6ETR-54LF5HM-KT6VWFT-QAG7TMI-MG73PAC";
+            "ZR54MKY-6TIARLI-MQBUIEP-ZKYONIM-7345LU7-QHWQPSL-SGPWQGQ-Y2DEHQH";
         };
       };
       folders = {

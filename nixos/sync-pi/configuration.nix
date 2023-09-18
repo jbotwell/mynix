@@ -7,7 +7,7 @@
 {
   imports = [ # Include the results of the hardware scan.
     ./hardware-configuration.nix
-    ./syncthing.nix
+    ./syncthing-lead.nix
   ];
 
   # Use the extlinux boot loader. (NixOS wants to enable GRUB by default)
@@ -22,7 +22,8 @@
     isNormalUser = true;
     extraGroups = [ "wheel" ];
     shell = pkgs.bash;
-    hashedPassword = "$6$osTnlkRhKWgV3Boa$J6EhTtFPdswyNgHW3HdDUWCNOM5xIWfvU3QppVzFwffKqCugv/Rk3fTIrAaJt9ZOEl/EraF.SoIR5lXqjQCRg.";
+    hashedPassword =
+      "$6$osTnlkRhKWgV3Boa$J6EhTtFPdswyNgHW3HdDUWCNOM5xIWfvU3QppVzFwffKqCugv/Rk3fTIrAaJt9ZOEl/EraF.SoIR5lXqjQCRg.";
   };
 
   environment.systemPackages = with pkgs; [ git vim syncthing wget ];
@@ -37,4 +38,3 @@
   system.stateVersion = "23.11"; # Did you read the comment?
 
 }
-
