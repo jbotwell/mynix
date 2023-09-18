@@ -5,6 +5,8 @@
     syncthing = {
       enable = true;
       user = "john";
+      dataDir = "/home/john/sync";
+      configDir = "/home/john/sync/.config/syncthing";
       overrideDevices = true;
       overrideFolders = true;
       guiAddress = "0.0.0.0:8384";
@@ -15,7 +17,7 @@
         };
         "fw" = {
           id =
-            "ZR54MKY-6TIARLI-MQBUIEP-ZKYONIM-7345LU7-QHWQPSL-SGPWQGQ-Y2DEHQH";
+            "YZ7ERYB-HOCHEQM-5RJM5DW-7WS4ZZE-3JTQ3XW-JJ3MLUX-NB456I2-BGJFFQZ";
         };
         "media-pi" = {
           id =

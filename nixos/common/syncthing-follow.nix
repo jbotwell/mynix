@@ -5,6 +5,8 @@
     syncthing = {
       enable = true;
       user = "john";
+      dataDir = "/home/john/sync";
+      configDir = "/home/john/sync/.config/syncthing";
       overrideDevices = true;
       overrideFolders = true;
       guiAddress = "0.0.0.0:8384";
