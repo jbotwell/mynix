@@ -4,7 +4,12 @@
 { config, pkgs, lib, inputs, ... }:
 
 {
-  imports = [ ./hardware-configuration.nix ./overlays.nix ./boot.nix ];
+  imports = [
+    ./hardware-configuration.nix
+    ./overlays.nix
+    ./boot.nix
+    ../common/syncthing-follow.nix
+  ];
 
   networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -154,16 +159,6 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [ ];
-
-  services = {
-    syncthing = {
-      enable = true;
-      user = "john";
-      dataDir = "/home/john/Documents"; # Default folder for new synced folders
-      configDir =
-        "/home/john/Documents/.config/syncthing"; # Folder for Syncthing's settings and keys
-    };
-  };
 
   # npm
   programs.npm = {

@@ -17,11 +17,15 @@
           id =
             "ZR54MKY-6TIARLI-MQBUIEP-ZKYONIM-7345LU7-QHWQPSL-SGPWQGQ-Y2DEHQH";
         };
+        "media-pi" = {
+          id =
+            "YO3BOTJ-WYJQHVH-FEDKETO-SF4DNYL-AWBJCWO-QE5PKZH-XNUCPAH-I3OF3A6";
+        };
       };
       folders = {
-        "sync" = { # Name of folder in Syncthing, also the folder ID
-          path = "/home/john/sync"; # Which folder to add to Syncthing
-          devices = [ "pixel" "fw" ]; # Which devices to share the folder with
+        "sync" = {
+          path = "/home/john/sync";
+          devices = [ "pixel" "fw" ];
         };
         "org" = {
           path = "/home/john/org";
