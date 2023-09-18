@@ -21,17 +21,17 @@
         };
         "media-pi" = {
           id =
-            "YO3BOTJ-WYJQHVH-FEDKETO-SF4DNYL-AWBJCWO-QE5PKZH-XNUCPAH-I3OF3A6";
+            "OD3R4RA-IAA4SXH-PZ3G2MP-5WC7OUS-ZPSAPYE-EEC4WBZ-46IJB2O-5GIRPQZ";
         };
       };
       folders = {
         "sync" = {
           path = "/home/john/sync";
-          devices = [ "pixel" "fw" ];
+          devices = [ "pixel" "fw" "media-pi" ];
         };
         "org" = {
           path = "/home/john/org";
-          devices = [ "pixel" "fw" ];
+          devices = [ "pixel" "fw" "media-pi" ];
         };
       };
     };
