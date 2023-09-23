@@ -13,7 +13,7 @@
       devices = {
         "sync-pi" = {
           id =
-            "7PQFUFC-E6DYLCN-DBLP44G-QNTB6I4-V2WO2Y6-4OTXJPV-6IZTRCQ-DJEKSAH";
+            "LKW3MJ5-TYKSOMM-JLJTFCJ-FWXZ7UE-PARLGUE-EBLBZUQ-FFKLW76-OXGCYAM";
         };
       };
       folders = {
