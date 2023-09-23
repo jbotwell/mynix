@@ -27,11 +27,11 @@
       folders = {
         "sync" = {
           path = "/home/john/sync";
-          devices = [ "pixel" "fw" ];
+          devices = [ "pixel" "fw" "media-pi" ];
         };
         "org" = {
           path = "/home/john/org";
-          devices = [ "pixel" "fw" ];
+          devices = [ "pixel" "fw" "media-pi" ];
         };
       };
     };
