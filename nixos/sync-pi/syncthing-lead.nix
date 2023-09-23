@@ -19,10 +19,10 @@
           id =
             "547RYKF-VZCNPLZ-F5TCQY7-LUOLRLK-KM2KUBU-4RJNIMB-P7KBHFG-7BNUSQM";
         };
-        #   "media-pi" = {
-        #     id =
-        #       "OD3R4RA-IAA4SXH-PZ3G2MP-5WC7OUS-ZPSAPYE-EEC4WBZ-46IJB2O-5GIRPQZ";
-        #   };
+        "media-pi" = {
+          id =
+            "D5COXVH-AF5OUSS-N7A34JK-37ZXNM7-7BQBQRP-SRYTZYG-WIOEYXO-5CT4CQ3";
+        };
       };
       folders = {
         "sync" = {
