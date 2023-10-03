@@ -30,6 +30,7 @@ in {
       rpi-imager
       hugo
       raven-reader
+      python310Packages.jupyterlab
     ];
   };
 

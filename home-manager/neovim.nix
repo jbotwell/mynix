@@ -25,6 +25,16 @@ in {
 
     # debuggers
     netcoredbg
+
+    # magma dependencies
+    python310Packages.pynvim
+    python310Packages.jupyter_client
+    python310Packages.ueberzug
+    python310Packages.pillow
+    python310Packages.cairosvg
+    python310Packages.pnglatex
+    python310Packages.plotly
+    python310Packages.pyperclip
   ];
 
   programs.neovim = {
@@ -150,6 +160,9 @@ in {
           }
         '';
       }
+
+      # Jupyter
+      magma-nvim-goose
 
       # Completions
       cmp-nvim-lsp
