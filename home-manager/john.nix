@@ -29,6 +29,7 @@ in {
       sox
       rpi-imager
       hugo
+      raven-reader
     ];
   };
 
