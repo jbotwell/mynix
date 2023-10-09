@@ -1,143 +1,26 @@
-# Edit this configuration file to define what should be installed on your system.  Help is available in the configuration.nix(5) man page
-# and in the NixOS manual (accessible by running ‘nixos-help’).
-
-{ config, pkgs, lib, inputs, ... }:
+{ config, inputs, lib, ... }:
 
 {
   imports = [
-    ./hardware-configuration.nix
-    ./overlays.nix
     ./boot.nix
+    ./fonts.nix
+    ./hardware-configuration.nix
+    ./networks.nix
+    ./overlays.nix
+    ./printing.nix
+    ./programs.nix
+    ./sound.nix
+    ./ui.nix
+    ../common/locale.nix
     ../common/syncthing-follow.nix
+    ../common/users.nix
   ];
 
-  networking.hostName = "nixos"; # Define your hostname.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+  # Allow unfree packages
+  nixpkgs.config.allowUnfree = true;
 
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-
-  # Enable networking
-  networking.networkmanager.enable = true;
-  hardware.bluetooth.enable = true;
-
-  # Set your time zone.
-  time.timeZone = "America/New_York";
-
-  # Select internationalisation properties.
-  i18n.defaultLocale = "en_US.UTF-8";
-
-  i18n.extraLocaleSettings = {
-    LC_ADDRESS = "en_US.UTF-8";
-    LC_IDENTIFICATION = "en_US.UTF-8";
-    LC_MEASUREMENT = "en_US.UTF-8";
-    LC_MONETARY = "en_US.UTF-8";
-    LC_NAME = "en_US.UTF-8";
-    LC_NUMERIC = "en_US.UTF-8";
-    LC_PAPER = "en_US.UTF-8";
-    LC_TELEPHONE = "en_US.UTF-8";
-    LC_TIME = "en_US.UTF-8";
-  };
-
-  # Enable the X11 windowing system.
-  services.xserver.enable = true;
-
-  # Enable the GNOME Desktop Environment.
-  services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome.enable = true;
-
-  # Configure keymap in X11
-  services.xserver = {
-    layout = "us";
-    xkbOptions = "ctrl:swapcaps";
-  };
-
-  # Printing settings
-  services.printing.enable = true;
-  services.printing.drivers = [ pkgs.brlaser ];
-  services.avahi.enable = true;
-  services.avahi.nssmdns = true;
-  services.avahi.openFirewall = true;
-
-  # Enable sound with pipewire.
-  sound.enable = true;
-  hardware.pulseaudio.enable = false;
-  security.rtkit.enable = true;
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-  };
-
-  # Enable touchpad support (enabled default in most desktopManager).
-  services.xserver.libinput.enable = true;
-
-  # keyring
-  services.gnome.gnome-keyring.enable = true;
-
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.john = {
-    isNormalUser = true;
-    description = "john";
-    extraGroups = [ "networkmanager" "wheel" "sway" ];
-    shell = pkgs.bash;
-    hashedPassword =
-      "$6$nhupSF2Neq$m61opyOxxlZAt10pdgSw/ORYlLOGa8efAF7dfKVRas8Wl4hVaSUI4d5poAk9VnMFY/xejKkZjst26INwMWrZZ.";
-    packages = with pkgs; [
-      xclip
-
-      ungoogled-chromium
-      firefox
-      vim
-      unstable.vscode
-      nixfmt
-      ripgrep
-      ripgrep-all
-      zoxide
-      neovim
-      wofi
-      waybar
-      nodejs
-      tmux
-      wl-clipboard
-      xfce.thunar
-      nmap
-      cargo
-      filezilla
-      rustfmt
-      clippy
-      pavucontrol
-      comrak
-      transmission
-      transmission-gtk
-      gparted
-      python3
-      python310Packages.pytest
-      tldr
-      redis
-      jupyter
-      jq
-      emacs
-      gnumake
-      gcc
-      audacity
-      ffmpeg
-      pass
-      deno
-      trezor-suite
-      dotnet-sdk_7
-      clang
-    ];
-  };
-
-  fonts.enableDefaultFonts = true;
-  fonts.fonts = with pkgs; [
-    (nerdfonts.override { fonts = [ "FiraCode" "DroidSansMono" ]; })
-    font-awesome
-    ubuntu_font_family
-  ];
+  # Experimental features
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   nix = {
     # This will add each flake input as a registry
@@ -150,53 +33,8 @@
       config.nix.registry;
   };
 
-  # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
-
-  # Experimental features
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
-
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
-  environment.systemPackages = with pkgs; [ ];
-
-  # npm
-  programs.npm = {
-    enable = true;
-    npmrc = ''
-      prefix = ''${HOME}/.npm
-    '';
-  };
-
-  # gnupg
-  programs.gnupg = {
-    agent = {
-      enable = true;
-      enableExtraSocket = true;
-      pinentryFlavor = "gnome3";
-    };
-  };
-
-  # Trezor
-  services.trezord.enable = true;
-
-  # List services that you want to enable:
-
-  # Enable the OpenSSH daemon.
-  # services.openssh.enable = true;
-
-  # Open ports in the firewall.
-  networking.firewall.allowedTCPPorts = [ 8384 22000 53741 ];
-  networking.firewall.allowedUDPPorts = [ 21027 22000 ];
-  # Or disable the firewall altogether.
   # networking.firewall.enable = false;
 
-  # This value determines the NixOS release from which the default
-  # settings for stateful data, like file locations and database versions
-  # on your system were taken. It‘s perfectly fine and recommended to leave
-  # this value at the release version of the first install of this system.
-  # Before changing this value read the documentation for this option
-  # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "22.11"; # Did you read the comment?
+  system.stateVersion = "22.11";
 
 }
