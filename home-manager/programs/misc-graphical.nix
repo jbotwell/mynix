@@ -12,5 +12,8 @@
     anki
     obsidian
     raven-reader
+    ungoogled-chromium
+    firefox
+    unstable.vscode
   ];
 }
