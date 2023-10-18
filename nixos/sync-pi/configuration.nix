@@ -8,25 +8,18 @@
   imports = [ # Include the results of the hardware scan.
     ./hardware-configuration.nix
     ./syncthing-lead.nix
+    ../common/users.nix
   ];
 
   # Use the extlinux boot loader. (NixOS wants to enable GRUB by default)
   boot.loader.grub.enable = false;
   boot.loader.generic-extlinux-compatible.enable = true;
 
-  networking.hostName = "sync-pi"; # Define your hostname.
+  networking.hostName = "sync-pi";
 
   time.timeZone = "America/New_York";
 
-  users.users.john = {
-    isNormalUser = true;
-    extraGroups = [ "wheel" ];
-    shell = pkgs.bash;
-    hashedPassword =
-      "$6$osTnlkRhKWgV3Boa$J6EhTtFPdswyNgHW3HdDUWCNOM5xIWfvU3QppVzFwffKqCugv/Rk3fTIrAaJt9ZOEl/EraF.SoIR5lXqjQCRg.";
-  };
-
-  environment.systemPackages = with pkgs; [ git vim syncthing wget ];
+  environment.systemPackages = with pkgs; [ git vim wget ];
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
