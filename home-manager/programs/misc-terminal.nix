@@ -16,7 +16,7 @@
     broot
     fd
     ripgrep
-    ag
+    silver-searcher
     mcfly
     choose
     jq
