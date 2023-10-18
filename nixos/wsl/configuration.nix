@@ -11,10 +11,13 @@
   imports = [
     # include NixOS-WSL modules
     <nixos-wsl/modules>
+    ../common/users.nix
+    ../common/locale.nix
+    ../common/syncthing-follow.nix
   ];
 
   wsl.enable = true;
-  wsl.defaultUser = "nixos";
+  wsl.defaultUser = "john";
   
 
   # This value determines the NixOS release from which the default
