@@ -4,12 +4,14 @@
   imports = [
     ./boot.nix
     ./fonts.nix
+    ./gnupg.nix
     ./hardware-configuration.nix
     ./networks.nix
+    ./npm.nix
     ./overlays.nix
     ./printing.nix
-    ./programs.nix
     ./sound.nix
+    ./trezor.nix
     ./ui.nix
     ../common/locale.nix
     ../common/syncthing-follow.nix
