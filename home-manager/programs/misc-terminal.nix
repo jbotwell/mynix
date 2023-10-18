@@ -10,8 +10,8 @@
     bat
     exa
     lsd
-    delta # TODO git integration
-    dust
+    delta 
+    du-dust
     duf
     broot
     fd
