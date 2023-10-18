@@ -1,22 +1,11 @@
 { pkgs, ... }: {
   environment.systemPackages = with pkgs; [
-    xclip
 
     ungoogled-chromium
     firefox
-    vim
     unstable.vscode
     nixfmt
     ripgrep
-    ripgrep-all
-    zoxide
-    neovim
-    wofi
-    waybar
-    nodejs
-    tmux
-    wl-clipboard
-    xfce.thunar
     nmap
     cargo
     filezilla
@@ -29,10 +18,6 @@
     gparted
     python3
     python310Packages.pytest
-    tldr
-    redis
-    jupyter
-    jq
     emacs
     gnumake
     gcc
@@ -40,7 +25,6 @@
     ffmpeg
     pass
     deno
-    trezor-suite
     dotnet-sdk_7
     clang
   ];

@@ -14,6 +14,4 @@
     openFirewall = true;
     openRPCPort = true;
   };
-
-  # networking.firewall.allowedTCPPorts = [ 9091 53741 ];
 }

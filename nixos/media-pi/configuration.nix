@@ -10,23 +10,16 @@
     ./jellyfin.nix
     ./transmission.nix
     ../common/syncthing-follow.nix
+    ../common/users.nix
   ];
 
   # Use the extlinux boot loader. (NixOS wants to enable GRUB by default)
   boot.loader.grub.enable = false;
   boot.loader.generic-extlinux-compatible.enable = true;
 
-  networking.hostName = "media-pi"; # Define your hostname.
+  networking.hostName = "media-pi";
 
   time.timeZone = "America/New_York";
-
-  users.users.john = {
-    isNormalUser = true;
-    extraGroups = [ "wheel" ];
-    shell = pkgs.bash;
-    hashedPassword =
-      "$6$osTnlkRhKWgV3Boa$J6EhTtFPdswyNgHW3HdDUWCNOM5xIWfvU3QppVzFwffKqCugv/Rk3fTIrAaJt9ZOEl/EraF.SoIR5lXqjQCRg.";
-  };
 
   environment.systemPackages = with pkgs; [ git vim wget ];
 
@@ -37,6 +30,5 @@
   networking.firewall.allowedTCPPorts = [ 22 4040 8096 8920 8384 22000 ];
   networking.firewall.allowedUDPPorts = [ 1900 7359 22000 21027 ];
 
-  system.stateVersion = "23.11"; # Did you read the comment?
-
+  system.stateVersion = "23.11";
 }
