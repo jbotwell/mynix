@@ -14,14 +14,17 @@ in {
     lua-language-server
     nodePackages.pyright
     nodePackages.typescript-language-server
+    shellcheck
 
     # formatters
-    python310Packages.black
-    nodePackages.prettier
-    nixfmt
-    luaformatter
-    jq
     clang-tools
+    comrak
+    jq
+    luaformatter
+    nixfmt
+    nodePackages.prettier
+    python310Packages.black
+    rustfmt
 
     # debuggers
     netcoredbg
