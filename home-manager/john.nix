@@ -12,6 +12,7 @@ in {
     ./programs/alacritty.nix
     ./programs/bash.nix
     ./programs/dotnet.nix
+    ./programs/emacs.nix
     ./programs/fzf.nix
     ./programs/git.nix
     ./programs/htop.nix
