@@ -19,7 +19,6 @@ in {
     # formatters
     clang-tools
     comrak
-    jq
     luaformatter
     nixfmt
     nodePackages.prettier
@@ -48,9 +47,9 @@ in {
     vimAlias = true;
     vimdiffAlias = true;
 
-    extraConfig = builtins.readFile (./files/nvim.vim);
+    extraConfig = builtins.readFile (../files/nvim.vim);
 
-    extraLuaConfig = builtins.readFile (./files/nvim.lua);
+    extraLuaConfig = builtins.readFile (../files/nvim.lua);
 
     plugins = with pkgs.vimPlugins; [
       # neodev; keep before lspconfig
@@ -66,7 +65,7 @@ in {
       {
         plugin = nvim-lspconfig;
         type = "lua";
-        config = builtins.readFile ./files/lsp-config.lua;
+        config = builtins.readFile ../files/lsp-config.lua;
       }
 
       # which-key
@@ -82,7 +81,7 @@ in {
       {
         plugin = pkgs.unstable.vimPlugins.ChatGPT-nvim;
         type = "lua";
-        config = builtins.readFile ./files/chatgpt-nvim.lua;
+        config = builtins.readFile ../files/chatgpt-nvim.lua;
 
       }
       nui-nvim
@@ -106,7 +105,7 @@ in {
       {
         plugin = nvim-dap;
         type = "lua";
-        config = builtins.readFile ./files/dap.lua;
+        config = builtins.readFile ../files/dap.lua;
       }
       {
         plugin = nvim-dap-ui;
@@ -174,7 +173,7 @@ in {
       {
         plugin = nvim-cmp;
         type = "lua";
-        config = builtins.readFile ./files/cmp.lua;
+        config = builtins.readFile ../files/cmp.lua;
       }
 
       # rust tools

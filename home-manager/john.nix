@@ -8,7 +8,6 @@ let
 in {
   imports = [
     ../nixos/fw/overlays.nix
-    ./neovim.nix
     ./programs/alacritty.nix
     ./programs/bash.nix
     ./programs/dotnet.nix
@@ -18,6 +17,7 @@ in {
     ./programs/htop.nix
     ./programs/misc-graphical.nix
     ./programs/misc-terminal.nix
+    ./programs/neovim.nix
     ./programs/tmux.nix
   ];
 
@@ -36,10 +36,4 @@ in {
   '';
 
   home = { stateVersion = "22.11"; };
-
-  # emacs, doom
-  # home.file.".emacs.d" = {
-  #   source = files/emacs.d;
-  #   recursive = true;
-  # };
 }
