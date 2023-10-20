@@ -22,3 +22,24 @@ let g:magma_image_provider = "ueberzug"
 " Not really sure how to set this with which-key
 nnoremap <silent><expr> <LocalLeader>m nvim_exec('MagmaEvaluateOperator', v:true)
 xnoremap <silent> <LocalLeader>m  :<C-u>MagmaEvaluateVisual<CR>
+
+" Rainbow delimiters
+let g:rainbow_delimiters = {
+    \ 'strategy': {
+        \ '': rainbow_delimiters#strategy.global,
+        \ 'vim': rainbow_delimiters#strategy.local,
+    \ },
+    \ 'query': {
+        \ '': 'rainbow-delimiters',
+        \ 'lua': 'rainbow-blocks',
+    \ },
+    \ 'highlight': [
+        \ 'RainbowDelimiterRed',
+        \ 'RainbowDelimiterYellow',
+        \ 'RainbowDelimiterBlue',
+        \ 'RainbowDelimiterOrange',
+        \ 'RainbowDelimiterGreen',
+        \ 'RainbowDelimiterViolet',
+        \ 'RainbowDelimiterCyan',
+    \ ],
+\ }

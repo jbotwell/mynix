@@ -10,7 +10,6 @@ require("neodev").setup {}
 require("dapui").setup {}
 require("nvim-tree").setup {}
 require("nvim-autopairs").setup {}
-require("rainbow-delimiters.setup").setup {}
 
 -- language server setup
 local lspconfig = require('lspconfig')
@@ -31,39 +30,39 @@ add_lsp("fsautocomplete", lspconfig.fsautocomplete, {})
 -- dap
 local dap = require("dap")
 -- vscode-js-debug
-require("packer").startup(function(use)
-    use {
-        "microsoft/vscode-js-debug",
-        opt = true,
-        run = "npm install --legacy-peer-deps && npx gulp vsDebugServerBundle && mv dist out"
+-- notice the bush-league way to hit the dapDebugServer,
+-- just make sure to grab it before debugging
+-- ¯\_(ツ)_/¯
+dap.adapters["pwa-node"] = {
+    type = "server",
+    host = "localhost",
+    port = "${port}",
+    executable = {
+        command = "node",
+        args = {"/home/john/programs/js-debug/src/dapDebugServer.js", "${port}"}
     }
-end)
-require("dap-vscode-js").setup({
-    adapters = {
-        'pwa-node', 'pwa-chrome', 'pwa-msedge', 'node-terminal',
-        'pwa-extensionHost'
+}
+dap.configurations.javascript = {
+    {
+        type = "pwa-node",
+        request = "launch",
+        name = "Launch file",
+        program = "${file}",
+        cwd = "${workspaceFolder}"
     }
-})
-for _, language in ipairs({"typescript", "javascript"}) do
-    require("dap").configurations[language] = {
-        {
-            type = "pwa-node",
-            request = "launch",
-            name = "Launch file",
-            program = "${file}",
-            cwd = "${workspaceFolder}"
-        }, {
-            type = 'pwa-node',
-            request = 'launch',
-            name = "Launch file",
-            runtimeExecutable = "deno",
-            runtimeArgs = {"run", "--inspect-wait", "--allow-all"},
-            program = "${file}",
-            cwd = "${workspaceFolder}",
-            attachSimplePort = 9229
-        }
+}
+dap.configurations.typescript = {
+    {
+        type = 'pwa-node',
+        request = 'launch',
+        name = "Launch file",
+        runtimeExecutable = "deno",
+        runtimeArgs = {"run", "--inspect-wait", "--allow-all"},
+        program = "${file}",
+        cwd = "${workspaceFolder}",
+        attachSimplePort = 9229
     }
-end
+}
 -- dotnet
 dap.adapters.coreclr = {
     type = 'executable',
@@ -105,7 +104,8 @@ require'nvim-treesitter.configs'.setup {
 }
 
 -- nvim-cmp recommended setup
-require("cmp").setup {
+local cmp = require("cmp")
+cmp.setup {
     formatting = {
         format = require('lspkind').cmp_format({
             mode = 'symbol', -- show only symbol annotations
@@ -210,7 +210,7 @@ wk.register({
             mode = {"n", "v"}
         }
     },
-    f = {
+    t = {
         name = "Telescope",
         o = {"<cmd>Telescope oldfiles<CR>", "oldfiles", mode = {"n", "v"}},
         g = {"<cmd>Telescope live_grep<CR>", "live_grep", mode = {"n", "v"}},
@@ -227,7 +227,7 @@ wk.register({
     },
     d = {
         name = "DAP",
-        b = {dap.toggle_breakpoint, "Toggle Breakpoint", mode = {"n"}},
+        d = {dap.toggle_breakpoint, "Toggle Breakpoint", mode = {"n"}},
         c = {dap.continue, "Continue", mode = {"n"}},
         i = {dap.step_into, "Step Into", mode = {"n"}},
         s = {dap.step_over, "Step Over", mode = {"n"}},
@@ -269,33 +269,33 @@ wk.register({
 wk.register({
     ['<space>'] = {
         name = "Diagnostics and LSP",
-        ['['] = {'vim.diagnostic.goto_prev', 'Go to previous', mode = {'n'}},
-        [']'] = {'vim.diagnostic.goto_next', 'Go to next', mode = {'n'}},
-        q = {'vim.diagnostic.setloclist', 'Set Location List', mode = {'n'}},
-        e = {'vim.diagnostic.open_float', 'Open float', mode = {'n'}},
-        t = {'vim.lsp.buf.type_definition', 'type definition', mode = {'n'}},
-        d = {'vim.lsp.buf.declaration', 'declaration', mode = {'n', 'v'}},
-        D = {'vim.lsp.buf.definition', 'definition', mode = {'n', 'v'}},
-        i = {'vim.lsp.buf.implementation', 'implementation', mode = {'n', 'v'}},
-        h = {'vim.lsp.buf.hover', 'hover', mode = {'n', 'v'}},
-        s = {'vim.lsp.buf.signature_help', 'signature help', mode = {'n', 'v'}},
-        r = {'vim.lsp.buf.references', 'references', mode = {'n', 'v'}},
+        p = {vim.diagnostic.goto_prev, 'Go to previous', mode = {'n'}},
+        n = {vim.diagnostic.goto_next, 'Go to next', mode = {'n'}},
+        q = {vim.diagnostic.setloclist, 'Set Location List', mode = {'n'}},
+        e = {vim.diagnostic.open_float, 'Open float', mode = {'n'}},
+        t = {vim.lsp.buf.type_definition, 'type definition', mode = {'n'}},
+        d = {vim.lsp.buf.declaration, 'declaration', mode = {'n', 'v'}},
+        D = {vim.lsp.buf.definition, 'definition', mode = {'n', 'v'}},
+        i = {vim.lsp.buf.implementation, 'implementation', mode = {'n', 'v'}},
+        h = {vim.lsp.buf.hover, 'hover', mode = {'n', 'v'}},
+        s = {vim.lsp.buf.signature_help, 'signature help', mode = {'n', 'v'}},
+        r = {vim.lsp.buf.references, 'references', mode = {'n', 'v'}},
         wa = {
-            'vim.lsp.buf.add_workspace_folder',
+            vim.lsp.buf.add_workspace_folder,
             'add workspace folder',
             mode = {'n'}
         },
         wr = {
-            'vim.lsp.buf.remove_workspace_folder',
+            vim.lsp.buf.remove_workspace_folder,
             'remove workspace folder',
             mode = {'n'}
         },
         wl = {
-            'vim.lsp.buf.list_workspace_folders',
+            vim.lsp.buf.list_workspace_folders,
             'list workspace folders',
             mode = {'n'}
         },
-        rn = {'vim.lsp.buf.rename', 'rename', mode = {'n'}},
-        ca = {'vim.lsp.buf.code_action', 'code action', mode = {'n', 'v'}}
+        rn = {vim.lsp.buf.rename, 'rename', mode = {'n'}},
+        ca = {vim.lsp.buf.code_action, 'code action', mode = {'n', 'v'}}
     }
 })
