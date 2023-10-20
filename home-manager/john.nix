@@ -7,7 +7,7 @@ let
   configHome = "${homeDirectory}/${configName}";
 in {
   imports = [
-    ../nixos/fw/overlays.nix
+    # ../overlays/overlays.nix
     ./languages/haskell.nix
     ./languages/python.nix
     ./programs/alacritty.nix
