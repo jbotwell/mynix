@@ -7,6 +7,7 @@
     userName = "John Otwell";
     userEmail = "john.otwell@protonmail.com";
     extraConfig = {
+      core.editor = "vim";
       merge.conflictStyle = "diff3";
       diff.colorMoved = "default";
       mergetool.vimdiff = true;
