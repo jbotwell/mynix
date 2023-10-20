@@ -10,7 +10,7 @@ require("neodev").setup {}
 require("dapui").setup {}
 require("nvim-tree").setup {}
 require("nvim-autopairs").setup {}
-require("rainbow-delimiters").setup {}
+require("rainbow-delimiters.setup").setup {}
 
 -- language server setup
 local lspconfig = require('lspconfig')
@@ -239,7 +239,31 @@ wk.register({
         e = {dap.disconnect, "Disconnect", mode = {"n"}},
         u = {dapui.toggle, "Toggle UI", mode = {"n"}}
     },
-    e = {"<cmd>NvimTreeToggle<CR>", "NvimTreeToggle", mode = {"n"}}
+    n = {
+        name = "Numbers",
+        n = {"<cmd>set number!<CR>", "Toggle line numbers", mode = {"n"}},
+        r = {
+            "<cmd>set relativenumber!<CR>",
+            "Toggle relative line numbers",
+            mode = {"n"}
+        }
+    },
+    m = {
+        name = "Magma",
+        m = {"<cmd>MagmaEvaluateLine<CR>", "Evaluate Line", mode = {"n"}},
+        c = {"<cmd>MagmaReevaluateCell<CR>", "Reevaluate Cell", mode = {"n"}},
+        d = {"<cmd>MagmaDelete<CR>", "Delete", mode = {"n"}},
+        o = {"<cmd>MagmaShowOutput<CR>", "Show Output", mode = {"n"}},
+        e = {
+            "<cmd>noautocmd MagmaEnterOutput<CR>",
+            "Enter Output",
+            mode = {"n"}
+        }
+    },
+    e = {"<cmd>NvimTreeToggle<CR>", "NvimTreeToggle", mode = {"n"}},
+    u = {"<cmd>UndotreeToggle<CR>", "UndotreeToggle", mode = {"n"}},
+    x = {"<cmd>!chmod +x %<CR>", "Make current file executable", mode = {"n"}},
+    f = {"<cmd>Neoformat<CR>", "Neoformat", mode = {"n"}}
 }, {prefix = "<leader>"})
 
 wk.register({

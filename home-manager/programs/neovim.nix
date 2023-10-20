@@ -58,7 +58,7 @@ in {
       packer-nvim
 
       # lsp/dev tools
-      neodev
+      neodev-nvim
       nvim-lspconfig
 
       # keybindings set and help
