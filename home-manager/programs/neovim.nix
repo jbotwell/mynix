@@ -37,6 +37,9 @@ in {
     python310Packages.pnglatex
     python310Packages.plotly
     python310Packages.pyperclip
+
+    # jupyter kernels
+    python310Packages.ilua
   ];
 
   programs.neovim = {
