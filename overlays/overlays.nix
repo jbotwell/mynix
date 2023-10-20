@@ -1,11 +1,11 @@
-{ inputs, system, ... }:
+{ inputs, ... }:
 
 {
   nixpkgs = {
     overlays = [
       (self: super: {
         unstable = import inputs.unstable {
-          inherit system;
+          system = super.system;
           config = super.config;
         };
       })

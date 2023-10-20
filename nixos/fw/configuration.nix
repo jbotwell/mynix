@@ -8,7 +8,7 @@
     ./hardware-configuration.nix
     ./networks.nix
     ./npm.nix
-    ./overlays.nix
+    ../../overlays/overlays.nix
     ./printing.nix
     ./sound.nix
     ./trezor.nix
