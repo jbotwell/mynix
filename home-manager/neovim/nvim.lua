@@ -148,6 +148,11 @@ require("chatgpt").setup({
         temperature = 0,
         top_p = 1,
         n = 1
+    },
+    chat = {
+      keymaps = {
+	cycle_windows = "<C-b>",
+      }
     }
 })
 

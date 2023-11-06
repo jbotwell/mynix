@@ -3,8 +3,8 @@
     enable = true;
     terminal = "tmux-256color-italic";
     shortcut = "a";
-    keyMode = "vi";
     mouse = true;
+    keyMode = "vi";
     extraConfig = ''
       # easy-to-remember split pane commands
       bind | split-window -h -c "#{pane_current_path}"
