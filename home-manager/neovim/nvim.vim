@@ -13,6 +13,10 @@ let g:neoformat_try_node_exe = 1
 " Rainbow
 let g:rainbow_active = 1
 
+" Smartcase
+set ignorecase
+set smartcase
+
 " F# is filetype for .fs, .fsx, .fsi
 autocmd BufNewFile,BufRead *.fs,*.fsx,*.fsi set filetype=fsharp
 
