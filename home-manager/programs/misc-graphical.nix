@@ -10,7 +10,7 @@
     zathura
     zoom-us
     anki
-    obsidian
+    unstable.obsidian
     raven-reader
     ungoogled-chromium
     firefox
