@@ -7,6 +7,7 @@
     export BASH_IT="/home/john/.bash_it"
     export BASH_IT_THEME="bobby"
 
+    alias et="emacsclient -nw"
     alias xc='xclip -sel clip'
     eval "$(thefuck --alias)"
 
