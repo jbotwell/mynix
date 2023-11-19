@@ -47,3 +47,6 @@ let g:rainbow_delimiters = {
         \ 'RainbowDelimiterCyan',
     \ ],
 \ }
+
+" Last yanked to system clipboard
+nnoremap <silent> <LocalLeader>y :let @a=@+ \| let @+=@" \| let @"=@a<CR>
