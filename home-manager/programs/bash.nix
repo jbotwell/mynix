@@ -17,6 +17,7 @@ in {
     alias et="emacsclient -nw"
     alias xc='xclip -sel clip'
     alias bashbare='bash --noprofile --norc'
+    alias gsv='git status -v'
 
     ch() {
       tmux split-window -h bash -c "curl cht.sh/$1 | less"

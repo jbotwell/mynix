@@ -15,5 +15,6 @@
     ungoogled-chromium
     firefox
     unstable.vscode
+    nyxt
   ];
 }

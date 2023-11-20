@@ -50,6 +50,16 @@
         }; # Pass flake inputs to our config
         modules = [ ./home-manager/john.nix ];
       };
+      "john@work" = home-manager.lib.homeManagerConfiguration {
+        pkgs = import nixpkgs {
+          system = "aarch64-darwin";
+          config.allowUnfree = true;
+        }; # Home-manager requires 'pkgs' instance
+        extraSpecialArgs = {
+          inherit inputs;
+        }; # Pass flake inputs to our config
+        modules = [ ./home-manager/john.nix ];
+      };
     };
   };
 }
