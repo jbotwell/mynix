@@ -4,7 +4,7 @@ let
     owner = "jbotwell";
     repo = "my_bash_it";
     rev = "main";
-    sha256 = "04cpshj9ap8vdzkwdl0d3bwimhfy4kcvwd64vx3x9gpalxvr8cjb";
+    sha256 = "0dp5qhlvi7z6rr5jp0b1s6ri0azhskv8n5w2d4ammrwcm5rphcrq";
   };
 in {
   programs.bash.enable = true;
