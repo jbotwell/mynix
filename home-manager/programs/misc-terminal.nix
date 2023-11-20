@@ -39,6 +39,7 @@
     nmap
     ffmpeg
     pass
+    nix-prefetch-git
   ];
 
   programs.bash.sessionVariables = { DOTNET_ROOT = "${pkgs.dotnet-sdk_7}"; };
