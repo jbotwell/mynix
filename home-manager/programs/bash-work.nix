@@ -9,7 +9,7 @@ let
 in {
   programs.bash.enable = true;
   programs.bash.initExtra = ''
-    # export PATH=$PATH:/home/john/.npm/bin:/home/john/.dotnet/tools
+    export PATH=$PATH:/Users/john_otwell/.npm/bin:/Users/john_otwell/.dotnet/tools
     export BASH_IT="/Users/john_otwell/.bash_it"
     export BASH_IT_THEME="bobby"
 
