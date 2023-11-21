@@ -19,7 +19,7 @@ in {
     alias gsv='git status -v'
 
     ch() {
-      tmux split-window -h bash -c "curl cht.sh/$1 | less"
+      tmux split-window -h bash -c "curl cht.sh/$1 | less -r"
     }
     eval "$(thefuck --alias)"
 
