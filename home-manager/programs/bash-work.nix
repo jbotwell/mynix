@@ -29,7 +29,8 @@ in {
       source "$(fzf-share)/key-bindings.bash"
       source "$(fzf-share)/completion.bash"
     fi
-
+    
+    eval "$(/opt/homebrew/bin/brew shellenv)"
     source ~/code/scripts/do-the-thing.sh
     source "$BASH_IT"/bash_it.sh'';
   home.file.".bash_it".source = myBashIt;
