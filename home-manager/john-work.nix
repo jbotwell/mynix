@@ -8,8 +8,8 @@ let
 in {
   imports = [
     ../overlays/overlays.nix
-    ./programs/alacritty.nix
-    ./programs/bash.nix
+    ./programs/alacritty-work.nix
+    ./programs/bash-work.nix
     ./programs/dotnet.nix
     ./programs/emacs.nix
     ./programs/fzf.nix
