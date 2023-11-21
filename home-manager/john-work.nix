@@ -2,7 +2,7 @@
 
 let
   username = "john_otwell";
-  homeDirectory = "/home/${username}";
+  homeDirectory = "/Users/${username}";
   configName = ".config";
   configHome = "${homeDirectory}/${configName}";
 in {
