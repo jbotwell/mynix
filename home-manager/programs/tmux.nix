@@ -12,6 +12,7 @@
       bind c new-window -c "#{pane_current_path}"
       set-option -g focus-events on
       set -g base-index 1
+      set -g default-terminal "screen-256color"
     '';
   };
 

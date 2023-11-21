@@ -3,7 +3,7 @@
     enable = true;
     settings = {
       font = {
-        size = 18.0;
+        size = 20.0;
         normal = { family = "Source Code Pro"; };
         bold = { family = "Source Code Pro"; };
         italic = { family = "Source Code Pro"; };
