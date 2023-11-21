@@ -14,7 +14,7 @@ in {
     export BASH_IT_THEME="bobby"
 
     alias et="emacsclient -nw"
-    alias xc='xclip -sel clip'
+    alias xc='pbcopy'
     alias bashbare='bash --noprofile --norc'
     alias gsv='git status -v'
 
