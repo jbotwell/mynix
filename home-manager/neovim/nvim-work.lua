@@ -40,7 +40,7 @@ dap.adapters["pwa-node"] = {
     port = "${port}",
     executable = {
         command = "node",
-        args = {"/home/john/programs/js-debug/src/dapDebugServer.js", "${port}"}
+        args = {"/Users/john_otwell/programs/js-debug/src/dapDebugServer.js", "${port}"}
     }
 }
 
@@ -70,7 +70,7 @@ dap.configurations.typescript = {
 -- dotnet
 dap.adapters.coreclr = {
     type = 'executable',
-    command = '/home/john/.nix-profile/bin/netcoredbg',
+    command = '/Users/john_otwell/.nix-profile/bin/netcoredbg',
     args = {'--interpreter=vscode'}
 }
 dap.configurations.cs = {
