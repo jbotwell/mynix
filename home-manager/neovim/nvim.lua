@@ -8,8 +8,14 @@ vim.opt.termguicolors = true
 -- standard setups
 require("neodev").setup {}
 require("dapui").setup {}
-require("nvim-tree").setup {}
 require("nvim-autopairs").setup {}
+
+-- tree pane
+require("nvim-tree").setup {
+    view = {
+        width = 60
+    }
+}
 
 -- language server setup
 local lspconfig = require('lspconfig')
@@ -237,7 +243,8 @@ wk.register({
         name = "LSP",
         g = {"<cmd>LspStart<CR>", "Start LSP", mode = {"n"}},
         k = {"<cmd>LspStop<CR>", "Stop LSP", mode = {"n"}},
-        i = {"<cmd>LspInfo<CR>", "LSP Info", mode = {"n"}}
+        i = {"<cmd>LspInfo<CR>", "LSP Info", mode = {"n"}},
+        r = {"<cmd>LspRestart<CR>", "Restart LSP", mode = {"n"}}
     },
     d = {
         name = "DAP",
