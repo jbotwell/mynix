@@ -22,16 +22,20 @@
         "media-pi" = {
           id =
             "D5COXVH-AF5OUSS-N7A34JK-37ZXNM7-7BQBQRP-SRYTZYG-WIOEYXO-5CT4CQ3";
-        };
+         };
+	"spg" = {
+	  id = 
+	    "E53ZNC4-KRSRXEY-UMUFKXQ-FR7I7KC-SOVJ7K2-3CDEUMG-HJRG477-DCDCOQU";
+	 };
       };
       folders = {
         "sync" = {
           path = "/home/john/sync";
-          devices = [ "pixel" "fw" "media-pi" ];
+          devices = [ "pixel" "fw" "media-pi" "spg" ];
         };
         "org" = {
           path = "/home/john/org";
-          devices = [ "pixel" "fw" "media-pi" ];
+          devices = [ "pixel" "fw" "media-pi" "spg" ];
         };
       };
     };
