@@ -27,9 +27,10 @@
           id =
             "E53ZNC4-KRSRXEY-UMUFKXQ-FR7I7KC-SOVJ7K2-3CDEUMG-HJRG477-DCDCOQU";
         };
-      };
-      "samsung-tab" = {
-        id = "U4BLU30-VGCST4Z-YFJ6NLY-UA2MT2S-AI3TAAR-KHU54V0-EBLYPDQ-EQ26LAY";
+        "samsung-tab" = {
+          id =
+            "U4BLU30-VGCST4Z-YFJ6NLY-UA2MT2S-AI3TAAR-KHU54V0-EBLYPDQ-EQ26LAY";
+        };
       };
     };
     folders = {
