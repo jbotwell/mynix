@@ -35,8 +35,31 @@
       config.nix.registry;
   };
 
-  # networking.firewall.enable = false;
-
   system.stateVersion = "22.11";
 
+  specialization = {
+    laptop = { inheritParentConfig = true; };
+
+    egpu = {
+      inheritParentConfig = true;
+      configuration = {
+        boot.kernelModules = [ "thunderbolt" "amdgpu" ];
+        services.udev.packages = [ pkgs.linuxPackages_amd.thunderbolt ];
+
+        hardware.enableRedistributableFirmware = true;
+
+        hardware.opengl.extraPackages = with pkgs; [ linuxPackages_amd.amdgpu ];
+
+        services.bolt.enable = true;
+        services.bolt.policy = "auto";
+
+        services.xserver.deviceSection = ''
+          Section "Device"
+              Identifier "AMDGPU"
+              Driver "amdgpu"
+              EndSection
+        '';
+      };
+    };
+  };
 }
