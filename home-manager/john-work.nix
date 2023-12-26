@@ -16,7 +16,7 @@ in {
     ./programs/git.nix
     ./programs/htop.nix
     ./programs/misc-terminal.nix
-    ./programs/neovim.nix
+    ./programs/neovim-work.nix
     ./programs/tmux.nix
   ];
 

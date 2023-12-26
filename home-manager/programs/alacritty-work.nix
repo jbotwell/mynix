@@ -4,9 +4,9 @@
     settings = {
       font = {
         size = 20.0;
-        normal = { family = "Source Code Pro"; };
-        bold = { family = "Source Code Pro"; };
-        italic = { family = "Source Code Pro"; };
+        normal = { family = "Hack Nerd Font"; };
+        bold = { family = "Hack Nerd Font"; };
+        italic = { family = "Hack Nerd Font"; };
       };
       env.TERM = "xterm-256color";
       shell = {
