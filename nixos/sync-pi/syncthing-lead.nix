@@ -32,15 +32,15 @@
             "U4BLU30-VGCST4Z-YFJ6NLY-UA2MT2S-AI3TAAR-KHU54V0-EBLYPDQ-EQ26LAY";
         };
       };
-    };
-    folders = {
-      "sync" = {
-        path = "/home/john/sync";
-        devices = [ "pixel" "fw" "media-pi" "samsung-tab" "spg" ];
-      };
-      "org" = {
-        path = "/home/john/org";
-        devices = [ "pixel" "fw" "media-pi" "samsung-tab" "spg" ];
+      folders = {
+        "sync" = {
+          path = "/home/john/sync";
+          devices = [ "pixel" "fw" "media-pi" "samsung-tab" "spg" ];
+        };
+        "org" = {
+          path = "/home/john/org";
+          devices = [ "pixel" "fw" "media-pi" "samsung-tab" "spg" ];
+        };
       };
     };
   };
