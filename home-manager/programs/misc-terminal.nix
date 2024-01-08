@@ -3,7 +3,6 @@
 {
   home.packages = with pkgs; [
     exercism
-    dotnet-sdk_7
     xclip
 
     # modern unix
@@ -41,6 +40,4 @@
     pass
     nix-prefetch-git
   ];
-
-  programs.bash.sessionVariables = { DOTNET_ROOT = "${pkgs.dotnet-sdk_7}"; };
 }
