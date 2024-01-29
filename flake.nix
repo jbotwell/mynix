@@ -3,7 +3,7 @@
 
   inputs = {
     #nixpkgs
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-23.05";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-23.11";
     unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
 
     # darwin
@@ -12,7 +12,7 @@
 
     # home-manager
     home-manager = {
-      url = "github:nix-community/home-manager/release-23.05";
+      url = "github:nix-community/home-manager/release-23.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     home-unstable = {
@@ -57,6 +57,8 @@
         pkgs = import nixpkgs {
           system = "x86_64-linux";
           config.allowUnfree = true;
+          # TODO: remove when obsidian is unborked by their devs
+          config.permittedInsecurePackages = [ "electron-25.9.0" ];
         }; # Home-manager requires 'pkgs' instance
         extraSpecialArgs = {
           inherit inputs;

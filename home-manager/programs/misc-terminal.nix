@@ -8,7 +8,7 @@
 
     # modern unix
     bat
-    exa
+    eza
     lsd
     delta 
     du-dust

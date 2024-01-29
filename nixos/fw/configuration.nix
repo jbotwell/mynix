@@ -1,4 +1,4 @@
-{ config, inputs, lib, ... }:
+{ pkgs, config, inputs, lib, ... }:
 
 {
   imports = [
@@ -37,21 +37,28 @@
 
   system.stateVersion = "22.11";
 
-  specialization = {
+  specialisation = {
     laptop = { inheritParentConfig = true; };
 
     egpu = {
       inheritParentConfig = true;
       configuration = {
-        boot.kernelModules = [ "thunderbolt" "amdgpu" ];
-        services.udev.packages = [ pkgs.linuxPackages_amd.thunderbolt ];
+        boot.initrd.kernelModules = [ "amdgpu" ];
+        boot.kernelModules = [ "thunderbolt" ];
 
         hardware.enableRedistributableFirmware = true;
 
-        hardware.opengl.extraPackages = with pkgs; [ linuxPackages_amd.amdgpu ];
+        hardware.opengl.extraPackages = with pkgs; [
+          rocmPackages.clr.icd
+          amdvlk
+        ];
 
-        services.bolt.enable = true;
-        services.bolt.policy = "auto";
+        services.hardware.bolt.enable = true;
+
+        services.xserver.videoDrivers = [ "amdgpu" ];
+
+        hardware.opengl.driSupport = true;
+        hardware.opengl.driSupport32Bit = true;
 
         services.xserver.deviceSection = ''
           Section "Device"
