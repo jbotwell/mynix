@@ -10,7 +10,6 @@ in {
     ../overlays/overlays.nix
     ./programs/alacritty-work.nix
     ./programs/bash-work.nix
-    ./programs/dotnet.nix
     ./programs/emacs.nix
     ./programs/fzf.nix
     ./programs/git.nix
