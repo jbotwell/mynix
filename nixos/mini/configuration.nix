@@ -15,7 +15,7 @@
   boot.loader.generic-extlinux-compatible.enable = true;
 
   # Attempt to connect to the raid array
-  boot.initrd.mdadmConf = ''
+  boot.swraid.mdadmConf = ''
     ARRAY /dev/md0 level=raid1 num-devices=2 UUID=b692de33-bf2b-edd3-e609-f38cf77be8eb
   '';
 
