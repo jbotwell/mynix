@@ -49,6 +49,7 @@
       fw = mkSystem inputs [ ./nixos/fw/configuration.nix ];
       sync-pi = mkSystem inputs [ ./nixos/sync-pi/configuration.nix ];
       media-pi = mkSystem inputs [ ./nixos/media-pi/configuration.nix ];
+      mini = mkSystem inputs [ ./nixos/mini/configuration.nix ];
     };
 
     # Standalone home-manager configuration entrypoint
