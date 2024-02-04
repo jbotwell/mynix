@@ -18,7 +18,6 @@
   boot.swraid.mdadmConf = ''
     ARRAY /dev/md0 level=raid1 num-devices=2 UUID=b692de33-bf2b-edd3-e609-f38cf77be8eb
   '';
-
   fileSystems."/mnt/data" = {
     device = "/dev/md0";
     fsType = "ext4";
@@ -29,7 +28,7 @@
 
   time.timeZone = "America/New_York";
 
-  environment.systemPackages = with pkgs; [ git vim wget ];
+  environment.systemPackages = with pkgs; [ git mdadm vim wget ];
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
