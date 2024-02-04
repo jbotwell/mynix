@@ -17,9 +17,10 @@
   boot.loader.grub.enable = false;
   boot.loader.generic-extlinux-compatible.enable = true;
 
-  fileSystems."/md/data" = {
-    device = "/dev/md0";
+  fileSystems."/mnt/data" = {
+    device = "/dev/disk/by-uuid/b692de33-bf2b-edd3-e609-f38cf77be8eb";
     fsType = "ext4";
+    options = [ "nofail" "noauto" ];
   };
 
   networking.hostName = "mini";
