@@ -17,6 +17,11 @@
   boot.loader.grub.enable = false;
   boot.loader.generic-extlinux-compatible.enable = true;
 
+  fileSystems."/md/data" = {
+    device = "/dev/md0";
+    fsType = "ext4";
+  };
+
   networking.hostName = "mini";
 
   time.timeZone = "America/New_York";
