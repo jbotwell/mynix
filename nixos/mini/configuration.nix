@@ -7,9 +7,6 @@
 {
   imports = [
     ./hardware-configuration.nix
-    ./jellyfin.nix
-    ./syncthing.nix
-    ./transmission.nix
     ../common/users.nix
   ];
 
