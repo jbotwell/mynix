@@ -10,18 +10,20 @@
     ../common/users.nix
   ];
 
-  # Use the extlinux boot loader. (NixOS wants to enable GRUB by default)
-  boot.loader.grub.enable = false;
-  boot.loader.generic-extlinux-compatible.enable = true;
+  boot.loader.systemd-boot.enable = true;
+  boot.loader.efi.canTouchEfiVariables = true;
 
   # Attempt to connect to the raid array
-  boot.swraid.mdadmConf = ''
-    ARRAY /dev/md0 level=raid1 num-devices=2 UUID=b692de33-bf2b-edd3-e609-f38cf77be8eb
-  '';
+  boot.swraid = {
+    enable = true;
+    mdadmConf = ''
+      ARRAY /dev/md0 level=raid1 num-devices=2 UUID=b692de33-bf2b-edd3-e609-f38cf77be8eb
+    '';
+  };
   fileSystems."/mnt/data" = {
-    device = "/dev/md0";
+    device = "/dev/md0p1";
     fsType = "ext4";
-    options = [ "nofail" "noauto" ];
+    options = [ "nofail" ];
   };
 
   networking.hostName = "mini";
