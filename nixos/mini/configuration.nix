@@ -8,8 +8,8 @@
   imports = [
     ./hardware-configuration.nix
     ./jellyfin.nix
+    ./syncthing.nix
     ./transmission.nix
-    ../common/syncthing-follow.nix
     ../common/users.nix
   ];
 
@@ -17,7 +17,7 @@
   boot.loader.grub.enable = false;
   boot.loader.generic-extlinux-compatible.enable = true;
 
-  networking.hostName = "media-pi";
+  networking.hostName = "mini";
 
   time.timeZone = "America/New_York";
 
