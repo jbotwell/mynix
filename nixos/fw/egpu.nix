@@ -1,9 +1,7 @@
-{...}:
+{ pkgs, ... }:
 
 {
   specialisation = {
-    laptop = { inheritParentConfig = true; };
-
     egpu = {
       inheritParentConfig = true;
       configuration = {
