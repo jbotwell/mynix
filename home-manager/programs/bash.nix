@@ -18,6 +18,7 @@ in {
     alias xc='xclip -sel clip'
     alias bashbare='bash --noprofile --norc'
     alias gsv='git status -v'
+    alias gopro='sudo /usr/local/sbin/gopro webcam -n -a'
 
     # cheatsheets
     # usage: `ch git~worktree` for tools`
