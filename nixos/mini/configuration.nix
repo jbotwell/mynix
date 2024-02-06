@@ -7,6 +7,7 @@
 {
   imports = [
     ./hardware-configuration.nix
+    ./syncthing-lead.nix
     ../common/users.nix
   ];
 

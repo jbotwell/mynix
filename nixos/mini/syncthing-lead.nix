@@ -10,6 +10,7 @@
       overrideDevices = true;
       overrideFolders = true;
       guiAddress = "0.0.0.0:8384";
+settings = {
       devices = {
         "pixel" = {
           id =
@@ -18,10 +19,6 @@
         "fw" = {
           id =
             "547RYKF-VZCNPLZ-F5TCQY7-LUOLRLK-KM2KUBU-4RJNIMB-P7KBHFG-7BNUSQM";
-        };
-        "media-pi" = {
-          id =
-            "D5COXVH-AF5OUSS-N7A34JK-37ZXNM7-7BQBQRP-SRYTZYG-WIOEYXO-5CT4CQ3";
         };
         "spg" = {
           id =
@@ -35,13 +32,14 @@
       folders = {
         "sync" = {
           path = "/home/john/sync";
-          devices = [ "pixel" "fw" "media-pi" "samsung-tab" "spg" ];
+          devices = [ "pixel" "fw" "samsung-tab" "spg" ];
         };
         "org" = {
           path = "/home/john/org";
-          devices = [ "pixel" "fw" "media-pi" "samsung-tab" "spg" ];
+          devices = [ "pixel" "fw" "samsung-tab" "spg" ];
         };
       };
+};
     };
   };
 }
