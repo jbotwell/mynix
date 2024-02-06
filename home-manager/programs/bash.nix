@@ -19,6 +19,7 @@ in {
     alias bashbare='bash --noprofile --norc'
     alias gsv='git status -v'
     alias gopro='sudo /usr/local/sbin/gopro webcam -n -a'
+    alias mini='export TERM=ansi && ssh john@mini'
 
     # cheatsheets
     # usage: `ch git~worktree` for tools`
