@@ -12,10 +12,10 @@
     ../../overlays/overlays.nix
     ./printing.nix
     ./sound.nix
+    ./syncthing-follow.nix
     ./trezor.nix
     ./ui.nix
     ../common/locale.nix
-    ../common/syncthing-follow.nix
     ../common/users.nix
   ];
 

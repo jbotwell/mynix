@@ -12,19 +12,19 @@
       guiAddress = "0.0.0.0:8384";
       settings = {
         devices = {
-          "sync-pi" = {
+          "mini" = {
             id =
-              "LKW3MJ5-TYKSOMM-JLJTFCJ-FWXZ7UE-PARLGUE-EBLBZUQ-FFKLW76-OXGCYAM";
+              "VDZLNSC-LNQ74VR-BDXDRZC-RVQDM3H-LQ4VYH7-BFXUHT5-HAAKBD6-TKSYRAP";
           };
         };
         folders = {
           "sync" = {
             path = "/home/john/sync";
-            devices = [ "sync-pi" ];
+            devices = [ "mini" ];
           };
           "org" = {
             path = "/home/john/org";
-            devices = [ "sync-pi" ];
+            devices = [ "mini" ];
           };
         };
       };
