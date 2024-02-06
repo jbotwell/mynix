@@ -10,6 +10,7 @@
       overrideDevices = true;
       overrideFolders = true;
       guiAddress = "0.0.0.0:8384";
+      settings = {
         devices = {
           "pixel" = {
             id =
@@ -38,6 +39,7 @@
             devices = [ "pixel" "fw" "samsung-tab" "spg" ];
           };
         };
+      };
     };
   };
 }
