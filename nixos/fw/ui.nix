@@ -20,7 +20,5 @@
   # keyring
   services.gnome.gnome-keyring.enable = true;
 
-  environment.systemPackages = with pkgs; [ gnomeExtensions.forge ];
-
   services.udev.packages = with pkgs; [ gnome.gnome-settings-daemon ];
 }

@@ -10,20 +10,22 @@
       overrideDevices = true;
       overrideFolders = true;
       guiAddress = "0.0.0.0:8384";
-      devices = {
-        "sync-pi" = {
-          id =
-            "LKW3MJ5-TYKSOMM-JLJTFCJ-FWXZ7UE-PARLGUE-EBLBZUQ-FFKLW76-OXGCYAM";
+      settings = {
+        devices = {
+          "sync-pi" = {
+            id =
+              "LKW3MJ5-TYKSOMM-JLJTFCJ-FWXZ7UE-PARLGUE-EBLBZUQ-FFKLW76-OXGCYAM";
+          };
         };
-      };
-      folders = {
-        "sync" = {
-          path = "/home/john/sync";
-          devices = [ "sync-pi" ];
-        };
-        "org" = {
-          path = "/home/john/org";
-          devices = [ "sync-pi" ];
+        folders = {
+          "sync" = {
+            path = "/home/john/sync";
+            devices = [ "sync-pi" ];
+          };
+          "org" = {
+            path = "/home/john/org";
+            devices = [ "sync-pi" ];
+          };
         };
       };
     };
