@@ -36,6 +36,12 @@
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
 
+  # Experimental features
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
+  # Allow unfree packages
+  nixpkgs.config.allowUnfree = true;
+
   # Open ports in the firewall.
   networking.firewall.allowedTCPPorts = [ 22 4040 8096 8920 8384 22000 ];
   networking.firewall.allowedUDPPorts = [ 1900 7359 22000 21027 ];
