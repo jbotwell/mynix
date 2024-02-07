@@ -3,13 +3,13 @@
 let
   myPythons = ps:
     with ps; [
+      # for the correct working of Jupyter + Magma
       jupyter
       jupyterlab
       ilua
       pynvim
       ueberzug
       pillow
-      # cairosvg
       pnglatex
       plotly
       pyperclip
