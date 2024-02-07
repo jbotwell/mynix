@@ -20,6 +20,7 @@ in {
     alias gsv='git status -v'
     alias gopro='sudo /usr/local/sbin/gopro webcam -n -a'
     alias mini='export TERM=ansi && ssh john@mini'
+    alias nixfmtall='find ~/code/mynix -type f -print0 | xargs -0 nixfmt'
 
     # cheatsheets
     # usage: `ch git~worktree` for tools`

@@ -13,5 +13,5 @@
     };
   };
 
-  environment.systemPackages = [pkgs.jellyfin];
+  environment.systemPackages = [ pkgs.jellyfin ];
 }

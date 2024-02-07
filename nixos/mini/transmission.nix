@@ -1,10 +1,17 @@
 { ... }:
-let
-  home = "/mnt/data/transmission";
-in
-{
-  # Caution: for some reason I had to create all the files it wanted in home with correct permissions. watchdir,.config/transmission-daemon,Downloads
-  # I would have thought nix would do that, but apparently not. Or I was doing something wrong
+let home = "/mnt/data/transmission";
+in {
+  # Caution: for some reason I had to create all the files it wanted in home
+  # with correct permissions. watchdir,.config/transmission-daemon,Downloads
+  # I would have thought nix would do that, but apparently not. Or I was doing
+  # something wrong
+
+  systemd.tmpfiles.rules = [
+    "d ${home}/watchdir 0755 john john"
+    "d ${home}/.config/transmission-daemon 0755 john john"
+    "d ${home}/Downloads 0755 john john"
+    "d ${home}/.incomplete 0755 john john"
+  ];
   services.transmission = {
     enable = true;
     user = "john";

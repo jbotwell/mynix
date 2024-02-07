@@ -9,7 +9,7 @@
     bat
     eza
     lsd
-    delta 
+    delta
     du-dust
     duf
     broot
