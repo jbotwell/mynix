@@ -7,8 +7,9 @@
 {
   imports = [
     ./hardware-configuration.nix
-    ./syncthing-lead.nix
     ./jellyfin.nix
+    ./syncthing-lead.nix
+    ./transmission.nix
     ../common/users.nix
   ];
 
@@ -44,8 +45,7 @@
   nixpkgs.config.allowUnfree = true;
 
   # Open ports in the firewall.
-  networking.firewall.allowedTCPPorts = [ 22 4040 8096 8920 ];
-  networking.firewall.allowedUDPPorts = [ 1900 7359 ];
+  networking.firewall.allowedTCPPorts = [ 22 4040 ];
 
   system.stateVersion = "23.11";
 }
