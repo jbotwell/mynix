@@ -8,6 +8,7 @@
   imports = [
     ./hardware-configuration.nix
     ./syncthing-lead.nix
+    ./jellyfin.nix
     ../common/users.nix
   ];
 
