@@ -2,10 +2,10 @@
 let home = "/mnt/data/transmission";
 in {
   systemd.tmpfiles.rules = [
-    "d ${home}/.config/transmission-daemon 0755 john john"
-    "d ${home}/.incomplete 0755 john john"
-    "d ${home}/watchdir 0755 john john"
-    "d ${home}/Downloads 0755 john john"
+    "d ${home}/watchdir 0755 john users"
+    "d ${home}/Downloads 0755 john users"
+    "d ${home}/.incomplete 0755 john users"
+    "d ${home}/.config/transmission-daemon 0755 john users"
   ];
   services.transmission = {
     enable = true;
