@@ -77,33 +77,171 @@ in {
       }
 
       # keybindings set and help
-      which-key-nvim
+      {
+        plugin = which-key-nvim;
+        type = "lua";
+        config = ''
+          local wk = require("which-key")
+          local dapui = require("dapui")
+          wk.register({
+            c = {
+              name = "ChatGPT",
+              c = {"<cmd>ChatGPT<CR>", "ChatGPT"},
+              e = {
+                "<cmd>ChatGPTEditWithInstruction<CR>",
+                "Edit with instruction",
+                mode = {"n", "v"}
+              },
+              g = {
+                "<cmd>ChatGPTRun grammar_correction<CR>",
+                "Grammar Correction",
+                mode = {"n", "v"}
+              },
+              t = {"<cmd>ChatGPTRun translate<CR>", "Translate", mode = {"n", "v"}},
+              k = {"<cmd>ChatGPTRun keywords<CR>", "Keywords", mode = {"n", "v"}},
+              d = {"<cmd>ChatGPTRun docstring<CR>", "Docstring", mode = {"n", "v"}},
+              a = {"<cmd>ChatGPTRun add_tests<CR>", "Add Tests", mode = {"n", "v"}},
+              o = {
+                "<cmd>ChatGPTRun optimize_code<CR>",
+                "Optimize Code",
+                mode = {"n", "v"}
+              },
+              s = {"<cmd>ChatGPTRun summarize<CR>", "Summarize", mode = {"n", "v"}},
+              f = {"<cmd>ChatGPTRun fix_bugs<CR>", "Fix Bugs", mode = {"n", "v"}},
+              x = {
+                "<cmd>ChatGPTRun explain_code<CR>",
+                "Explain Code",
+                mode = {"n", "v"}
+              },
+              r = {
+                "<cmd>ChatGPTRun roxygen_edit<CR>",
+                "Roxygen Edit",
+                mode = {"n", "v"}
+              },
+              l = {
+                "<cmd>ChatGPTRun code_readability_analysis<CR>",
+                "Code Readability Analysis",
+                mode = {"n", "v"}
+              }
+            },
+            t = {
+              name = "Telescope",
+              o = {"<cmd>Telescope oldfiles<CR>", "oldfiles", mode = {"n", "v"}},
+              g = {"<cmd>Telescope live_grep<CR>", "live_grep", mode = {"n", "v"}},
+              f = {"<cmd>Telescope fd<CR>", "fd", mode = {"n", "v"}},
+              k = {"<cmd>Telescope keymaps<CR>", "keymaps", mode = {"n", "v"}},
+              b = {"<cmd>Telescope buffers<CR>", "buffers", mode = {"n", "v"}},
+              h = {"<cmd>Telescope help_tags<CR>", "help_tags", mode = {"n", "v"}}
+            },
+            l = {
+              name = "LSP",
+              g = {"<cmd>LspStart<CR>", "Start LSP", mode = {"n"}},
+              k = {"<cmd>LspStop<CR>", "Stop LSP", mode = {"n"}},
+              i = {"<cmd>LspInfo<CR>", "LSP Info", mode = {"n"}},
+              r = {"<cmd>LspRestart<CR>", "Restart LSP", mode = {"n"}}
+            },
+            d = {
+              name = "DAP",
+              d = {dap.toggle_breakpoint, "Toggle Breakpoint", mode = {"n"}},
+              c = {dap.continue, "Continue", mode = {"n"}},
+              i = {dap.step_into, "Step Into", mode = {"n"}},
+              s = {dap.step_over, "Step Over", mode = {"n"}},
+              o = {dap.step_out, "Step Out", mode = {"n"}},
+              r = {dap.repl.open, "Open REPL", mode = {"n"}},
+              l = {dap.run_last, "Run Last", mode = {"n"}},
+              p = {dap.pause, "Pause", mode = {"n"}},
+              q = {dap.close, "Close", mode = {"n"}},
+              e = {dap.disconnect, "Disconnect", mode = {"n"}},
+              u = {dapui.toggle, "Toggle UI", mode = {"n"}}
+            },
+            n = {
+              name = "Numbers",
+              n = {"<cmd>set number!<CR>", "Toggle line numbers", mode = {"n"}},
+              r = {
+                "<cmd>set relativenumber!<CR>",
+                "Toggle relative line numbers",
+                mode = {"n"}
+              }
+            },
+            m = {
+              name = "Magma",
+              m = {"<cmd>MagmaEvaluateLine<CR>", "Evaluate Line", mode = {"n"}},
+              c = {"<cmd>MagmaReevaluateCell<CR>", "Reevaluate Cell", mode = {"n"}},
+              d = {"<cmd>MagmaDelete<CR>", "Delete", mode = {"n"}},
+              o = {"<cmd>MagmaShowOutput<CR>", "Show Output", mode = {"n"}},
+              e = {
+                "<cmd>noautocmd MagmaEnterOutput<CR>",
+                "Enter Output",
+                mode = {"n"}
+              }
+            },
+            e = {"<cmd>NvimTreeToggle<CR>", "NvimTreeToggle", mode = {"n"}},
+            u = {"<cmd>UndotreeToggle<CR>", "UndotreeToggle", mode = {"n"}},
+            x = {"<cmd>!chmod +x %<CR>", "Make current file executable", mode = {"n"}},
+            f = {"<cmd>Neoformat<CR>", "Neoformat", mode = {"n"}}
+          }, {prefix = "<leader>"})
+
+          wk.register({
+            ['<space>'] = {
+              name = "Diagnostics and LSP",
+              p = {vim.diagnostic.goto_prev, 'Go to previous', mode = {'n'}},
+              n = {vim.diagnostic.goto_next, 'Go to next', mode = {'n'}},
+              q = {vim.diagnostic.setloclist, 'Set Location List', mode = {'n'}},
+              e = {vim.diagnostic.open_float, 'Open float', mode = {'n'}},
+              t = {vim.lsp.buf.type_definition, 'type definition', mode = {'n'}},
+              d = {vim.lsp.buf.declaration, 'declaration', mode = {'n', 'v'}},
+              D = {vim.lsp.buf.definition, 'definition', mode = {'n', 'v'}},
+              i = {vim.lsp.buf.implementation, 'implementation', mode = {'n', 'v'}},
+              h = {vim.lsp.buf.hover, 'hover', mode = {'n', 'v'}},
+              s = {vim.lsp.buf.signature_help, 'signature help', mode = {'n', 'v'}},
+              r = {vim.lsp.buf.references, 'references', mode = {'n', 'v'}},
+              wa = {
+                vim.lsp.buf.add_workspace_folder,
+                'add workspace folder',
+                mode = {'n'}
+              },
+              wr = {
+                vim.lsp.buf.remove_workspace_folder,
+                'remove workspace folder',
+                mode = {'n'}
+              },
+              wl = {
+                vim.lsp.buf.list_workspace_folders,
+                'list workspace folders',
+                mode = {'n'}
+              },
+              rn = {vim.lsp.buf.rename, 'rename', mode = {'n'}},
+              ca = {vim.lsp.buf.code_action, 'code action', mode = {'n', 'v'}}
+            }
+          })
+        '';
+      }
 
       # ai assistants
       {
         plugin = pkgs.unstable.vimPlugins.ChatGPT-nvim;
         type = "lua";
         config = ''
-                    require("chatgpt").setup ({
-              api_key_cmd = "pass show openai",
-              openai_params = {
-                  model = "gpt-4-1106-preview",
-                  frequency_penalty = 0,
-                  presence_penalty = 0,
-                  max_tokens = 1000,
-                  temperature = 0,
-                  top_p = 1,
-                  n = 1
-              },
-              openai_edit_params = {
-                  model = "gpt-4-1106-preview",
-                  frequency_penalty = 0,
-                  presence_penalty = 0,
-                  temperature = 0,
-                  top_p = 1,
-                  n = 1
-              },
-              chat = {keymaps = {cycle_windows = "<C-b>"}}
+          require("chatgpt").setup ({
+            api_key_cmd = "pass show openai",
+            openai_params = {
+              model = "gpt-4-1106-preview",
+              frequency_penalty = 0,
+              presence_penalty = 0,
+              max_tokens = 1000,
+              temperature = 0,
+              top_p = 1,
+              n = 1
+            },
+            openai_edit_params = {
+              model = "gpt-4-1106-preview",
+              frequency_penalty = 0,
+              presence_penalty = 0,
+              temperature = 0,
+              top_p = 1,
+              n = 1
+            },
+            chat = {keymaps = {cycle_windows = "<C-b>"}}
           })
         '';
       }
@@ -116,14 +254,14 @@ in {
         type = "lua";
         config = ''
           require('telescope').setup {
-              extensions = {
-                  fzf = {
-                      fuzzy = true,
-                      override_generic_sorter = true,
-                      override_file_sorter = true,
-                      case_mode = "smart_case"
-                  }
+            extensions = {
+              fzf = {
+                fuzzy = true,
+                override_generic_sorter = true,
+                override_file_sorter = true,
+                case_mode = "smart_case"
               }
+            }
           }
           -- To get fzf loaded and working with telescope, you need to call
           -- load_extension, somewhere after setup function:
@@ -137,10 +275,11 @@ in {
         type = "lua";
         config = ''
           require("nvim-tree").setup {
-              view = {
-                  width = 60
-              }
-          }'';
+            view = {
+              width = 60
+            }
+          }
+        '';
       }
 
       # debugging
@@ -153,7 +292,14 @@ in {
         '';
       }
       nvim-dap-virtual-text
-      nvim-dap-python
+      {
+        plugin = nvim-dap-python;
+        type = "lua";
+        config = ''
+          -- see dap-python readme for this setup (not nix-y)
+          require("dap-python").setup("~/.virtualenvs/debugpy/bin/python")
+        '';
+      }
 
       # syntax tools
       {
