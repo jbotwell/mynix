@@ -48,7 +48,13 @@ in {
       packer-nvim
 
       # lsp/dev tools
-      neodev-nvim
+      {
+        plugin = neodev-nvim;
+        type = "lua";
+        config = ''
+          require("neodev").setup {}
+        '';
+      }
       {
         plugin = nvim-lspconfig;
         type = "lua";
@@ -74,12 +80,56 @@ in {
       which-key-nvim
 
       # ai assistants
-      pkgs.unstable.vimPlugins.ChatGPT-nvim
+      {
+        plugin = pkgs.unstable.vimPlugins.ChatGPT-nvim;
+        type = "lua";
+        config = ''
+                    require("chatgpt").setup ({
+              api_key_cmd = "pass show openai",
+              openai_params = {
+                  model = "gpt-4-1106-preview",
+                  frequency_penalty = 0,
+                  presence_penalty = 0,
+                  max_tokens = 1000,
+                  temperature = 0,
+                  top_p = 1,
+                  n = 1
+              },
+              openai_edit_params = {
+                  model = "gpt-4-1106-preview",
+                  frequency_penalty = 0,
+                  presence_penalty = 0,
+                  temperature = 0,
+                  top_p = 1,
+                  n = 1
+              },
+              chat = {keymaps = {cycle_windows = "<C-b>"}}
+          })
+        '';
+      }
       pkgs.unstable.vimPlugins.copilot-vim
 
       # ui tools
       telescope-nvim
-      telescope-fzf-native-nvim
+      {
+        plugin = telescope-fzf-native-nvim;
+        type = "lua";
+        config = ''
+          require('telescope').setup {
+              extensions = {
+                  fzf = {
+                      fuzzy = true,
+                      override_generic_sorter = true,
+                      override_file_sorter = true,
+                      case_mode = "smart_case"
+                  }
+              }
+          }
+          -- To get fzf loaded and working with telescope, you need to call
+          -- load_extension, somewhere after setup function:
+          require('telescope').load_extension('fzf')
+        '';
+      }
       nui-nvim
       plenary-nvim
       {
@@ -95,28 +145,104 @@ in {
 
       # debugging
       nvim-dap
-      nvim-dap-ui
+      {
+        plugin = nvim-dap-ui;
+        type = "lua";
+        config = ''
+          require("dapui").setup {}
+        '';
+      }
       nvim-dap-virtual-text
       nvim-dap-python
 
       # syntax tools
-      nvim-treesitter.withAllGrammars
+      {
+        plugin = nvim-treesitter.withAllGrammars;
+        type = "lua";
+        config = ''
+          -- treesitter recommended setup
+          require'nvim-treesitter.configs'.setup {
+              highlight = {
+                  enable = true,
+                  -- disable slow treesitter highlight for large files
+                  disable = function(lang, buf)
+                      local max_filesize = 100 * 1024 -- 100 KB
+                      local ok, stats = pcall(vim.loop.fs_stat,
+                                              vim.api.nvim_buf_get_name(buf))
+                      if ok and stats and stats.size > max_filesize then
+                          return true
+                      end
+                  end
+              },
+              -- set to false if you don't have `tree-sitter` CLI installed locally
+              auto_install = false
+          }
+        '';
+      }
 
       # On-the-spot evaluation; Jupyter-like
       magma-nvim-goose
 
       # Completions
-      nvim-cmp
+      {
+        plugin = nvim-cmp;
+        type = "lua";
+        config = ''
+          -- nvim-cmp recommended setup
+          local cmp = require("cmp")
+          cmp.setup {
+              formatting = {
+                  format = require('lspkind').cmp_format({
+                      mode = 'symbol', -- show only symbol annotations
+                      maxwidth = 50, -- popup not to show more than maxwidth characters
+                      ellipsis_char = '...' -- after maxwidth reached, show this ellipsis character
+                  })
+              },
+              -- Same keybinds as vim's vanilla completion
+              mapping = {
+                  ['<C-n>'] = cmp.mapping.select_next_item({
+                      behavior = cmp.SelectBehavior.Insert
+                  }),
+                  ['<C-p>'] = cmp.mapping.select_prev_item({
+                      behavior = cmp.SelectBehavior.Insert
+                  }),
+                  ['<C-e>'] = cmp.mapping.close(),
+                  ['<C-y>'] = cmp.mapping.confirm()
+              },
+              sources = {
+                  {name = 'buffer', option = {get_bufnrs = vim.api.nvim_list_bufs}},
+                  {name = 'nvim_lsp'}
+              }
+          }
+        '';
+      }
       cmp-nvim-lsp
       cmp-buffer
       lspkind-nvim
 
       # language specific
-      rust-tools-nvim
+      {
+        plugin = rust-tools-nvim;
+        type = "lua";
+        config = ''
+          -- rust-tools recommended setup
+          local rust_tools = require('rust-tools')
+          if vim.fn.executable("rust-analyzer") == 1 then
+              rust_tools.setup {tools = {autoSetHints = true}}
+          end
+          vim.api.nvim_set_hl(0, '@lsp.type.comment.rust', {})
+        '';
+      }
       vim-nix
 
       # other misc
-      nvim-autopairs
+      {
+        plugin = nvim-autopairs;
+        type = "lua";
+        config = ''
+          require('nvim-autopairs').setup {}
+        '';
+      }
       pkgs.unstable.vimPlugins.rainbow-delimiters-nvim
       neoformat
       nvim-web-devicons
