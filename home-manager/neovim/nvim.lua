@@ -10,20 +10,11 @@ require("neodev").setup {}
 require("dapui").setup {}
 require("nvim-autopairs").setup {}
 
--- tree pane
-require("nvim-tree").setup {
-    view = {
-        width = 60
-    }
-}
-
 -- dap
 local dap = require("dap")
 
 -- vscode-js-debug
--- notice the bush-league way to hit the dapDebugServer,
--- just make sure to grab it before debugging
--- ¯\_(ツ)_/¯
+-- TODO: fix this to do the git submodule thing
 dap.adapters["pwa-node"] = {
     type = "server",
     host = "localhost",

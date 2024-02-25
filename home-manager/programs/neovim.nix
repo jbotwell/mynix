@@ -82,7 +82,16 @@ in {
       telescope-fzf-native-nvim
       nui-nvim
       plenary-nvim
-      nvim-tree-lua
+      {
+        plugin = nvim-tree-lua;
+        type = "lua";
+        config = ''
+          require("nvim-tree").setup {
+              view = {
+                  width = 60
+              }
+          }'';
+      }
 
       # debugging
       nvim-dap
