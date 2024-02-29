@@ -30,7 +30,7 @@
 
   networking.hostName = "mini";
 
-  environment.systemPackages = with pkgs; [ git mdadm vim wget ];
+  environment.systemPackages = with pkgs; [ mdadm vim wget ];
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
