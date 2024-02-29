@@ -32,7 +32,7 @@
         };
     in {
       fw = mkSystem [ ./hosts/fw/configuration.nix ];
-      mini = mkSystem [ ./hosts/fw/configuration.nix ];
+      mini = mkSystem [ ./hosts/mini/configuration.nix ];
     };
 
     # Standalone home-manager configuration entrypoint

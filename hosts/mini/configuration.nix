@@ -15,7 +15,7 @@
   ];
 
   boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchVariables = true;
+  boot.loader.efi.canTouchEfiVariables = true;
 
   # Attempt to connect to the raid array
   boot.swraid = {
@@ -32,7 +32,7 @@
 
   networking.hostName = "mini";
 
-  environment.systemPackages = with pkgs; [ mdadm vim wget ];
+  environment.systemPackages = with pkgs; [ git mdadm vim wget ];
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
