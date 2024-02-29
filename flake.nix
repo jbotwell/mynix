@@ -44,9 +44,7 @@
           # TODO: remove when obsidian is unborked by their devs
           config.permittedInsecurePackages = [ "electron-25.9.0" ];
         };
-        extraSpecialArgs = {
-          inherit inputs;
-        }; 
+        extraSpecialArgs = { inherit inputs; };
         modules = [ ./hosts/fw/john.nix ];
       };
       "john@mini" = home-manager.lib.homeManagerConfiguration {
@@ -54,10 +52,9 @@
           system = "x86_64-linux";
           config.allowUnfree = true;
         };
-        extraSpecialArgs = {
-          inherit inputs;
-        };
+        extraSpecialArgs = { inherit inputs; };
         modules = [ ./hosts/mini/john.nix ];
+      };
     };
   };
 }
