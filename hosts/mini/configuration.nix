@@ -7,13 +7,15 @@
 {
   imports = [
     ./hardware-configuration.nix
-    ../../modules/nixos/boot.nix
     ../../modules/nixos/jellyfin.nix
     ../../modules/nixos/locale.nix
     ../../modules/nixos/syncthing-lead.nix
     ../../modules/nixos/transmission.nix
     ../../modules/nixos/users.nix
   ];
+
+  boot.loader.systemd-boot.enable = true;
+  boot.loader.efi.canTouchVariables = true;
 
   # Attempt to connect to the raid array
   boot.swraid = {
