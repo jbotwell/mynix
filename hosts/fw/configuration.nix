@@ -1,23 +1,25 @@
-{ pkgs, config, inputs, lib, ... }:
+{ config, inputs, lib, ... }:
 
 {
   imports = [
-    ./boot.nix
-    ./egpu.nix
-    ./fonts.nix
-    ./gnupg.nix
     ./hardware-configuration.nix
-    ./networks.nix
-    ./npm.nix
-    ../../overlays/overlays.nix
-    ./printing.nix
-    ./sound.nix
-    ./syncthing-follow.nix
-    ./trezor.nix
-    ./ui.nix
-    ../common/locale.nix
-    ../common/users.nix
+    ../../modules/nixos/boot.nix
+    ../../modules/nixos/egpu.nix
+    ../../modules/nixos/fonts.nix
+    ../../modules/nixos/gnupg.nix
+    ../../modules/nixos/keyboard.nix
+    ../../modules/nixos/locale.nix
+    ../../modules/nixos/networks.nix
+    ../../modules/nixos/npm.nix
+    ../../modules/nixos/printing.nix
+    ../../modules/nixos/sound.nix
+    ../../modules/nixos/syncthing-follow.nix
+    ../../modules/nixos/trezor.nix
+    ../../modules/nixos/ui.nix
+    ../../modules/nixos/users.nix
   ];
+
+  networking.hostName = "fw";
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
@@ -37,5 +39,4 @@
   };
 
   system.stateVersion = "22.11";
-
 }

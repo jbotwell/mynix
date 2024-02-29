@@ -34,6 +34,7 @@
     zoxide
     dog
 
+    # others
     thefuck
     nmap
     ffmpeg

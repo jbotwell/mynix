@@ -7,23 +7,15 @@ let
   configHome = "${homeDirectory}/${configName}";
 in {
   imports = [
-    ../overlays/overlays.nix
-    ./languages/haskell.nix
-    ./languages/python.nix
-    ./programs/alacritty.nix
-    ./programs/bash.nix
-    ./programs/dotnet.nix
-    ./programs/emacs.nix
-    ./programs/fzf.nix
-    ./programs/git.nix
-    ./programs/htop.nix
-    ./programs/misc-graphical.nix
-    ./programs/misc-terminal.nix
-    ./programs/neovim.nix
-    ./programs/tmux.nix
+    ../../overlays/overlays.nix
+    ../../modules/home-manager/bash.nix
+    ../../modules/home-manager/emacs.nix
+    ../../modules/home-manager/fzf.nix
+    ../../modules/home-manager/git.nix
+    ../../modules/home-manager/htop.nix
+    ../../modules/home-manager/misc-terminal.nix
+    ../../modules/home-manager/neovim.nix
   ];
-
-  programs.home-manager.enable = true;
 
   home = { inherit username homeDirectory; };
 
@@ -36,6 +28,8 @@ in {
   home.file."${configName}/nixpkgs/config.nix".text = ''
     { allowUnfree = true; }
   '';
+
+  programs.home-manager.enable = true;
 
   home = { stateVersion = "22.11"; };
 }

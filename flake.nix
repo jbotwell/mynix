@@ -6,10 +6,6 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-23.11";
     unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
 
-    # darwin
-    darwin.url = "github:NixOS/nixpkgs/nixpkgs-23.05-darwin";
-    nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
-
     # home-manager
     home-manager = {
       url = "github:nix-community/home-manager/release-23.11";
@@ -19,37 +15,24 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "unstable";
     };
-
-    # darwin home-manager
-    # darwin-home-manager = {
-    #   url = "github:nix-community/home-manager/release-23.05";
-    #   inputs.nixpkgs.follows = "darwin";
-    # };
-    # darwin-home-unstable = {
-    #   url = "github:nix-community/home-manager";
-    #   inputs.nixpkgs.follows = "nixpkgs-unstable";
-    # };
   };
 
-  outputs = { nixpkgs, home-manager, darwin, ... }@inputs: {
-    # NixOS configuration entrypoint
+  outputs = { nixpkgs, home-manager, ... }@inputs: {
     nixosConfigurations = let
-      mkSystem = inputs: additionalModules:
-        inputs.nixpkgs.lib.nixosSystem {
+      mkSystem = modules:
+        nixpkgs.lib.nixosSystem {
           specialArgs = { inherit inputs; }; # Pass flake inputs to our config
           modules = [
-            inputs.home-manager.nixosModules.home-manager
+            home-manager.nixosModules.home-manager
             {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
             }
-          ] ++ additionalModules;
+          ] ++ modules;
         };
     in {
-      fw = mkSystem inputs [ ./nixos/fw/configuration.nix ];
-      sync-pi = mkSystem inputs [ ./nixos/sync-pi/configuration.nix ];
-      media-pi = mkSystem inputs [ ./nixos/media-pi/configuration.nix ];
-      mini = mkSystem inputs [ ./nixos/mini/configuration.nix ];
+      fw = mkSystem [ ./hosts/fw/configuration.nix ];
+      mini = mkSystem [ ./hosts/fw/configuration.nix ];
     };
 
     # Standalone home-manager configuration entrypoint
@@ -63,19 +46,8 @@
         }; # Home-manager requires 'pkgs' instance
         extraSpecialArgs = {
           inherit inputs;
-        }; # Pass flake inputs to our config
-        modules = [ ./home-manager/john.nix ];
-      };
-      "john@work" = home-manager.lib.homeManagerConfiguration {
-        pkgs = import darwin {
-          system = "aarch64-darwin";
-          config.allowUnfree = true;
-        }; # Home-manager requires 'pkgs' instance
-        extraSpecialArgs = {
-          inputs.nixpkgs = inputs.darwin;
-          inputs.unstable = inputs.nixpkgs-unstable;
-        }; # Pass flake inputs to our config
-        modules = [ ./home-manager/john-work.nix ];
+        }; 
+        modules = [ ./hosts/fw/john.nix ];
       };
     };
   };

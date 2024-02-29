@@ -7,14 +7,13 @@
 {
   imports = [
     ./hardware-configuration.nix
-    ./jellyfin.nix
-    ./syncthing-lead.nix
-    ./transmission.nix
-    ../common/users.nix
+    ../../modules/nixos/boot.nix
+    ../../modules/nixos/jellyfin.nix
+    ../../modules/nixos/locale.nix
+    ../../modules/nixos/syncthing-lead.nix
+    ../../modules/nixos/transmission.nix
+    ../../modules/nixos/users.nix
   ];
-
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
 
   # Attempt to connect to the raid array
   boot.swraid = {
@@ -31,8 +30,6 @@
 
   networking.hostName = "mini";
 
-  time.timeZone = "America/New_York";
-
   environment.systemPackages = with pkgs; [ git mdadm vim wget ];
 
   # Enable the OpenSSH daemon.
@@ -44,8 +41,8 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
-  # Open ports in the firewall.
-  networking.firewall.allowedTCPPorts = [ 22 4040 ];
+  # Open ports in the firewall
+  networking.firewall.allowedTCPPorts = [ 22 ];
 
   system.stateVersion = "23.11";
 }

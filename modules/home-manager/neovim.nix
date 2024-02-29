@@ -38,9 +38,9 @@ in {
     vimdiffAlias = true;
     defaultEditor = true;
 
-    extraConfig = builtins.readFile (../neovim/nvim.vim);
+    extraConfig = builtins.readFile (./neovim/nvim.vim);
 
-    extraLuaConfig = builtins.readFile (../neovim/nvim.lua);
+    extraLuaConfig = builtins.readFile (./neovim/nvim.lua);
 
     plugins = with pkgs.vimPlugins; [
       # package management
