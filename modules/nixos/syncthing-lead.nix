@@ -31,7 +31,7 @@ in {
           };
           "pixel" = {
             id =
-              "QU3WGRO-2GEGWKI-5SGDSSL-EU564OU-36MCRBC-CPXO4RJ-OTMWMBX-EAZGTQV";
+              "YPUJXVS-X2SSFOY-XI2UDIV-GUXTGYI-TH2T5Z3-DOGRRZG-SN24UUV-CTMY7QZ";
           };
           "samsung-tab" = {
             id =
