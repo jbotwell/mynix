@@ -14,7 +14,7 @@
         devices = {
           "mini" = {
             id =
-              "VDZLNSC-LNQ74VR-BDXDRZC-RVQDM3H-LQ4VYH7-BFXUHT5-HAAKBD6-TKSYRAP";
+              "LXRQ76E-4ZJXS7V-QETJ4RI-XIPESSM-24YOMBJ-7OUQR36-A7O2WSD-BJ7JRQ2";
           };
         };
         folders = {

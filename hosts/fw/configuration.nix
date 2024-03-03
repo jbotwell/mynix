@@ -13,6 +13,7 @@
     ../../modules/nixos/npm.nix
     ../../modules/nixos/printing.nix
     ../../modules/nixos/sound.nix
+    ../../modules/nixos/steam.nix
     ../../modules/nixos/syncthing-follow.nix
     ../../modules/nixos/trezor.nix
     ../../modules/nixos/ui.nix
