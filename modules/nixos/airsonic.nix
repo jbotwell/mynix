@@ -1,11 +1,14 @@
 { ... }:
 
+let
+  listenPort = 8097;
+in
 {
   services.airsonic = {
-    user = "john";
     enable = true;
-    port = 4040;
+    listenAddress = "0.0.0.0";
+    port = listenPort;
   };
 
-  networking.firewall.allowedTCPPorts = [ 4040 ];
+  networking.firewall.allowedTCPPorts = [ listenPort ];
 }
