@@ -178,7 +178,8 @@ in {
             e = {"<cmd>NvimTreeToggle<CR>", "NvimTreeToggle", mode = {"n"}},
             u = {"<cmd>UndotreeToggle<CR>", "UndotreeToggle", mode = {"n"}},
             x = {"<cmd>!chmod +x %<CR>", "Make current file executable", mode = {"n"}},
-            f = {"<cmd>Neoformat<CR>", "Neoformat", mode = {"n"}}
+            f = {"<cmd>Neoformat<CR>", "Neoformat", mode = {"n"}},
+            w = {"<cmd>WhichKey<CR>", "WhichKey", mode = {"n"}},
           }, {prefix = "<leader>"})
 
           wk.register({
@@ -398,6 +399,7 @@ in {
       undotree
       vim-textobj-entire
       vim-surround
+      vim-unimpaired
     ];
   };
 }

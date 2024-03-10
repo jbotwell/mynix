@@ -50,3 +50,6 @@ let g:rainbow_delimiters = {
 
 " Last yanked to system clipboard
 nnoremap <silent> <LocalLeader>y :let @a=@+ \| let @+=@" \| let @"=@a<CR>
+
+" use C-k to increment to avoid conflicts with tmux
+nnoremap <C-k> <C-a>
