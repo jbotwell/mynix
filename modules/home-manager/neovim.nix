@@ -175,7 +175,7 @@ in {
                 mode = {"n"}
               }
             },
-            e = {"<cmd>NvimTreeToggle<CR>", "NvimTreeToggle", mode = {"n"}},
+            r = {"<cmd>NvimTreeToggle<CR>", "NvimTreeToggle", mode = {"n"}},
             u = {"<cmd>UndotreeToggle<CR>", "UndotreeToggle", mode = {"n"}},
             x = {"<cmd>!chmod +x %<CR>", "Make current file executable", mode = {"n"}},
             f = {"<cmd>Neoformat<CR>", "Neoformat", mode = {"n"}},
@@ -329,6 +329,9 @@ in {
 
       # On-the-spot evaluation; Jupyter-like
       magma-nvim-goose
+
+      # More interactive tool
+      conjure
 
       # Completions
       {
