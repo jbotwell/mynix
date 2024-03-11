@@ -133,7 +133,7 @@ in {
               b = {"<cmd>Telescope buffers<CR>", "buffers", mode = {"n", "v"}},
               h = {"<cmd>Telescope help_tags<CR>", "help_tags", mode = {"n", "v"}}
             },
-            l = {
+            L = {
               name = "LSP",
               g = {"<cmd>LspStart<CR>", "Start LSP", mode = {"n"}},
               k = {"<cmd>LspStop<CR>", "Stop LSP", mode = {"n"}},
@@ -393,6 +393,15 @@ in {
       }
       vim-nix
 
+      # sexp editing
+      vim-parinfer
+      {
+      plugin = vim-sexp;
+      config = ''
+        let g:sexp_filetypes = 'clojure,lisp,scheme,racket,timl,hy,fennel'
+      '';
+      }
+
       # other misc
       {
         plugin = nvim-autopairs;
@@ -409,7 +418,7 @@ in {
       vim-numbertoggle
       undotree
       vim-textobj-entire
-      vim-surround
+      nvim-surround
       vim-unimpaired
     ];
   };
