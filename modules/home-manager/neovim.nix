@@ -175,7 +175,7 @@ in {
                 mode = {"n"}
               }
             },
-            r = {"<cmd>NvimTreeToggle<CR>", "NvimTreeToggle", mode = {"n"}},
+            e = {"<cmd>NvimTreeToggle<CR>", "NvimTreeToggle", mode = {"n"}},
             u = {"<cmd>UndotreeToggle<CR>", "UndotreeToggle", mode = {"n"}},
             x = {"<cmd>!chmod +x %<CR>", "Make current file executable", mode = {"n"}},
             f = {"<cmd>Neoformat<CR>", "Neoformat", mode = {"n"}},
@@ -331,7 +331,15 @@ in {
       magma-nvim-goose
 
       # More interactive tool
-      conjure
+      {
+        plugin = conjure;
+        config = ''
+          nnoremap L ,
+          let g:conjure#mapping#prefix = ","
+          let g:conjure#mapping#doc_word = "gk"
+        '';
+      }
+
 
       # Completions
       {
