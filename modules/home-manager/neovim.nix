@@ -75,6 +75,7 @@ in {
           add_lsp("fsautocomplete", lspconfig.fsautocomplete, {})
         '';
       }
+      Ionide-vim
 
       # keybindings set and help
       {
