@@ -24,6 +24,7 @@ in {
     nodePackages.prettier
     python310Packages.black
     rustfmt
+    fantomas
 
     # debuggers
     netcoredbg
@@ -72,10 +73,19 @@ in {
           add_lsp("json-languageserver", lspconfig.jsonls,
                   {cmd = {"json-languageserver", "--stdio"}})
           add_lsp("csharp-ls", lspconfig.csharp_ls, {})
-          add_lsp("fsautocomplete", lspconfig.fsautocomplete, {})
         '';
       }
-      Ionide-vim
+      # Make sure to install fsautocomplete at the package level
+      {
+        plugin = Ionide-vim;
+        config = ''
+          let g:fsharp#fsautocomplete_command =
+              \ [ 'dotnet',
+              \   'fsautocomplete',
+              \   '--background-service-enabled'
+              \ ]
+        '';
+      }
 
       # keybindings set and help
       {
@@ -197,6 +207,7 @@ in {
               h = {vim.lsp.buf.hover, 'hover', mode = {'n', 'v'}},
               s = {vim.lsp.buf.signature_help, 'signature help', mode = {'n', 'v'}},
               r = {vim.lsp.buf.references, 'references', mode = {'n', 'v'}},
+              f = {vim.lsp.buf.format, 'format', mode = {'n'}},
               wa = {
                 vim.lsp.buf.add_workspace_folder,
                 'add workspace folder',
@@ -212,7 +223,7 @@ in {
                 'list workspace folders',
                 mode = {'n'}
               },
-              rn = {vim.lsp.buf.rename, 'rename', mode = {'n'}},
+              R = {vim.lsp.buf.rename, 'rename', mode = {'n'}},
               ca = {vim.lsp.buf.code_action, 'code action', mode = {'n', 'v'}}
             }
           })
@@ -341,7 +352,6 @@ in {
         '';
       }
 
-
       # Completions
       {
         plugin = nvim-cmp;
@@ -397,10 +407,10 @@ in {
       # sexp editing
       vim-parinfer
       {
-      plugin = vim-sexp;
-      config = ''
-        let g:sexp_filetypes = 'clojure,lisp,scheme,racket,timl,hy,fennel'
-      '';
+        plugin = vim-sexp;
+        config = ''
+          let g:sexp_filetypes = 'clojure,lisp,scheme,racket,timl,hy,fennel'
+        '';
       }
 
       # other misc
