@@ -18,6 +18,7 @@ in {
       gsv = "git status -v";
       mini = "export TERM=ansi && ssh john@mini";
       nixfmtall = "find ~/code/mynix -type f -print0 | xargs -0 nixfmt";
+      manf = "manix \"\" | grep '^# ' | sed 's/^# \(.*\) (.*/\1/;s/ (.*//;s/^# //' | fzf --preview=\"manix '{}'\" | xargs manix";
     };
     sessionVariables = {
       BASH_IT = "/home/john/.bash_it";
