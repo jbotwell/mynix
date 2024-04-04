@@ -5,6 +5,7 @@ let
   configName = ".config";
   configHome = "${homeDirectory}/${configName}";
 in {
+  home.file."neovim-scripts/lazy-ogpt.lua".source = ./neovim/lazy-ogpt.lua;
   home.packages = with pkgs; [
     # language servers
     marksman
@@ -134,8 +135,8 @@ in {
                   k = {"<cmd>Telescope keymaps<CR>", "keymaps", mode = {"n", "v"}},
                   b = {"<cmd>Telescope buffers<CR>", "buffers", mode = {"n", "v"}},
                   h = {"<cmd>Telescope help_tags<CR>", "help_tags", mode = {"n", "v"}},
-                  t = {"<cmd>ToggleTerm<CR>", "ToggleTerm", mode = {"n", "v"}}
-                  l = {"<cmd>ToggleTermSendCurrentLine<CR>", "ToggleTermSendCurrentLine", mode = {"n", "v"}}
+                  t = {"<cmd>ToggleTerm<CR>", "ToggleTerm", mode = {"n", "v"}},
+                  l = {"<cmd>ToggleTermSendCurrentLine<CR>", "ToggleTermSendCurrentLine", mode = {"n", "v"}},
                   v = {"<cmd>ToggleTermSendVisualSelection<CR>", "ToggleTermSendVisualSelection", mode = {"n", "v"}}
               },
               L = {
@@ -224,36 +225,6 @@ in {
         '';
       }
 
-      # ai assistants
-      {
-        plugin = pkgs.unstable.vimPlugins.ChatGPT-nvim;
-        type = "lua";
-        config = ''
-          require("chatgpt").setup ({
-            api_key_cmd = "pass show openai",
-            openai_params = {
-              model = "gpt-4-1106-preview",
-              frequency_penalty = 0,
-              presence_penalty = 0,
-              max_tokens = 1000,
-              temperature = 0,
-              top_p = 1,
-              n = 1
-            },
-            openai_edit_params = {
-              model = "gpt-4-1106-preview",
-              frequency_penalty = 0,
-              presence_penalty = 0,
-              temperature = 0,
-              top_p = 1,
-              n = 1
-            },
-            chat = {keymaps = {cycle_windows = "<C-b>"}}
-          })
-        '';
-      }
-      pkgs.unstable.vimPlugins.copilot-vim
-
       # ui tools
       telescope-nvim
       {
@@ -341,6 +312,50 @@ in {
                   -- any other neo-tree windows
                   "neo-tree"
                 }, 
+                right = {
+                  {
+                    title = "OGPT Popup",
+                    ft = "ogpt-popup",
+                    size = {width = 0.2},
+                    wo = {wrap = true}
+                  }, {
+                    title = "OGPT Parameters",
+                    ft = "ogpt-parameters-window",
+                    size = {height = 6},
+                    wo = {wrap = true}
+                  }, {title = "OGPT Template", ft = "ogpt-template", size = {height = 6}}, {
+                    title = "OGPT Sesssions",
+                    ft = "ogpt-sessions",
+                    size = {height = 6},
+                    wo = {wrap = true}
+                  },
+                  {
+                    title = "OGPT System Input",
+                    ft = "ogpt-system-window",
+                    size = {height = 6}
+                  },
+                  {
+                    title = "OGPT",
+                    ft = "ogpt-window",
+                    size = {height = 0.5},
+                    wo = {wrap = true}
+                  }, {
+                    title = "OGPT {{{selection}}}",
+                    ft = "ogpt-selection",
+                    size = {width = 80, height = 4},
+                    wo = {wrap = true}
+                  }, {
+                    title = "OGPt {{{instruction}}}",
+                    ft = "ogpt-instruction",
+                    size = {width = 80, height = 4},
+                    wo = {wrap = true}
+                  }, {
+                    title = "OGPT Chat",
+                    ft = "ogpt-input",
+                    size = {width = 80, height = 4},
+                    wo = {wrap = true}
+                  }
+                }
           }
 
           require("edgy").setup(edgy_opts)
@@ -490,6 +505,37 @@ in {
       vim-textobj-entire
       nvim-surround
       vim-unimpaired
+
+      # ai assistants
+      {
+        plugin = pkgs.unstable.vimPlugins.ChatGPT-nvim;
+        type = "lua";
+        config = ''
+          require("chatgpt").setup ({
+            api_key_cmd = "pass show openai",
+            openai_params = {
+              model = "gpt-4-1106-preview",
+              frequency_penalty = 0,
+              presence_penalty = 0,
+              max_tokens = 1000,
+              temperature = 0,
+              top_p = 1,
+              n = 1
+            },
+            openai_edit_params = {
+              model = "gpt-4-1106-preview",
+              frequency_penalty = 0,
+              presence_penalty = 0,
+              temperature = 0,
+              top_p = 1,
+              n = 1
+            },
+            chat = {keymaps = {cycle_windows = "<C-b>"}}
+          })
+
+        '';
+      }
+      pkgs.unstable.vimPlugins.copilot-vim
     ];
   };
 }
