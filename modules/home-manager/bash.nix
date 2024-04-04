@@ -20,13 +20,10 @@ in {
       nixfmtall = "find ~/code/mynix -type f -print0 | xargs -0 nixfmt";
     };
     sessionVariables = {
-      PATH = "$PATH:/home/john/.npm/bin:/home/john/.dotnet/tools";
       BASH_IT = "/home/john/.bash_it";
       BASH_IT_THEME = "bobby";
     };
     initExtra = ''
-        export PATH=$PATH:/home/john/.npm/bin:/home/john/.dotnet/tools
-
         # cheatsheets
         # usage: `ch git~worktree` for tools`
         # usage: `ch go/:learn` for languages`

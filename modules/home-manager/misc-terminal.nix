@@ -40,5 +40,6 @@
     ffmpeg
     pass
     nix-prefetch-git
+    manix
   ];
 }

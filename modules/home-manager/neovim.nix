@@ -8,13 +8,14 @@ in {
   home.packages = with pkgs; [
     # language servers
     marksman
-    rnix-lsp
+    nil
     rust-analyzer
     nodePackages.vscode-json-languageserver-bin
     lua-language-server
     nodePackages.pyright
     nodePackages.typescript-language-server
     shellcheck
+    fsautocomplete
 
     # formatters
     clang-tools
@@ -65,7 +66,7 @@ in {
               if vim.fn.executable(binary) == 1 then server.setup(options) end
           end
           add_lsp("tsserver", lspconfig.tsserver, {})
-          add_lsp("rnix-lsp", lspconfig.rnix, {})
+          add_lsp("nil", lspconfig.nil_ls, {})
           add_lsp("marksman", lspconfig.marksman, {})
           add_lsp("rust-analyzer", lspconfig.rust_analyzer, {})
           add_lsp("lua-language-server", lspconfig.lua_ls, {})
@@ -75,17 +76,7 @@ in {
           add_lsp("csharp-ls", lspconfig.csharp_ls, {})
         '';
       }
-      # Make sure to install fsautocomplete at the package level
-      {
-        plugin = Ionide-vim;
-        config = ''
-          let g:fsharp#fsautocomplete_command =
-              \ [ 'dotnet',
-              \   'fsautocomplete',
-              \   '--background-service-enabled'
-              \ ]
-        '';
-      }
+      Ionide-vim
 
       # keybindings set and help
       {
