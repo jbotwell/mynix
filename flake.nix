@@ -15,6 +15,12 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "unstable";
     };
+
+    # neovim stuff
+    ogpt-nvim = {
+      url = "github:huynle/ogpt.nvim";
+      flake = false;
+    };
   };
 
   outputs = { nixpkgs, home-manager, ... }@inputs: {

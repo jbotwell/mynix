@@ -57,11 +57,28 @@
         "type": "github"
       }
     },
+    "ogpt-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1711196389,
+        "narHash": "sha256-m0WCoobyMGPdvD7KDXvDZWMmVnMWKTiCZOTEnjifWFE=",
+        "owner": "huynle",
+        "repo": "ogpt.nvim",
+        "rev": "5d2f2f10cf767b649ab3adfa5a180295f07cb625",
+        "type": "github"
+      },
+      "original": {
+        "owner": "huynle",
+        "repo": "ogpt.nvim",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "home-manager": "home-manager",
         "home-unstable": "home-unstable",
         "nixpkgs": "nixpkgs",
+        "ogpt-nvim": "ogpt-nvim",
         "unstable": "unstable"
       }
     },

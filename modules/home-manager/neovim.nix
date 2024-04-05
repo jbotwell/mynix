@@ -46,10 +46,6 @@ in {
     extraLuaConfig = builtins.readFile (./neovim/nvim.lua);
 
     plugins = with pkgs.vimPlugins; [
-      # package management
-      lazy-nvim
-      packer-nvim
-
       # lsp/dev tools
       {
         plugin = neodev-nvim;
@@ -181,7 +177,8 @@ in {
                       mode = {"n"}
                   }
               },
-              e = {"<cmd>Neotree<CR>", "Neotree", mode = {"n"}},
+              e = {"<cmd>NvimTreeToggle<CR>", "NvimTree", mode = {"n"}},
+              q = {"<cmd>Neotree<CR>", "Neotree", mode = {"n"}},
               u = {"<cmd>UndotreeToggle<CR>", "UndotreeToggle", mode = {"n"}},
               x = {"<cmd>!chmod +x %<CR>", "Make current file executable", mode = {"n"}},
               f = {"<cmd>Neoformat<CR>", "Neoformat", mode = {"n"}},
@@ -250,6 +247,17 @@ in {
       plenary-nvim
       neo-tree-nvim
       {
+        plugin = nvim-tree-lua;
+        type = "lua";
+        config = ''
+          require("nvim-tree").setup {
+            view = {
+              width = 60
+            }
+          }
+        '';
+      }
+      {
         plugin = edgy-nvim;
         type = "lua";
         config = ''
@@ -291,7 +299,7 @@ in {
                       filter = function(buf)
                           return vim.b[buf].neo_tree_source == "filesystem"
                       end,
-                      size = {height = 0.5, width = 0.25},
+                      size = {height = 0.5, width = 0.25}
                   }, {
                       title = "Neo-Tree Git",
                       ft = "neo-tree",
@@ -311,51 +319,7 @@ in {
                   }, {ft = "Outline", pinned = true, open = "SymbolsOutlineOpen"},
                   -- any other neo-tree windows
                   "neo-tree"
-                }, 
-                right = {
-                  {
-                    title = "OGPT Popup",
-                    ft = "ogpt-popup",
-                    size = {width = 0.2},
-                    wo = {wrap = true}
-                  }, {
-                    title = "OGPT Parameters",
-                    ft = "ogpt-parameters-window",
-                    size = {height = 6},
-                    wo = {wrap = true}
-                  }, {title = "OGPT Template", ft = "ogpt-template", size = {height = 6}}, {
-                    title = "OGPT Sesssions",
-                    ft = "ogpt-sessions",
-                    size = {height = 6},
-                    wo = {wrap = true}
-                  },
-                  {
-                    title = "OGPT System Input",
-                    ft = "ogpt-system-window",
-                    size = {height = 6}
-                  },
-                  {
-                    title = "OGPT",
-                    ft = "ogpt-window",
-                    size = {height = 0.5},
-                    wo = {wrap = true}
-                  }, {
-                    title = "OGPT {{{selection}}}",
-                    ft = "ogpt-selection",
-                    size = {width = 80, height = 4},
-                    wo = {wrap = true}
-                  }, {
-                    title = "OGPt {{{instruction}}}",
-                    ft = "ogpt-instruction",
-                    size = {width = 80, height = 4},
-                    wo = {wrap = true}
-                  }, {
-                    title = "OGPT Chat",
-                    ft = "ogpt-input",
-                    size = {width = 80, height = 4},
-                    wo = {wrap = true}
-                  }
-                }
+              },
           }
 
           require("edgy").setup(edgy_opts)
@@ -532,7 +496,23 @@ in {
             },
             chat = {keymaps = {cycle_windows = "<C-b>"}}
           })
-
+        '';
+      }
+      {
+        plugin = ogpt-nvim;
+        type = "lua";
+        config = ''
+        ogpt_nvim_options = {
+          default_provider = "ollama",
+          single_window = false, -- set this to true if you want only one OGPT window to appear at a time
+          providers = {
+            ollama = {
+              api_host = os.getenv("OLLAMA_API_HOST") or "http://localhost:11434",
+              api_key = os.getenv("OLLAMA_API_KEY") or "",
+            }
+          }
+        }
+        require("ogpt").setup(ogpt_nvim_options)
         '';
       }
       pkgs.unstable.vimPlugins.copilot-vim
