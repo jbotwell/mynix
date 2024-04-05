@@ -6,7 +6,8 @@ ogpt_nvim_options = {
             api_host = os.getenv("OLLAMA_API_HOST") or "http://localhost:11434",
             api_key = os.getenv("OLLAMA_API_KEY") or ""
         }
-    }
+    },
+    actions_paths = {"~/code/scripts/ogpt_actions.json"}
 }
 
 require("ogpt").setup(ogpt_nvim_options)
