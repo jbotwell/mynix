@@ -5,7 +5,6 @@ let
   configName = ".config";
   configHome = "${homeDirectory}/${configName}";
 in {
-  home.file."neovim-scripts/lazy-ogpt.lua".source = ./neovim/lazy-ogpt.lua;
   home.packages = with pkgs; [
     # language servers
     marksman
