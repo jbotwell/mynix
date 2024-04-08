@@ -16,6 +16,7 @@ in {
     ../../modules/home-manager/git.nix
     ../../modules/home-manager/haskell.nix
     ../../modules/home-manager/htop.nix
+    ../../modules/home-manager/js.nix
     ../../modules/home-manager/misc-graphical.nix
     ../../modules/home-manager/misc-terminal.nix
     ../../modules/home-manager/neovim.nix
