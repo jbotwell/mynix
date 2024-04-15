@@ -153,7 +153,7 @@ vim.api.nvim_set_hl(0, '@lsp.type.comment.rust', {})
 
 -- chatgpt
 require("chatgpt").setup({
-    api_key_cmd = "pass show openai",
+    api_key_cmd = "pass show azure-open-ai",
     openai_params = {
         model = "gpt-4-1106-preview",
         frequency_penalty = 0,
