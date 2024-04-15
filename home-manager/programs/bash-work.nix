@@ -9,7 +9,7 @@ let
 in {
   programs.bash.enable = true;
   programs.bash.initExtra = ''
-    export PATH=$PATH:/Users/john_otwell/.npm/bin:/Users/john_otwell/.dotnet/tools:/Users/john_otwell/.config/emacs/bin
+    export PATH=$PATH:/Users/john_otwell/.npm/bin:/Users/john_otwell/.dotnet/tools:/Users/john_otwell/.config/emacs/bin:/Users/john_otwell/.local/bin
     export BASH_IT="/Users/john_otwell/.bash_it"
     export BASH_IT_THEME="bobby"
 
@@ -39,9 +39,10 @@ in {
       source "$(fzf-share)/key-bindings.bash"
       source "$(fzf-share)/completion.bash"
     fi
-    
+
     eval "$(/opt/homebrew/bin/brew shellenv)"
     source ~/code/scripts/do-the-thing.sh
+    source ~/code/scripts/nvm.sh
     source "$BASH_IT"/bash_it.sh'';
   home.file.".bash_it".source = myBashIt;
 }
