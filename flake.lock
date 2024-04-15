@@ -1,5 +1,18 @@
 {
   "nodes": {
+    "ChatGPT-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1713143478,
+        "narHash": "sha256-iS19t+oc8/DH18Jv107La17I/xJDWiu0dpdi6ikA+Og=",
+        "path": "/home/john/code/ChatGPT.nvim",
+        "type": "path"
+      },
+      "original": {
+        "path": "/home/john/code/ChatGPT.nvim",
+        "type": "path"
+      }
+    },
     "home-manager": {
       "inputs": {
         "nixpkgs": [
@@ -75,6 +88,7 @@
     },
     "root": {
       "inputs": {
+        "ChatGPT-nvim": "ChatGPT-nvim",
         "home-manager": "home-manager",
         "home-unstable": "home-unstable",
         "nixpkgs": "nixpkgs",

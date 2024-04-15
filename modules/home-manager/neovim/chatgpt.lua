@@ -1,7 +1,8 @@
 require("chatgpt").setup({
-    api_key_cmd = "pass show openai",
+    api_host_cmd = "echo https://openrouter.ai/api",
+    api_key_cmd = "pass show openrouter",
     openai_params = {
-        model = "gpt-4-1106-preview",
+        model ="mistralai/mixtral-8x7b-instruct",
         frequency_penalty = 0,
         presence_penalty = 0,
         max_tokens = 1000,
@@ -10,7 +11,7 @@ require("chatgpt").setup({
         n = 1
     },
     openai_edit_params = {
-        model = "gpt-4-1106-preview",
+        model = "mistralai/mixtral-8x7b-instruct",
         frequency_penalty = 0,
         presence_penalty = 0,
         temperature = 0,

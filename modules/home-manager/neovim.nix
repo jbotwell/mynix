@@ -7,25 +7,25 @@ let
 in {
   home.packages = with pkgs; [
     # language servers
+    fsautocomplete
     marksman
-    nil
-    rust-analyzer
-    nodePackages.vscode-json-languageserver-bin
     lua-language-server
+    nil
     nodePackages.pyright
     nodePackages.typescript-language-server
+    nodePackages.vscode-json-languageserver-bin
+    rust-analyzer
     shellcheck
-    fsautocomplete
 
     # formatters
     clang-tools
     comrak
+    fantomas
     luaformatter
     nixfmt
     nodePackages.prettier
     python310Packages.black
     rustfmt
-    fantomas
 
     # debuggers
     netcoredbg
@@ -81,11 +81,11 @@ in {
         plugin = nvim-tree-lua;
         type = "lua";
         config = ''
-        require("nvim-tree").setup {
-          view = {
-            width = 60
+          require("nvim-tree").setup {
+            view = {
+              width = 60
+            }
           }
-        }
         '';
       }
       {
@@ -97,7 +97,7 @@ in {
         plugin = toggleterm-nvim;
         type = "lua";
         config = ''
-        require("toggleterm").setup{}
+          require("toggleterm").setup{}
         '';
       }
 
@@ -107,7 +107,7 @@ in {
         plugin = nvim-dap-ui;
         type = "lua";
         config = ''
-        require("dapui").setup {}
+          require("dapui").setup {}
         '';
       }
       nvim-dap-virtual-text
@@ -115,8 +115,8 @@ in {
         plugin = nvim-dap-python;
         type = "lua";
         config = ''
-        -- see dap-python readme for this setup (not nix-y)
-        require("dap-python").setup("~/.virtualenvs/debugpy/bin/python")
+          -- see dap-python readme for this setup (not nix-y)
+          require("dap-python").setup("~/.virtualenvs/debugpy/bin/python")
         '';
       }
 
@@ -196,13 +196,10 @@ in {
       # ai assistants
       {
         plugin = pkgs.unstable.vimPlugins.ChatGPT-nvim;
+        # uncomment for local
+        # plugin = ChatGPT-nvim;
         type = "lua";
         config = builtins.readFile ./neovim/chatgpt.lua;
-      }
-      {
-        plugin = ogpt-nvim;
-        type = "lua";
-        config = builtins.readFile ./neovim/ogpt.lua;
       }
       pkgs.unstable.vimPlugins.copilot-vim
     ];

@@ -16,5 +16,6 @@
     firefox
     unstable.vscode
     nyxt
+    wireshark
   ];
 }

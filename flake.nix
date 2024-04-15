@@ -16,9 +16,9 @@
       inputs.nixpkgs.follows = "unstable";
     };
 
-    # neovim stuff
-    ogpt-nvim = {
-      url = "github:huynle/ogpt.nvim";
+    # my own stuff
+    ChatGPT-nvim = {
+      url = "/home/john/code/ChatGPT.nvim";
       flake = false;
     };
   };
