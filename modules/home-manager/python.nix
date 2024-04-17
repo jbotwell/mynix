@@ -14,4 +14,4 @@ let
       plotly
       pyperclip
     ];
-in { home.packages = with pkgs; [ (python311.withPackages myPythons) ]; }
+in { home.packages = with pkgs; [ (python311.withPackages myPythons) pipx ]; }

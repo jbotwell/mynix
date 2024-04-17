@@ -39,6 +39,8 @@ in {
         }
       eval "$(thefuck --alias)"
 
+      PATH=$PATH:$HOME/.local/bin
+
       set -o vi
 
       source "$BASH_IT"/bash_it.sh'';
