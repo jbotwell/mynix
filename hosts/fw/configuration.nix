@@ -10,7 +10,6 @@
     ../../modules/nixos/keyboard.nix
     ../../modules/nixos/locale.nix
     ../../modules/nixos/networks.nix
-    ../../modules/nixos/nh.nix
     ../../modules/nixos/npm.nix
     ../../modules/nixos/printing.nix
     ../../modules/nixos/sound.nix
