@@ -182,6 +182,13 @@ in {
           require('nvim-autopairs').setup {}
         '';
       }
+      {
+        plugin = nvim-surround;
+        type = "lua";
+        config = ''
+          require('nvim-surround').setup {}
+        '';
+      }
       pkgs.unstable.vimPlugins.rainbow-delimiters-nvim
       neoformat
       nvim-web-devicons
@@ -190,7 +197,6 @@ in {
       vim-numbertoggle
       undotree
       vim-textobj-entire
-      nvim-surround
       vim-unimpaired
 
       # ai assistants

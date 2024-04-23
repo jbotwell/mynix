@@ -41,5 +41,6 @@
     pass
     nix-prefetch-git
     manix
+    unstable.nh
   ];
 }
