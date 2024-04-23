@@ -10,17 +10,6 @@
         };
       })
       (self: super: { ihaskell = super.lowPrio super.ihaskell; })
-      (self: super:
-        let
-          ogpt-nvim = super.vimUtils.buildVimPlugin {
-            name = "ogpt-nvim";
-            src = inputs.ogpt-nvim;
-          };
-          ChatGPT-nvim = super.vimPlugins.ChatGPT-nvim.overrideAttrs
-            (oldAttrs: { src = inputs.ChatGPT-nvim; });
-        in {
-          vimPlugins = super.vimPlugins // { inherit ogpt-nvim ChatGPT-nvim; };
-        })
     ];
   };
 }
