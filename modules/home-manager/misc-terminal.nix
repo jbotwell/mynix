@@ -1,6 +1,13 @@
 { pkgs, ... }:
 
 {
+  programs.nh = {
+    enable = true;
+    clean.enable = true;
+    clean.extraArgs = "--keep-since 4d --keep 3";
+    flake = /home/john/code/mynix;
+  };
+
   home.packages = with pkgs; [
     exercism
     xclip
@@ -41,6 +48,5 @@
     pass
     nix-prefetch-git
     manix
-    unstable.nh
   ];
 }
