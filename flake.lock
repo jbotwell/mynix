@@ -1,18 +1,5 @@
 {
   "nodes": {
-    "ChatGPT-nvim": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1713144004,
-        "narHash": "sha256-mTrk6qO+tDvzQggYTCIptWnQF2UFtaKFOT1QeVXNFEM=",
-        "path": "/home/john/code/ChatGPT.nvim",
-        "type": "path"
-      },
-      "original": {
-        "path": "/home/john/code/ChatGPT.nvim",
-        "type": "path"
-      }
-    },
     "home-manager": {
       "inputs": {
         "nixpkgs": [
@@ -54,6 +41,22 @@
         "type": "github"
       }
     },
+    "my-bash-it": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1700442593,
+        "narHash": "sha256-ODN4c6mM51oVaYIXi/bU8CsQs9FhgStLzuafuCnE5TY=",
+        "owner": "jbotwell",
+        "repo": "my_bash_it",
+        "rev": "7b3c0c9fa09a657988375f3e9b3e07bba25540da",
+        "type": "github"
+      },
+      "original": {
+        "owner": "jbotwell",
+        "repo": "my_bash_it",
+        "type": "github"
+      }
+    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1713013257,
@@ -72,9 +75,9 @@
     },
     "root": {
       "inputs": {
-        "ChatGPT-nvim": "ChatGPT-nvim",
         "home-manager": "home-manager",
         "home-unstable": "home-unstable",
+        "my-bash-it": "my-bash-it",
         "nixpkgs": "nixpkgs",
         "unstable": "unstable"
       }

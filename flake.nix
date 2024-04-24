@@ -16,9 +16,8 @@
       inputs.nixpkgs.follows = "unstable";
     };
 
-    # my own stuff
-    ChatGPT-nvim = {
-      url = "/home/john/code/ChatGPT.nvim";
+    my-bash-it = {
+      url = "github:jbotwell/my_bash_it";
       flake = false;
     };
   };
