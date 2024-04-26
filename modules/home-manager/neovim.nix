@@ -1,10 +1,4 @@
-{ pkgs, ... }:
-let
-  username = "john";
-  homeDirectory = "/home/${username}";
-  configName = ".config";
-  configHome = "${homeDirectory}/${configName}";
-in {
+{ pkgs, ... }: {
   home.packages = with pkgs; [
     # language servers
     fsautocomplete
