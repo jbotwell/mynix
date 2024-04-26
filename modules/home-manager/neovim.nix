@@ -16,6 +16,7 @@ in {
     nodePackages.vscode-json-languageserver-bin
     rust-analyzer
     shellcheck
+    universal-ctags
 
     # formatters
     clang-tools
