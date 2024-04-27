@@ -68,8 +68,6 @@
         pkgs = import nixpkgs {
           system = "x86_64-linux";
           config.allowUnfree = true;
-          # TODO: remove when obsidian is unborked by their devs
-          config.permittedInsecurePackages = [ "electron-25.9.0" ];
         };
         extraSpecialArgs = { inherit inputs; };
         modules = [ ./hosts/fw/john.nix ];
