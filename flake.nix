@@ -16,8 +16,30 @@
       inputs.nixpkgs.follows = "unstable";
     };
 
+    # my stuff
     my-bash-it = {
       url = "github:jbotwell/my_bash_it";
+      flake = false;
+    };
+
+    # other projects
+    doom-emacs = {
+      url = "github:hlissner/doom-emacs";
+      flake = false;
+    };
+
+    aider = {
+      url = "github:paul-gauthier/aider";
+      flake = false;
+    };
+
+    grep-ast = {
+      url = "github:paul-gauthier/grep-ast";
+      flake = false;
+    };
+
+    tree-sitter-languages = {
+      url = "github:grantjenks/py-tree-sitter-languages";
       flake = false;
     };
   };

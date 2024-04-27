@@ -16,7 +16,7 @@
       BASH_IT = "/home/john/.bash_it";
       BASH_IT_THEME = "bobby";
       FLAKE = "/home/john/code/mynix";
-      PATH = "$PATH:$HOME/.local/bin";
+      PATH = "$PATH:$HOME/.local/bin:$HOME/.config/emacs/bin";
     };
     initExtra = ''
       # cheatsheets
