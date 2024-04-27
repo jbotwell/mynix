@@ -42,6 +42,11 @@
       url = "github:grantjenks/py-tree-sitter-languages";
       flake = false;
     };
+
+    js-debug = {
+      url = "github:microsoft/vscode-js-debug";
+      flake = false;
+    };
   };
 
   outputs = { nixpkgs, home-manager, ... }@inputs: {

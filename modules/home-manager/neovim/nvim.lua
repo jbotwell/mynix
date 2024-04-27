@@ -9,14 +9,14 @@ vim.opt.termguicolors = true
 local dap = require("dap")
 
 -- vscode-js-debug
--- TODO: fix this to do the git submodule thing
 dap.adapters["pwa-node"] = {
     type = "server",
     host = "localhost",
     port = "${port}",
     executable = {
         command = "node",
-        args = {"/home/john/programs/js-debug/src/dapDebugServer.js", "${port}"}
+	-- relies on js-debug set in neovim.nix
+        args = {"/home/john/.config/js-debug/src/dapDebugServer.js", "${port}"}
     }
 }
 

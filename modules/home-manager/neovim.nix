@@ -1,4 +1,11 @@
-{ pkgs, ... }: {
+{ inputs, pkgs, ... }: {
+  # js-debug
+  home.file = {
+    ".config/js-debug" = {
+      source = inputs.js-debug;
+      recursive = true;
+    };
+  };
   home.packages = with pkgs; [
     # language servers
     fsautocomplete

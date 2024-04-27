@@ -89,6 +89,22 @@
         "type": "github"
       }
     },
+    "js-debug": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1714170187,
+        "narHash": "sha256-1ZJ4azIot4gqr77cUrIB9004n9ILpsCoAmMXHAeqedo=",
+        "owner": "microsoft",
+        "repo": "vscode-js-debug",
+        "rev": "6e29d1de451b2949477d15bcdb126187a16fd93b",
+        "type": "github"
+      },
+      "original": {
+        "owner": "microsoft",
+        "repo": "vscode-js-debug",
+        "type": "github"
+      }
+    },
     "my-bash-it": {
       "flake": false,
       "locked": {
@@ -128,6 +144,7 @@
         "grep-ast": "grep-ast",
         "home-manager": "home-manager",
         "home-unstable": "home-unstable",
+        "js-debug": "js-debug",
         "my-bash-it": "my-bash-it",
         "nixpkgs": "nixpkgs",
         "tree-sitter-languages": "tree-sitter-languages",
