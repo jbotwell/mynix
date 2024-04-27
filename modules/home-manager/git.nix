@@ -1,15 +1,24 @@
-{ ... }: {
+{ pkgs, ... }:
+let
+  ctags-hook = pkgs.writeShellScript "ctags-hook.sh" ''
+    git ls-files | ctags --tag-relative -L -
+  '';
+in {
   programs.git = {
     enable = true;
     delta.enable = true;
     userName = "John Otwell";
     userEmail = "john.otwell@protonmail.com";
-    ignores = [ "*.tags" ];
+    ignores = [ "/tags" ];
     hooks = {
-      post-commit = ./git/ctags-hook.sh;
-      post-checkout = ./git/ctags-hook.sh;
-      post-merge = ./git/ctags-hook.sh;
-      post-rewrite = ./git/ctags-post-rewrite-hook.sh;
+      post-commit = ctags-hook;
+      post-checkout = ctags-hook;
+      post-merge = ctags-hook;
+      post-rewrite = pkgs.writeShellScript "ctags-rewrite-hook.sh" ''
+        case "$1" in
+          rebase) git ls-files | ctags --tag-relative -L - ;;
+        esac
+      '';
     };
     extraConfig = {
       core.editor = "vim";
