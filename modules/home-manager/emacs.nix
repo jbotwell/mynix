@@ -5,11 +5,11 @@
   programs.emacs.package = pkgs.unstable.emacsPackages.emacs;
   home.file = {
     ".config/emacs" = {
-      src = inputs.doom-emacs;
+      source = inputs.doom-emacs;
       recursive = true;
     };
     ".config/doom" = {
-      src = ./doom-emacs;
+      source = ./doom-emacs;
       recursive = true;
     };
   };
