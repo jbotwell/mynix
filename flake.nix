@@ -23,11 +23,6 @@
     };
 
     # other projects
-    doom-emacs = {
-      url = "github:hlissner/doom-emacs";
-      flake = false;
-    };
-
     aider = {
       url = "github:paul-gauthier/aider";
       flake = false;

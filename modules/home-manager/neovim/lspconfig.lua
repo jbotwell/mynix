@@ -11,3 +11,4 @@ add_lsp("pyright", lspconfig.pyright, {})
 add_lsp("json-languageserver", lspconfig.jsonls,
         {cmd = {"json-languageserver", "--stdio"}})
 add_lsp("csharp-ls", lspconfig.csharp_ls, {})
+add_lsp("gopls", lspconfig.gopls, {})

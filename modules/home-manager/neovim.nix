@@ -18,6 +18,7 @@
     rust-analyzer
     shellcheck
     universal-ctags
+    gopls
 
     # formatters
     clang-tools

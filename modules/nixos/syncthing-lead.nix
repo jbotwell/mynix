@@ -27,7 +27,7 @@ in {
         devices = {
           "fw" = {
             id =
-              "547RYKF-VZCNPLZ-F5TCQY7-LUOLRLK-KM2KUBU-4RJNIMB-P7KBHFG-7BNUSQM";
+              "DKL2Q7P-2O4H3YZ-X7NOI3U-O5WUQPE-QARONKC-RDEXRVD-T67LGLE-JBAVAAT";
           };
           "pixel" = {
             id =
@@ -55,7 +55,8 @@ in {
         gui = {
           user = "john.otwell";
           # bcrypt
-          password = "$2y$10$cKvo2rJLj5vzHdgPpEhrtu4gmdUCCZ0LvahBeKGA/b8oljK6cyHHO";
+          password =
+            "$2y$10$cKvo2rJLj5vzHdgPpEhrtu4gmdUCCZ0LvahBeKGA/b8oljK6cyHHO";
         };
       };
     };
