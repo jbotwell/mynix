@@ -88,6 +88,9 @@
             view = {
               width = 60
             }
+            filters = {
+              dotfiles = true
+            }
           }
         '';
       }
