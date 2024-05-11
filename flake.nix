@@ -81,5 +81,6 @@
         modules = [ ./hosts/mini/john.nix ];
       };
     };
+    devShells.x86_64-linux.aider = import ./aider-shell.nix { inherit inputs; };
   };
 }
