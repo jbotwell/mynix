@@ -1,8 +1,9 @@
 { unstable, ... }@inputs:
 let
-  py = unstable.python312;
-  pyPackages = unstable.python312Packages;
-  aider = py.pkgs.buildPythonPackage {
+  pkgs = import unstable { system = "x86_64-linux"; };
+  py = pkgs.python312;
+  pyPackages = pkgs.python312Packages;
+  aider = pyPackages.buildPythonPackage {
     pname = "aider";
     version = "0.34.0";
     src = inputs.aider;
@@ -47,19 +48,19 @@ let
       tree-sitter-languages
     ];
   };
-  tree-sitter-languages = pkgs.unstable.python3Packages.buildPythonPackage rec {
+  tree-sitter-languages = pyPackages.buildPythonPackage rec {
     pname = "tree_sitter_languages";
     version = "1.10.2";
     format = "wheel";
     src = pyPackages.fetchPypi {
       inherit pname version format;
-      sha256 = "muNKwxSnFwviSZig+ZTBrIB2HY1L0SavJ+5ToCPTuEk=";
+      sha256 = "bS8c0dG91lMy+cK2fUnc8UjPHe11KFHRWaw+XuT00mA=";
       python = "cp312";
       abi = "cp312";
       platform = "manylinux_2_17_x86_64.manylinux2014_x86_64";
     };
-    postInstall = ''
-      mv $out/lib/python3.12/site-packages/tree_sitter_languages/core.cpython-312-x86_64-linux-gnu.so $out/lib/python3.12/site-packages/tree_sitter_languages/core.so
-    '';
+    propagatedBuildInputs = with pyPackages; [
+      tree-sitter
+    ];
   };
-in unstable.mkShell { buildInputs = [ py.withPackages [ aider ] ]; }
+in pkgs.mkShell { buildInputs = [ (py.withPackages (ps: [ aider ])) ]; }

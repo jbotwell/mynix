@@ -33,11 +33,6 @@
       flake = false;
     };
 
-    tree-sitter-languages = {
-      url = "github:grantjenks/py-tree-sitter-languages";
-      flake = false;
-    };
-
     js-debug = {
       url = "github:microsoft/vscode-js-debug";
       flake = false;
@@ -81,6 +76,6 @@
         modules = [ ./hosts/mini/john.nix ];
       };
     };
-    devShells.x86_64-linux.aider = import ./aider-shell.nix { inherit inputs; };
+    devShells.x86_64-linux.aider = import ./aider-shell.nix inputs;
   };
 }
