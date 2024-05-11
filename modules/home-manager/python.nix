@@ -18,27 +18,21 @@ let
       aider
     ];
   # these are needed for aider
-  tree-sitter-languages = pkgs.unstable.python3Packages.buildPythonPackage {
-    pname = "tree-sitter-languages";
-    version = "1.10.2";
-    src = inputs.tree-sitter-languages;
-    doCheck = false;
-    nativeBuildInputs = [ pkgs.unstable.python3Packages.cython ];
-    propagatedBuildInputs = with pkgs.unstable.python3Packages; [ tree-sitter ];
-  };
   grep-ast = pkgs.unstable.python3Packages.buildPythonPackage {
     pname = "grep-ast";
     version = "0.2.4";
     src = inputs.grep-ast;
     doCheck = false;
     propagatedBuildInputs = with pkgs.unstable.python3Packages; [
-      tree-sitter-languages
       pathspec
+    ];
+    extraWheels = [
+      ./python/tree_sitter_languages-1.10.2-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl
     ];
   };
   aider = pkgs.unstable.python3Packages.buildPythonPackage {
     pname = "aider";
-    version = "0.30.0";
+    version = "0.34.0";
     src = inputs.aider;
     doCheck = false;
     propagatedBuildInputs = with pkgs.unstable.python3Packages; [
@@ -70,7 +64,5 @@ let
     ];
   };
 in {
-  home.packages = with pkgs.unstable; [
-    (python311.withPackages myPythons)
-  ];
+  home.packages = with pkgs.unstable; [ (python311.withPackages myPythons) ];
 }

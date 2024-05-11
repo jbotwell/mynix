@@ -27,7 +27,7 @@
     luaformatter
     nixfmt
     nodePackages.prettier
-    python310Packages.black
+    unstable.python312Packages.black
     rustfmt
 
     # debuggers
