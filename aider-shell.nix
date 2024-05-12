@@ -5,8 +5,11 @@ let
   pyPackages = pkgs.python312Packages;
   aider = pyPackages.buildPythonPackage {
     pname = "aider";
-    version = "0.34.0";
-    src = inputs.aider;
+    version = "0.30.0";
+    src = fetchGit {
+      url = "https://github.com/paul-gauthier/aider";
+      rev = "b14ca861c1709cc3e53160560f09f6ebf16f2d66";
+    };
     doCheck = false;
     propagatedBuildInputs = with pyPackages; [
       configargparse
@@ -59,8 +62,6 @@ let
       abi = "cp312";
       platform = "manylinux_2_17_x86_64.manylinux2014_x86_64";
     };
-    propagatedBuildInputs = with pyPackages; [
-      tree-sitter
-    ];
+    propagatedBuildInputs = with pyPackages; [ tree-sitter ];
   };
 in pkgs.mkShell { buildInputs = [ (py.withPackages (ps: [ aider ])) ]; }

@@ -15,5 +15,5 @@ let
       pyperclip
     ];
 in {
-  home.packages = with pkgs.unstable; [ (python312.withPackages myPythons) ];
+  home.packages = with pkgs.unstable; [ (python311.withPackages myPythons) ];
 }

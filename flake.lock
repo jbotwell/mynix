@@ -1,21 +1,5 @@
 {
   "nodes": {
-    "aider": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1715438998,
-        "narHash": "sha256-k5qq4llE0zQ5JxzY64JdUziATjo3T0SjYG+ugfESvkk=",
-        "owner": "paul-gauthier",
-        "repo": "aider",
-        "rev": "9fac20e432dbaff6f221dd57d43fbe66d9839492",
-        "type": "github"
-      },
-      "original": {
-        "owner": "paul-gauthier",
-        "repo": "aider",
-        "type": "github"
-      }
-    },
     "grep-ast": {
       "flake": false,
       "locked": {
@@ -123,7 +107,6 @@
     },
     "root": {
       "inputs": {
-        "aider": "aider",
         "grep-ast": "grep-ast",
         "home-manager": "home-manager",
         "home-unstable": "home-unstable",

@@ -22,12 +22,7 @@
       flake = false;
     };
 
-    # other projects
-    aider = {
-      url = "github:paul-gauthier/aider";
-      flake = false;
-    };
-
+    # for aider
     grep-ast = {
       url = "github:paul-gauthier/grep-ast";
       flake = false;
