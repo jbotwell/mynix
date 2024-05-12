@@ -43,7 +43,10 @@ let
   grep-ast = pyPackages.buildPythonPackage {
     pname = "grep-ast";
     version = "0.2.4";
-    src = inputs.grep-ast;
+    src = fetchGit {
+      url = "https://github.com/paul-gauthier/grep-ast";
+      rev = "4adb83e164f31c3a9ae364de8a7b14b9481aca60";
+    };
     doCheck = false;
     propagatedBuildInputs = with pyPackages; [
       pathspec

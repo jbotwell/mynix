@@ -22,12 +22,6 @@
       flake = false;
     };
 
-    # for aider
-    grep-ast = {
-      url = "github:paul-gauthier/grep-ast";
-      flake = false;
-    };
-
     js-debug = {
       url = "github:microsoft/vscode-js-debug";
       flake = false;
