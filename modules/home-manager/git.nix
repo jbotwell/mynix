@@ -1,7 +1,7 @@
 { pkgs, ... }:
 let
   ctags-hook = pkgs.writeShellScript "ctags-hook.sh" ''
-    git ls-files | ctags --tag-relative -L -
+    git ls-files | ctags -f .git/.tags --tag-relative -L -
   '';
 in {
   programs.git = {
@@ -16,7 +16,7 @@ in {
       post-merge = ctags-hook;
       post-rewrite = pkgs.writeShellScript "ctags-rewrite-hook.sh" ''
         case "$1" in
-          rebase) git ls-files | ctags --tag-relative -L - ;;
+          rebase) git ls-files | ctags -f .git/.tags --tag-relative -L - ;;
         esac
       '';
     };
