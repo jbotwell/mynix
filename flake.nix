@@ -16,16 +16,18 @@
       inputs.nixpkgs.follows = "unstable";
     };
 
+    js-debug = {
+      url = "github:microsoft/vscode-js-debug";
+      flake = false;
+    };
+
     # my stuff
     my-bash-it = {
       url = "github:jbotwell/my_bash_it";
       flake = false;
     };
 
-    js-debug = {
-      url = "github:microsoft/vscode-js-debug";
-      flake = false;
-    };
+    my-nixvim.url = "github:jbotwell/nixvim";
   };
 
   outputs = { nixpkgs, home-manager, ... }@inputs: {
@@ -48,20 +50,22 @@
 
     # Standalone home-manager configuration entrypoint
     homeConfigurations = {
-      "john@fw" = home-manager.lib.homeManagerConfiguration {
+      "john@fw" = let system = "x86_64-linux";
+      in home-manager.lib.homeManagerConfiguration {
         pkgs = import nixpkgs {
-          system = "x86_64-linux";
+          inherit system;
           config.allowUnfree = true;
         };
-        extraSpecialArgs = { inherit inputs; };
+        extraSpecialArgs = { inherit inputs system; };
         modules = [ ./hosts/fw/john.nix ];
       };
-      "john@mini" = home-manager.lib.homeManagerConfiguration {
+      "john@mini" = let system = "x86_64-linux";
+      in home-manager.lib.homeManagerConfiguration {
         pkgs = import nixpkgs {
-          system = "x86_64-linux";
+          inherit system;
           config.allowUnfree = true;
         };
-        extraSpecialArgs = { inherit inputs; };
+        extraSpecialArgs = { inherit inputs system; };
         modules = [ ./hosts/mini/john.nix ];
       };
     };

@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ inputs, system, ... }:
 
 let
   username = "john";
@@ -19,10 +19,11 @@ in {
     ../../modules/home-manager/js.nix
     ../../modules/home-manager/misc-graphical.nix
     ../../modules/home-manager/misc-terminal.nix
-    ../../modules/home-manager/neovim.nix
     ../../modules/home-manager/python.nix
     ../../modules/home-manager/tmux.nix
   ];
+
+  home.packages = [ inputs.my-nixvim.packages.${system}.default ];
 
   home = { inherit username homeDirectory; };
 
