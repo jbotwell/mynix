@@ -3,6 +3,7 @@
     git ls-files | ctags -f .git/.tags --tag-relative -L -
   '';
 in {
+  home.packages = with pkgs; [universal-ctags];
   programs.git = {
     enable = true;
     delta.enable = true;
