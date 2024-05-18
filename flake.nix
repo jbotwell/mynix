@@ -52,6 +52,7 @@
     in {
       fw = mkSystem [./hosts/fw/configuration.nix];
       mini = mkSystem [./hosts/mini/configuration.nix];
+      xtx = mkSystem [./hosts/xtx/configuration.nix];
     };
 
     # Standalone home-manager configuration entrypoint
@@ -77,6 +78,17 @@
           };
           extraSpecialArgs = {inherit inputs system;};
           modules = [./hosts/mini/john.nix];
+        };
+      "john@xtx" = let
+        system = "x86_64-linux";
+      in
+        home-manager.lib.homeManagerConfiguration {
+          pkgs = import nixpkgs {
+            inherit system;
+            config.allowUnfree = true;
+          };
+          extraSpecialArgs = {inherit inputs system;};
+          modules = [./hosts/xtx/john.nix];
         };
     };
     # TODO remove this
