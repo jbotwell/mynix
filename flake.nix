@@ -30,45 +30,58 @@
     my-nixvim.url = "github:jbotwell/nixvim";
   };
 
-  outputs = { nixpkgs, home-manager, ... }@inputs: {
+  outputs = {
+    nixpkgs,
+    home-manager,
+    ...
+  } @ inputs: {
     nixosConfigurations = let
       mkSystem = modules:
         nixpkgs.lib.nixosSystem {
-          specialArgs = { inherit inputs; }; # Pass flake inputs to our config
-          modules = [
-            home-manager.nixosModules.home-manager
-            {
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
-            }
-          ] ++ modules;
+          specialArgs = {inherit inputs;}; # Pass flake inputs to our config
+          modules =
+            [
+              home-manager.nixosModules.home-manager
+              {
+                home-manager.useGlobalPkgs = true;
+                home-manager.useUserPackages = true;
+              }
+            ]
+            ++ modules;
         };
     in {
-      fw = mkSystem [ ./hosts/fw/configuration.nix ];
-      mini = mkSystem [ ./hosts/mini/configuration.nix ];
+      fw = mkSystem [./hosts/fw/configuration.nix];
+      mini = mkSystem [./hosts/mini/configuration.nix];
     };
 
     # Standalone home-manager configuration entrypoint
     homeConfigurations = {
-      "john@fw" = let system = "x86_64-linux";
-      in home-manager.lib.homeManagerConfiguration {
-        pkgs = import nixpkgs {
-          inherit system;
-          config.allowUnfree = true;
+      "john@fw" = let
+        system = "x86_64-linux";
+      in
+        home-manager.lib.homeManagerConfiguration {
+          pkgs = import nixpkgs {
+            inherit system;
+            config.allowUnfree = true;
+          };
+          extraSpecialArgs = {inherit inputs system;};
+          modules = [./hosts/fw/john.nix];
         };
-        extraSpecialArgs = { inherit inputs system; };
-        modules = [ ./hosts/fw/john.nix ];
-      };
-      "john@mini" = let system = "x86_64-linux";
-      in home-manager.lib.homeManagerConfiguration {
-        pkgs = import nixpkgs {
-          inherit system;
-          config.allowUnfree = true;
+      "john@mini" = let
+        system = "x86_64-linux";
+      in
+        home-manager.lib.homeManagerConfiguration {
+          pkgs = import nixpkgs {
+            inherit system;
+            config.allowUnfree = true;
+          };
+          extraSpecialArgs = {inherit inputs system;};
+          modules = [./hosts/mini/john.nix];
         };
-        extraSpecialArgs = { inherit inputs system; };
-        modules = [ ./hosts/mini/john.nix ];
-      };
     };
+    # TODO remove this
     devShells.x86_64-linux.aider = import ./aider-shell.nix inputs;
+
+    formatter = nixpkgs.alejandra;
   };
 }

@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-let
+{pkgs, ...}: let
   ctags-hook = pkgs.writeShellScript "ctags-hook.sh" ''
     git ls-files | ctags -f .git/.tags --tag-relative -L -
   '';
@@ -9,7 +8,7 @@ in {
     delta.enable = true;
     userName = "John Otwell";
     userEmail = "john.otwell@protonmail.com";
-    ignores = [ "/tags" ];
+    ignores = ["/tags"];
     hooks = {
       post-commit = ctags-hook;
       post-checkout = ctags-hook;

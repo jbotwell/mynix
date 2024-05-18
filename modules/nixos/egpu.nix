@@ -1,12 +1,10 @@
-{ pkgs, ... }:
-
-{
+{pkgs, ...}: {
   specialisation = {
     egpu = {
       inheritParentConfig = true;
       configuration = {
-        boot.initrd.kernelModules = [ "amdgpu" ];
-        boot.kernelModules = [ "thunderbolt" ];
+        boot.initrd.kernelModules = ["amdgpu"];
+        boot.kernelModules = ["thunderbolt"];
 
         hardware.enableRedistributableFirmware = true;
 
@@ -17,7 +15,7 @@
 
         services.hardware.bolt.enable = true;
 
-        services.xserver.videoDrivers = [ "amdgpu" ];
+        services.xserver.videoDrivers = ["amdgpu"];
 
         hardware.opengl.driSupport = true;
         hardware.opengl.driSupport32Bit = true;

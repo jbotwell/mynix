@@ -1,6 +1,4 @@
-{ inputs, ... }:
-
-{
+{inputs, ...}: {
   nixpkgs = {
     overlays = [
       (self: super: {
@@ -9,7 +7,7 @@
           config = super.config;
         };
       })
-      (self: super: { ihaskell = super.lowPrio super.ihaskell; })
+      (self: super: {ihaskell = super.lowPrio super.ihaskell;})
     ];
   };
 }

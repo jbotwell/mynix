@@ -1,5 +1,5 @@
-{ ... }:
-let home = "/mnt/data/transmission";
+{...}: let
+  home = "/mnt/data/transmission";
 in {
   systemd.tmpfiles.rules = [
     "d ${home}/watchdir 0755 john users"

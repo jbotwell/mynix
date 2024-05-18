@@ -1,6 +1,5 @@
-{ pkgs, ... }:
-
-let myHaskells = ps: with ps; [ stack ihaskell ];
+{pkgs, ...}: let
+  myHaskells = ps: with ps; [stack ihaskell];
 in {
-  home.packages = with pkgs; [ (haskellPackages.ghcWithPackages myHaskells) ];
+  home.packages = with pkgs; [(haskellPackages.ghcWithPackages myHaskells)];
 }

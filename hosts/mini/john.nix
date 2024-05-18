@@ -1,6 +1,4 @@
-{ pkgs, ... }:
-
-let
+{pkgs, ...}: let
   username = "john";
   homeDirectory = "/home/${username}";
   configName = ".config";
@@ -17,7 +15,7 @@ in {
     ../../modules/home-manager/neovim.nix
   ];
 
-  home = { inherit username homeDirectory; };
+  home = {inherit username homeDirectory;};
 
   xdg = {
     inherit configHome;
@@ -31,5 +29,5 @@ in {
 
   programs.home-manager.enable = true;
 
-  home = { stateVersion = "22.11"; };
+  home = {stateVersion = "22.11";};
 }

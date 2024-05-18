@@ -1,6 +1,8 @@
-{ inputs, system, ... }:
-
-let
+{
+  inputs,
+  system,
+  ...
+}: let
   username = "john";
   homeDirectory = "/home/${username}";
   configName = ".config";
@@ -23,9 +25,9 @@ in {
     ../../modules/home-manager/tmux.nix
   ];
 
-  home.packages = [ inputs.my-nixvim.packages.${system}.default ];
+  home.packages = [inputs.my-nixvim.packages.${system}.default];
 
-  home = { inherit username homeDirectory; };
+  home = {inherit username homeDirectory;};
 
   xdg = {
     inherit configHome;
@@ -39,5 +41,5 @@ in {
 
   programs.home-manager.enable = true;
 
-  home = { stateVersion = "22.11"; };
+  home = {stateVersion = "22.11";};
 }

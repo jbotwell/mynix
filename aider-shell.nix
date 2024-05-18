@@ -1,6 +1,5 @@
-{ unstable, ... }@inputs:
-let
-  pkgs = import unstable { system = "x86_64-linux"; };
+{unstable, ...} @ inputs: let
+  pkgs = import unstable {system = "x86_64-linux";};
   py = pkgs.python312;
   pyPackages = pkgs.python312Packages;
   aider = pyPackages.buildPythonPackage {
@@ -65,6 +64,7 @@ let
       abi = "cp312";
       platform = "manylinux_2_17_x86_64.manylinux2014_x86_64";
     };
-    propagatedBuildInputs = with pyPackages; [ tree-sitter ];
+    propagatedBuildInputs = with pyPackages; [tree-sitter];
   };
-in pkgs.mkShell { buildInputs = [ (py.withPackages (ps: [ aider ])) ]; }
+in
+  pkgs.mkShell {buildInputs = [(py.withPackages (ps: [aider]))];}

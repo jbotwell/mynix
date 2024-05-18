@@ -1,10 +1,11 @@
 # Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running `nixos-help`).
-
-{ config, pkgs, ... }:
-
 {
+  config,
+  pkgs,
+  ...
+}: {
   imports = [
     ./hardware-configuration.nix
     ../../modules/nixos/airsonic.nix
@@ -28,24 +29,24 @@
   fileSystems."/mnt/data" = {
     device = "/dev/md0p1";
     fsType = "ext4";
-    options = [ "nofail" ];
+    options = ["nofail"];
   };
 
   networking.hostName = "mini";
 
-  environment.systemPackages = with pkgs; [ git mdadm vim wget ];
+  environment.systemPackages = with pkgs; [git mdadm vim wget];
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
 
   # Experimental features
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = ["nix-command" "flakes"];
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
   # Open ports in the firewall
-  networking.firewall.allowedTCPPorts = [ 22 ];
+  networking.firewall.allowedTCPPorts = [22];
 
   system.stateVersion = "23.11";
 }

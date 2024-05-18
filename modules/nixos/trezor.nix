@@ -1,1 +1,1 @@
-{ ... }: { services.trezord.enable = true; }
+{...}: {services.trezord.enable = true;}

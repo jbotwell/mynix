@@ -2,7 +2,11 @@
 # setup. I am, however, reluctant to delete it since it represents a lot of
 # configuration work and may prove useful as a reference to refine the nixvim
 # setup
-{ inputs, pkgs, ... }: {
+{
+  inputs,
+  pkgs,
+  ...
+}: {
   # js-debug
   home.file = {
     ".config/js-debug" = {

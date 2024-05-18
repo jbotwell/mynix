@@ -1,6 +1,4 @@
-{ pkgs, ... }:
-
-let
+{pkgs, ...}: let
   myPythons = ps:
     with ps; [
       # for the correct working of Jupyter + Magma
@@ -15,5 +13,5 @@ let
       pyperclip
     ];
 in {
-  home.packages = with pkgs.unstable; [ (python311.withPackages myPythons) ];
+  home.packages = with pkgs.unstable; [(python311.withPackages myPythons)];
 }
