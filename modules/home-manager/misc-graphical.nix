@@ -7,6 +7,7 @@
     firefox
     libreoffice
     nyxt
+    quickemu
     signal-desktop
     slack
     ungoogled-chromium
