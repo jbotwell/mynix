@@ -20,6 +20,7 @@
     ../../modules/nixos/trezor.nix
     ../../modules/nixos/ui.nix
     ../../modules/nixos/users.nix
+    ../../modules/nixos/sops.nix
   ];
 
   boot.loader.systemd-boot.enable = true;

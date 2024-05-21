@@ -5,4 +5,5 @@
   sops.defaultSopsFormat = "yaml";
 
   sops.age.keyFile = "/home/john/.config/sops/age/keys.txt";
+  sops.secrets.example-key = {};
 }
