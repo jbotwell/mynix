@@ -9,7 +9,6 @@
   configHome = "${homeDirectory}/${configName}";
 in {
   imports = [
-    ../../overlays/overlays.nix
     ../../modules/home-manager/alacritty.nix
     ../../modules/home-manager/bash.nix
     ../../modules/home-manager/dotnet.nix

@@ -9,7 +9,7 @@
     signal-desktop
     slack
     ungoogled-chromium
-    unstable.vscode
+    vscode
     vlc
     wireshark
     zathura

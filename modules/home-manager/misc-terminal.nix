@@ -39,7 +39,7 @@
     pass
     nix-prefetch-git
     manix
-    unstable.nh
-    unstable.ast-grep
+    nh
+    ast-grep
   ];
 }

@@ -2,37 +2,20 @@
   description = "john's nix config";
 
   inputs = {
-    #nixpkgs
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-23.11";
-    unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    home-manager.url = "github:nix-community/home-manager";
+    stylix.url = "github:danth/stylix";
+    my-nixvim.url = "github:jbotwell/nixvim";
 
-    # home-manager
-    home-manager = {
-      url = "github:nix-community/home-manager/release-23.11";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    home-unstable = {
-      url = "github:nix-community/home-manager";
-      inputs.nixpkgs.follows = "unstable";
-    };
-
-    stylix = {
-      url = "github:danth/stylix";
-      inputs.nixpkgs.follows = "unstable";
+    my-bash-it = {
+      url = "github:jbotwell/my_bash_it";
+      flake = false;
     };
 
     js-debug = {
       url = "github:microsoft/vscode-js-debug";
       flake = false;
     };
-
-    # my stuff
-    my-bash-it = {
-      url = "github:jbotwell/my_bash_it";
-      flake = false;
-    };
-
-    my-nixvim.url = "github:jbotwell/nixvim";
   };
 
   outputs = {
@@ -42,7 +25,7 @@
     ...
   } @ inputs: {
     nixosConfigurations = let
-      mkSystem = modules:
+      mkSystem = hm-module: modules:
         nixpkgs.lib.nixosSystem {
           specialArgs = {inherit inputs;}; # Pass flake inputs to our config
           modules =
@@ -51,54 +34,17 @@
               {
                 home-manager.useGlobalPkgs = true;
                 home-manager.useUserPackages = true;
+                home-manager.extraSpecialArgs = {inherit inputs;};
+                home-manager.users.john = import hm-module;
               }
             ]
             ++ modules;
         };
     in {
-      fw = mkSystem [./hosts/fw/configuration.nix];
-      mini = mkSystem [./hosts/mini/configuration.nix];
-      xtx = mkSystem [./hosts/xtx/configuration.nix stylix.nixosModules.stylix];
+      fw = mkSystem ./hosts/fw/john.nix [./hosts/fw/configuration.nix];
+      mini = mkSystem ./hosts/mini/john.nix [./hosts/mini/configuration.nix];
+      xtx = mkSystem ./hosts/xtx/john.nix [./hosts/xtx/configuration.nix stylix.nixosModules.stylix];
     };
-
-    # Standalone home-manager configuration entrypoint
-    homeConfigurations = {
-      "john@fw" = let
-        system = "x86_64-linux";
-      in
-        home-manager.lib.homeManagerConfiguration {
-          pkgs = import nixpkgs {
-            inherit system;
-            config.allowUnfree = true;
-          };
-          extraSpecialArgs = {inherit inputs system;};
-          modules = [./hosts/fw/john.nix];
-        };
-      "john@mini" = let
-        system = "x86_64-linux";
-      in
-        home-manager.lib.homeManagerConfiguration {
-          pkgs = import nixpkgs {
-            inherit system;
-            config.allowUnfree = true;
-          };
-          extraSpecialArgs = {inherit inputs system;};
-          modules = [./hosts/mini/john.nix];
-        };
-      "john@xtx" = let
-        system = "x86_64-linux";
-      in
-        home-manager.lib.homeManagerConfiguration {
-          pkgs = import nixpkgs {
-            inherit system;
-            config.allowUnfree = true;
-          };
-          extraSpecialArgs = {inherit inputs system;};
-          modules = [./hosts/xtx/john.nix];
-        };
-    };
-    # TODO remove this
-    devShells.x86_64-linux.aider = import ./aider-shell.nix inputs;
 
     formatter = nixpkgs.alejandra;
   };

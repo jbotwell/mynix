@@ -4,7 +4,7 @@
   ...
 }: {
   programs.emacs.enable = true;
-  programs.emacs.package = pkgs.unstable.emacsPackages.emacs;
+  programs.emacs.package = pkgs.emacsPackages.emacs;
   home.file = {
     ".config/doom" = {
       source = ./doom-emacs;
