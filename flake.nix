@@ -11,11 +11,6 @@
       url = "github:jbotwell/my_bash_it";
       flake = false;
     };
-
-    js-debug = {
-      url = "github:microsoft/vscode-js-debug";
-      flake = false;
-    };
   };
 
   outputs = {
@@ -25,23 +20,24 @@
     ...
   } @ inputs: {
     nixosConfigurations = let
-      mkSystem = hm-module: modules:
+      specialArgs = {inherit inputs;};
+      mkSystem = hm-module: otherModules:
         nixpkgs.lib.nixosSystem {
-          specialArgs = {inherit inputs;}; # Pass flake inputs to our config
+          inherit specialArgs;
           modules =
             [
               home-manager.nixosModules.home-manager
               {
                 home-manager.useGlobalPkgs = true;
                 home-manager.useUserPackages = true;
-                home-manager.extraSpecialArgs = {inherit inputs;};
+                home-manager.extraSpecialArgs = specialArgs;
                 home-manager.users.john = import hm-module;
               }
             ]
-            ++ modules;
+            ++ otherModules;
         };
     in {
-      fw = mkSystem ./hosts/fw/john.nix [./hosts/fw/configuration.nix];
+      fw = mkSystem ./hosts/fw/john.nix [./hosts/fw/configuration.nix stylix.nixosModules.stylix];
       mini = mkSystem ./hosts/mini/john.nix [./hosts/mini/configuration.nix];
       xtx = mkSystem ./hosts/xtx/john.nix [./hosts/xtx/configuration.nix stylix.nixosModules.stylix];
     };

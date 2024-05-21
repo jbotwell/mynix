@@ -1,8 +1,4 @@
-{
-  inputs,
-  system,
-  ...
-}: let
+{inputs, ...}: let
   username = "john";
   homeDirectory = "/home/${username}";
   configName = ".config";

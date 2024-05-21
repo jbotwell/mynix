@@ -41,5 +41,6 @@
     manix
     nh
     ast-grep
+    alejandra
   ];
 }
