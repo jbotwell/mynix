@@ -18,7 +18,6 @@
     nixpkgs,
     home-manager,
     stylix,
-    sops-nix,
     ...
   } @ inputs: {
     nixosConfigurations = let
@@ -47,7 +46,10 @@
     in {
       fw = mkSystem fwHome [fwNixos stylix.nixosModules.stylix];
       mini = mkSystem miniHome [miniNixos];
-      xtx = mkSystem xtxHome [xtxNixos stylix.nixosModules.stylix sops-nix.nixosModules.sops-nix];
+      xtx = mkSystem xtxHome [
+        xtxNixos
+        stylix.nixosModules.stylix
+      ];
     };
 
     formatter = nixpkgs.alejandra;

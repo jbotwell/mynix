@@ -1,7 +1,7 @@
 keys:
   - &xtx age152psz643tz93rf2vk2yxftx9nr6qscjrp9anvurhcd3shpyp2spqguncnt
 creation_rules:
-  - path_regex: secrets/secrets.yml$
+  - path_regex: secrets/secrets.yaml$
     key_groups:
     - age:
       - *xtx
