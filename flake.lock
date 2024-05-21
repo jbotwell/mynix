@@ -407,22 +407,6 @@
         "type": "github"
       }
     },
-    "js-debug": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1714671378,
-        "narHash": "sha256-vv8y/FiQDg7JJjezM8SmrrOM65UgkuXjAj7SnsjSLdY=",
-        "owner": "microsoft",
-        "repo": "vscode-js-debug",
-        "rev": "7349abcd0aaf72375645a4a876afab6479e0ed7e",
-        "type": "github"
-      },
-      "original": {
-        "owner": "microsoft",
-        "repo": "vscode-js-debug",
-        "type": "github"
-      }
-    },
     "my-bash-it": {
       "flake": false,
       "locked": {
@@ -650,7 +634,6 @@
     "root": {
       "inputs": {
         "home-manager": "home-manager",
-        "js-debug": "js-debug",
         "my-bash-it": "my-bash-it",
         "my-nixvim": "my-nixvim",
         "nixpkgs": "nixpkgs_4",

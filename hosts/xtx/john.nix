@@ -7,12 +7,10 @@ in {
   imports = [
     ../../modules/home-manager/alacritty.nix
     ../../modules/home-manager/bash.nix
-    ../../modules/home-manager/dotnet.nix
     ../../modules/home-manager/emacs.nix
     ../../modules/home-manager/fzf.nix
     ../../modules/home-manager/git.nix
     ../../modules/home-manager/htop.nix
-    ../../modules/home-manager/js.nix
     ../../modules/home-manager/misc-graphical.nix
     ../../modules/home-manager/misc-terminal.nix
     ../../modules/home-manager/tmux.nix
