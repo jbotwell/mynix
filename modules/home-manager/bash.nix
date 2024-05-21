@@ -1,4 +1,8 @@
-{inputs, ...}: {
+{
+  inputs,
+  config,
+  ...
+}: {
   home.file.".bash_it".source = inputs.my-bash-it;
   programs.bash = {
     enable = true;
@@ -17,8 +21,10 @@
       BASH_IT_THEME = "bobby";
       FLAKE = "/home/john/code/mynix";
       PATH = "$PATH:$HOME/.local/bin:$HOME/.config/emacs/bin";
-      OPENAI_API_KEY = "$(pass openai)";
-      OPENROUTER_API_KEY = "$(pass openrouter)";
+      OPENAI_API_KEY = "$(cat config.sops.secrets.openai_key.path)";
+      OPENROUTER_API_KEY = "$(cat config.sops.secrets.openrouter_key.path)";
+      ANTHROPIC_API_KEY = "$(cat config.sops.secrets.anthropic_key.path)";
+      PPLX_API_KEY = "$(cat config.sops.secrets.pplx_key.path)";
       EDITOR = "vim";
     };
     initExtra = ''
