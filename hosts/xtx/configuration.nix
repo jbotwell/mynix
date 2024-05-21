@@ -6,8 +6,7 @@
 }: {
   imports = [
     ./hardware-configuration.nix
-    ../../modules/nixos/boot.nix
-    ../../modules/nixos/egpu.nix
+    ../../modules/nixos/stylix.nix
     ../../modules/nixos/fonts.nix
     ../../modules/nixos/gnupg.nix
     ../../modules/nixos/keyboard.nix
@@ -22,6 +21,10 @@
     ../../modules/nixos/ui.nix
     ../../modules/nixos/users.nix
   ];
+
+  boot.loader.systemd-boot.enable = true;
+  boot.loader.efi.canTouchEfiVariables = true;
+  boot.loader.efi.efiSysMountPoint = "/boot";
 
   networking.hostName = "xtx";
 

@@ -16,6 +16,11 @@
       inputs.nixpkgs.follows = "unstable";
     };
 
+    stylix = {
+      url = "github:danth/stylix";
+      inputs.nixpkgs.follows = "unstable";
+    };
+
     js-debug = {
       url = "github:microsoft/vscode-js-debug";
       flake = false;
@@ -33,6 +38,7 @@
   outputs = {
     nixpkgs,
     home-manager,
+    stylix,
     ...
   } @ inputs: {
     nixosConfigurations = let
@@ -52,7 +58,7 @@
     in {
       fw = mkSystem [./hosts/fw/configuration.nix];
       mini = mkSystem [./hosts/mini/configuration.nix];
-      xtx = mkSystem [./hosts/xtx/configuration.nix];
+      xtx = mkSystem [./hosts/xtx/configuration.nix stylix.nixosModules.stylix];
     };
 
     # Standalone home-manager configuration entrypoint
