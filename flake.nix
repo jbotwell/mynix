@@ -5,6 +5,7 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     home-manager.url = "github:nix-community/home-manager";
     stylix.url = "github:danth/stylix";
+    sops-nix.url = "github:Mic92/sops-nix";
     my-nixvim.url = "github:jbotwell/nixvim";
 
     my-bash-it = {
@@ -17,10 +18,17 @@
     nixpkgs,
     home-manager,
     stylix,
+    sops-nix,
     ...
   } @ inputs: {
     nixosConfigurations = let
       specialArgs = {inherit inputs;};
+      xtxHome = ./hosts/xtx/john.nix;
+      xtxNixos = ./hosts/xtx/configuration.nix;
+      fwHome = ./hosts/fw/john.nix;
+      fwNixos = ./hosts/fw/configuration.nix;
+      miniHome = ./hosts/mini/john.nix;
+      miniNixos = ./hosts/mini/configuration.nix;
       mkSystem = hm-module: otherModules:
         nixpkgs.lib.nixosSystem {
           inherit specialArgs;
@@ -37,9 +45,9 @@
             ++ otherModules;
         };
     in {
-      fw = mkSystem ./hosts/fw/john.nix [./hosts/fw/configuration.nix stylix.nixosModules.stylix];
-      mini = mkSystem ./hosts/mini/john.nix [./hosts/mini/configuration.nix];
-      xtx = mkSystem ./hosts/xtx/john.nix [./hosts/xtx/configuration.nix stylix.nixosModules.stylix];
+      fw = mkSystem fwHome [fwNixos stylix.nixosModules.stylix];
+      mini = mkSystem miniHome [miniNixos];
+      xtx = mkSystem xtxHome [xtxNixos stylix.nixosModules.stylix sops-nix.nixosModules.sops-nix];
     };
 
     formatter = nixpkgs.alejandra;

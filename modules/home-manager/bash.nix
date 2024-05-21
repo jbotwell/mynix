@@ -19,6 +19,7 @@
       PATH = "$PATH:$HOME/.local/bin:$HOME/.config/emacs/bin";
       OPENAI_API_KEY = "$(pass openai)";
       OPENROUTER_API_KEY = "$(pass openrouter)";
+      EDITOR = "vim";
     };
     initExtra = ''
       # cheatsheets
