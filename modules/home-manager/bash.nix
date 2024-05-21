@@ -21,10 +21,10 @@
       BASH_IT_THEME = "bobby";
       FLAKE = "/home/john/code/mynix";
       PATH = "$PATH:$HOME/.local/bin:$HOME/.config/emacs/bin";
-      OPENAI_API_KEY = "$(cat config.sops.secrets.openai_key.path)";
-      OPENROUTER_API_KEY = "$(cat config.sops.secrets.openrouter_key.path)";
-      ANTHROPIC_API_KEY = "$(cat config.sops.secrets.anthropic_key.path)";
-      PPLX_API_KEY = "$(cat config.sops.secrets.pplx_key.path)";
+      OPENAI_API_KEY = "$(cat /run/secrets/openai_key)";
+      OPENROUTER_API_KEY = "$(cat /run/secrets/openrouter_key)";
+      ANTHROPIC_API_KEY = "$(cat /run/secrets/anthropic_key)";
+      PPLX_API_KEY = "$(cat /run/secrets/pplx_key)";
       EDITOR = "vim";
     };
     initExtra = ''
