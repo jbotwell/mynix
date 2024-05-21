@@ -1,3 +1,3 @@
 {
-  stylix.image = assets/1312489.jpg;
+  stylix.image = assets/wp9734246-free-science-fiction-wallpapers.png;
 }
