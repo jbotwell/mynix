@@ -432,11 +432,11 @@
         "parrot-nvim": "parrot-nvim"
       },
       "locked": {
-        "lastModified": 1716069898,
-        "narHash": "sha256-+lRfdGeFhywe//Vq4IHjQuupCTkuUpb4lcxlD0WizOI=",
+        "lastModified": 1716374060,
+        "narHash": "sha256-73AWurqMeAcwoEKV3aBSB20W6U4zI05qGoKPzd5jPck=",
         "owner": "jbotwell",
         "repo": "nixvim",
-        "rev": "f1499cfecdf6fd51e72c9301903985a1a9661181",
+        "rev": "2b923a086fce681c973b90d569dd0f6c2bebe235",
         "type": "github"
       },
       "original": {
@@ -545,11 +545,11 @@
     },
     "nixpkgs_4": {
       "locked": {
-        "lastModified": 1716137900,
-        "narHash": "sha256-sowPU+tLQv8GlqtVtsXioTKeaQvlMz/pefcdwg8MvfM=",
+        "lastModified": 1716293225,
+        "narHash": "sha256-pU9ViBVE3XYb70xZx+jK6SEVphvt7xMTbm6yDIF4xPs=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "6c0b7a92c30122196a761b440ac0d46d3d9954f1",
+        "rev": "3eaeaeb6b1e08a016380c279f8846e0bd8808916",
         "type": "github"
       },
       "original": {

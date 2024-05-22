@@ -3,6 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    pkgs23.url = "github:NixOs/nixpkgs/nixos-23.11";
     home-manager.url = "github:nix-community/home-manager";
     stylix.url = "github:danth/stylix";
     sops-nix.url = "github:Mic92/sops-nix";
