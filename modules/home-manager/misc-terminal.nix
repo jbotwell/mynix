@@ -1,6 +1,4 @@
-{ pkgs, ... }:
-
-{
+{pkgs, ...}: {
   home.packages = with pkgs; [
     exercism
     xclip
@@ -41,6 +39,8 @@
     pass
     nix-prefetch-git
     manix
-    unstable.nh
+    nh
+    ast-grep
+    alejandra
   ];
 }

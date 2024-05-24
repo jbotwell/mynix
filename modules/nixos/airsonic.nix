@@ -1,14 +1,11 @@
-{ ... }:
-
-let
+{...}: let
   listenPort = 8097;
-in
-{
+in {
   services.airsonic = {
     enable = true;
     listenAddress = "0.0.0.0";
     port = listenPort;
   };
 
-  networking.firewall.allowedTCPPorts = [ listenPort ];
+  networking.firewall.allowedTCPPorts = [listenPort];
 }

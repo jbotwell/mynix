@@ -2,84 +2,57 @@
   description = "john's nix config";
 
   inputs = {
-    #nixpkgs
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-23.11";
-    unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    pkgs23.url = "github:NixOs/nixpkgs/nixos-23.11";
+    home-manager.url = "github:nix-community/home-manager";
+    stylix.url = "github:danth/stylix";
+    sops-nix.url = "github:Mic92/sops-nix";
+    my-nixvim.url = "github:jbotwell/nixvim";
 
-    # home-manager
-    home-manager = {
-      url = "github:nix-community/home-manager/release-23.11";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    home-unstable = {
-      url = "github:nix-community/home-manager";
-      inputs.nixpkgs.follows = "unstable";
-    };
-
-    # my stuff
     my-bash-it = {
       url = "github:jbotwell/my_bash_it";
       flake = false;
     };
-
-    # other projects
-    aider = {
-      url = "github:paul-gauthier/aider";
-      flake = false;
-    };
-
-    grep-ast = {
-      url = "github:paul-gauthier/grep-ast";
-      flake = false;
-    };
-
-    tree-sitter-languages = {
-      url = "github:grantjenks/py-tree-sitter-languages";
-      flake = false;
-    };
-
-    js-debug = {
-      url = "github:microsoft/vscode-js-debug";
-      flake = false;
-    };
   };
 
-  outputs = { nixpkgs, home-manager, ... }@inputs: {
+  outputs = {
+    nixpkgs,
+    home-manager,
+    stylix,
+    ...
+  } @ inputs: {
     nixosConfigurations = let
-      mkSystem = modules:
+      specialArgs = {inherit inputs;};
+      xtxHome = ./hosts/xtx/john.nix;
+      xtxNixos = ./hosts/xtx/configuration.nix;
+      fwHome = ./hosts/fw/john.nix;
+      fwNixos = ./hosts/fw/configuration.nix;
+      miniHome = ./hosts/mini/john.nix;
+      miniNixos = ./hosts/mini/configuration.nix;
+      mkSystem = hm-module: otherModules:
         nixpkgs.lib.nixosSystem {
-          specialArgs = { inherit inputs; }; # Pass flake inputs to our config
-          modules = [
-            home-manager.nixosModules.home-manager
-            {
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
-            }
-          ] ++ modules;
+          inherit specialArgs;
+          modules =
+            [
+              home-manager.nixosModules.home-manager
+              {
+                home-manager.useGlobalPkgs = true;
+                home-manager.useUserPackages = true;
+                home-manager.extraSpecialArgs = specialArgs;
+                home-manager.users.john = import hm-module;
+              }
+            ]
+            ++ otherModules;
         };
     in {
-      fw = mkSystem [ ./hosts/fw/configuration.nix ];
-      mini = mkSystem [ ./hosts/mini/configuration.nix ];
+      fw = mkSystem fwHome [fwNixos stylix.nixosModules.stylix];
+      mini = mkSystem miniHome [miniNixos];
+      xtx = mkSystem xtxHome [
+        xtxNixos
+        stylix.nixosModules.stylix
+      ];
     };
 
-    # Standalone home-manager configuration entrypoint
-    homeConfigurations = {
-      "john@fw" = home-manager.lib.homeManagerConfiguration {
-        pkgs = import nixpkgs {
-          system = "x86_64-linux";
-          config.allowUnfree = true;
-        };
-        extraSpecialArgs = { inherit inputs; };
-        modules = [ ./hosts/fw/john.nix ];
-      };
-      "john@mini" = home-manager.lib.homeManagerConfiguration {
-        pkgs = import nixpkgs {
-          system = "x86_64-linux";
-          config.allowUnfree = true;
-        };
-        extraSpecialArgs = { inherit inputs; };
-        modules = [ ./hosts/mini/john.nix ];
-      };
-    };
+    formatter = nixpkgs.alejandra;
   };
 }

@@ -1,23 +1,20 @@
-{ pkgs, ... }:
-
-let
+{pkgs, ...}: let
   username = "john";
   homeDirectory = "/home/${username}";
   configName = ".config";
   configHome = "${homeDirectory}/${configName}";
 in {
   imports = [
-    ../../overlays/overlays.nix
     ../../modules/home-manager/bash.nix
     ../../modules/home-manager/emacs.nix
     ../../modules/home-manager/fzf.nix
     ../../modules/home-manager/git.nix
     ../../modules/home-manager/htop.nix
     ../../modules/home-manager/misc-terminal.nix
-    ../../modules/home-manager/neovim.nix
+    # ../../modules/home-manager/neovim.nix
   ];
 
-  home = { inherit username homeDirectory; };
+  home = {inherit username homeDirectory;};
 
   xdg = {
     inherit configHome;
@@ -31,5 +28,5 @@ in {
 
   programs.home-manager.enable = true;
 
-  home = { stateVersion = "22.11"; };
+  home = {stateVersion = "22.11";};
 }

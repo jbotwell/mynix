@@ -1,4 +1,8 @@
-{ inputs, ... }: {
+{
+  inputs,
+  config,
+  ...
+}: {
   home.file.".bash_it".source = inputs.my-bash-it;
   programs.bash = {
     enable = true;
@@ -8,7 +12,7 @@
       bashbare = "bash --noprofile --norc";
       gsv = "git status -v";
       mini = "export TERM=ansi && ssh john@mini";
-      nixfmtall = "find ~/code/mynix -type f -print0 | xargs -0 nixfmt";
+      nixfmtall = "find ~/code/mynix -type f -print0 | xargs -0 alejandra";
       manf = ''
         manix "" | grep '^# ' | sed 's/^# (.*) (.*/1/;s/ (.*//;s/^# //' | fzf --preview="manix '{}'" | xargs manix'';
     };
@@ -17,6 +21,11 @@
       BASH_IT_THEME = "bobby";
       FLAKE = "/home/john/code/mynix";
       PATH = "$PATH:$HOME/.local/bin:$HOME/.config/emacs/bin";
+      OPENAI_API_KEY = "$(cat /run/secrets/openai_key)";
+      OPENROUTER_API_KEY = "$(cat /run/secrets/openrouter_key)";
+      ANTHROPIC_API_KEY = "$(cat /run/secrets/anthropic_key)";
+      PPLX_API_KEY = "$(cat /run/secrets/pplx_key)";
+      EDITOR = "vim";
     };
     initExtra = ''
       # cheatsheets

@@ -1,6 +1,6 @@
-{ ... }: {
+{...}: {
   services.xserver = {
     layout = "us";
-    xkbOptions = "ctrl:swapcaps";
+    xkb.options = "ctrl:swapcaps";
   };
 }

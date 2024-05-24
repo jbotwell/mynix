@@ -1,16 +1,16 @@
-{ pkgs, ... }:
-
-{
+{pkgs, ...}: {
   home.packages = with pkgs; [
     anki
     calibre
     firefox
+    obsidian
     libreoffice
     nyxt
+    quickemu
     signal-desktop
     slack
     ungoogled-chromium
-    unstable.vscode
+    vscode
     vlc
     wireshark
     zathura
