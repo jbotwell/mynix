@@ -3,6 +3,7 @@
     anki
     calibre
     firefox
+    obsidian
     libreoffice
     nyxt
     quickemu

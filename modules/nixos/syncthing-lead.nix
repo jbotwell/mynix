@@ -36,6 +36,9 @@ in {
           "spg" = {
             id = "E53ZNC4-KRSRXEY-UMUFKXQ-FR7I7KC-SOVJ7K2-3CDEUMG-HJRG477-DCDCOQU";
           };
+          "xtx" = {
+            id = "GNEQYKA-FFTEDS5-234FWUL-LDEKY4H-KF35PIO-7GQSP2Z-2J4INQK-Z5UEDAN";
+          };
         };
         folders = {
           "sync" = {

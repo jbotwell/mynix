@@ -633,6 +633,22 @@
         "type": "github"
       }
     },
+    "pkgs23": {
+      "locked": {
+        "lastModified": 1716218643,
+        "narHash": "sha256-i/E7gzQybvcGAYDRGDl39WL6yVk30Je/NXypBz6/nmM=",
+        "owner": "NixOs",
+        "repo": "nixpkgs",
+        "rev": "a8695cbd09a7ecf3376bd62c798b9864d20f86ee",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOs",
+        "ref": "nixos-23.11",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "pre-commit-hooks": {
       "inputs": {
         "flake-compat": "flake-compat_2",
@@ -669,6 +685,7 @@
         "my-bash-it": "my-bash-it",
         "my-nixvim": "my-nixvim",
         "nixpkgs": "nixpkgs_4",
+        "pkgs23": "pkgs23",
         "sops-nix": "sops-nix",
         "stylix": "stylix"
       }
