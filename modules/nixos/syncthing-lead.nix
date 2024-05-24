@@ -3,12 +3,14 @@
   configDir = "${dataDir}/config";
   sync = "${dataDir}/sync";
   org = "${dataDir}/org";
+  ob = "${dataDir}/ob";
 in {
   systemd.tmpfiles.rules = [
     "d ${dataDir} 0755 john users"
     "d ${configDir} 0755 john users"
     "d ${sync} 0755 john users"
     "d ${org} 0755 john users"
+    "d ${ob} 0755 john users"
   ];
 
   networking.firewall.allowedTCPPorts = [8384 22000];
@@ -43,11 +45,15 @@ in {
         folders = {
           "sync" = {
             path = sync;
-            devices = ["pixel" "fw" "samsung-tab" "spg"];
+            devices = ["pixel" "fw" "samsung-tab" "spg" "xtx"];
           };
           "org" = {
             path = org;
-            devices = ["pixel" "fw" "samsung-tab" "spg"];
+            devices = ["pixel" "fw" "samsung-tab" "spg" "xtx"];
+          };
+          "ob" = {
+            path = ob;
+            devices = ["pixel" "fw" "samsung-tab" "spg" "xtx"];
           };
         };
         gui = {

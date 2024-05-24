@@ -23,6 +23,10 @@
             path = "/home/john/org";
             devices = ["mini"];
           };
+          "ob" = {
+            path = "/home/john/ob";
+            devices = ["mini"];
+          };
         };
       };
     };
