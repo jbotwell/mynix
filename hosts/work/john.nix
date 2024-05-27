@@ -6,7 +6,7 @@
 in {
   imports = [
     ../../modules/home-manager/alacritty-work.nix
-    ../../modules/home-manager/bash.nix
+    ../../modules/home-manager/bash-work.nix
     ../../modules/home-manager/fzf.nix
     ../../modules/home-manager/git.nix
     ../../modules/home-manager/tmux.nix

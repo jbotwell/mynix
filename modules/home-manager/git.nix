@@ -1,13 +1,13 @@
 {
   pkgs,
-  system,
+  config,
   ...
 }: let
   ctags-hook = pkgs.writeShellScript "ctags-hook.sh" ''
     git ls-files | ctags -f .git/.tags --tag-relative -L -
   '';
   email =
-    if system.isDarwin
+    if config.home.username == "john_otwell"
     then "john.otwell@spglobal.com"
     else "john.otwell@proton.me";
 in {
