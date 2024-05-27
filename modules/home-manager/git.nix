@@ -1,15 +1,22 @@
-{pkgs, ...}: let
+{
+  pkgs,
+  system,
+  ...
+}: let
   ctags-hook = pkgs.writeShellScript "ctags-hook.sh" ''
     git ls-files | ctags -f .git/.tags --tag-relative -L -
   '';
+  email =
+    if system.isDarwin
+    then "john.otwell@spglobal.com"
+    else "john.otwell@proton.me";
 in {
   home.packages = with pkgs; [universal-ctags];
   programs.git = {
     enable = true;
     delta.enable = true;
     userName = "John Otwell";
-    userEmail = "john.otwell@protonmail.com";
-    ignores = ["/tags"];
+    userEmail = email;
     hooks = {
       post-commit = ctags-hook;
       post-checkout = ctags-hook;

@@ -1,8 +1,4 @@
-{
-  inputs,
-  config,
-  ...
-}: {
+{inputs, ...}: {
   home.file.".bash_it".source = inputs.my-bash-it;
   programs.bash = {
     enable = true;
