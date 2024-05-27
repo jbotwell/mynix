@@ -1,9 +1,7 @@
 keys:
-  - &xtx age152psz643tz93rf2vk2yxftx9nr6qscjrp9anvurhcd3shpyp2spqguncnt
-  - &mini age1p5t5lk93p96w3zspwhqrhkcwcfvygkfvnrjc7gkqv52h6wu3ca0sp50uqq
+  - &primary age152psz643tz93rf2vk2yxftx9nr6qscjrp9anvurhcd3shpyp2spqguncnt
 creation_rules:
   - path_regex: secrets/secrets.yaml$
     key_groups:
     - age:
-      - *xtx
-      - *mini
+      - *primary
