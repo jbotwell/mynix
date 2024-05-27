@@ -10,6 +10,7 @@
     ./hardware-configuration.nix
     ../../modules/nixos/airsonic.nix
     ../../modules/nixos/jellyfin.nix
+    ../../modules/nixos/lnd.nix
     ../../modules/nixos/locale.nix
     ../../modules/nixos/sops.nix
     ../../modules/nixos/syncthing-lead.nix
