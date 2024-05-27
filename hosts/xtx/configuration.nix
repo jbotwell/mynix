@@ -6,7 +6,6 @@
 }: {
   imports = [
     ./hardware-configuration.nix
-    ../../modules/nixos/stylix.nix
     ../../modules/nixos/fonts.nix
     ../../modules/nixos/gnupg.nix
     ../../modules/nixos/keyboard.nix
@@ -14,13 +13,14 @@
     ../../modules/nixos/networks.nix
     ../../modules/nixos/npm.nix
     ../../modules/nixos/printing.nix
+    ../../modules/nixos/sops.nix
     ../../modules/nixos/sound.nix
     ../../modules/nixos/steam.nix
+    ../../modules/nixos/stylix.nix
     ../../modules/nixos/syncthing-follow.nix
     ../../modules/nixos/trezor.nix
     ../../modules/nixos/ui.nix
     ../../modules/nixos/users.nix
-    ../../modules/nixos/sops.nix
   ];
 
   boot.loader.systemd-boot.enable = true;
