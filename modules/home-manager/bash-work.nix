@@ -6,10 +6,11 @@
       gsv = "git status -v";
     };
     sessionVariables = {
-      BASH_IT = "/home/john/.bash_it";
+      BASH_IT = "/Users/john_otwell/.bash_it";
       BASH_IT_THEME = "bobby";
-      FLAKE = "/home/john/code/mynix";
+      FLAKE = "/Users/john_otwell/code/mynix";
       EDITOR = "vim";
+      PATH = "$PATH:/opt/homebrew/bin";
     };
     initExtra = ''
       # cheatsheets
