@@ -432,11 +432,11 @@
         "parrot-nvim": "parrot-nvim"
       },
       "locked": {
-        "lastModified": 1716374060,
-        "narHash": "sha256-73AWurqMeAcwoEKV3aBSB20W6U4zI05qGoKPzd5jPck=",
+        "lastModified": 1716873651,
+        "narHash": "sha256-CMdST6iyi1rIL+MC8ERZbSAuUx0f8vzAx1Vb6AE/uCw=",
         "owner": "jbotwell",
         "repo": "nixvim",
-        "rev": "2b923a086fce681c973b90d569dd0f6c2bebe235",
+        "rev": "39250c392e2c440d933c1f7faa200671340707e1",
         "type": "github"
       },
       "original": {
