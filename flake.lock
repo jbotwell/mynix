@@ -114,22 +114,6 @@
         "type": "github"
       }
     },
-    "code-gpt": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1714936416,
-        "narHash": "sha256-V5/dfRFGb0DxMIgKWbSnt/+DTJ3NqTeotmyi26Wy7M0=",
-        "owner": "dpayne",
-        "repo": "CodeGPT.nvim",
-        "rev": "f2eed25f0f049105e451929a5a312a5f0c6bba7a",
-        "type": "github"
-      },
-      "original": {
-        "owner": "dpayne",
-        "repo": "CodeGPT.nvim",
-        "type": "github"
-      }
-    },
     "devshell": {
       "inputs": {
         "flake-utils": "flake-utils",
@@ -407,6 +391,22 @@
         "type": "github"
       }
     },
+    "model-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1716704003,
+        "narHash": "sha256-uZu0WVRF7J1MASG/oVsfc78a8IdoL4lioH2GPn98vfU=",
+        "owner": "gsuuon",
+        "repo": "model.nvim",
+        "rev": "c1d15b34c35b565828bc30c44b7741f8f69d4a1c",
+        "type": "github"
+      },
+      "original": {
+        "owner": "gsuuon",
+        "repo": "model.nvim",
+        "type": "github"
+      }
+    },
     "my-bash-it": {
       "flake": false,
       "locked": {
@@ -425,18 +425,18 @@
     },
     "my-nixvim": {
       "inputs": {
-        "code-gpt": "code-gpt",
         "flake-parts": "flake-parts",
+        "model-nvim": "model-nvim",
         "nixpkgs": "nixpkgs_2",
         "nixvim": "nixvim",
         "parrot-nvim": "parrot-nvim"
       },
       "locked": {
-        "lastModified": 1716960199,
-        "narHash": "sha256-I0PGMl51ysfCEasXjDNLfwQpXWy9CiFtRrdjvFCEkss=",
+        "lastModified": 1717058065,
+        "narHash": "sha256-Bs87dWPcPRnBT7o12xqHXCSjhHL5qQl7F/kB9VN+Qo4=",
         "owner": "jbotwell",
         "repo": "nixvim",
-        "rev": "52c5ecf14981a36e12628bb5af73123210a1007c",
+        "rev": "149962c3741f36d47574a7b3db82eb20e979bb52",
         "type": "github"
       },
       "original": {
