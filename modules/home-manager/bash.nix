@@ -11,6 +11,9 @@
       nixfmtall = "find ~/code/mynix -type f -print0 | xargs -0 alejandra";
       manf = ''
         manix "" | grep '^# ' | sed 's/^# (.*) (.*/1/;s/ (.*//;s/^# //' | fzf --preview="manix '{}'" | xargs manix'';
+      pu = ''
+        protonup -d "~/.steam/root/compatibilitytools.d/"
+      '';
     };
     sessionVariables = {
       BASH_IT = "/home/john/.bash_it";
