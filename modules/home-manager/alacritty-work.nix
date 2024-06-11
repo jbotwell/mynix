@@ -3,10 +3,23 @@
     enable = true;
     settings = {
       font = {
-        size = 20.0;
-        normal = {family = "Source Code Pro";};
-        bold = {family = "Source Code Pro";};
-        italic = {family = "Source Code Pro";};
+        normal = {
+          family = "Hack Nerd Font";
+          style = "Regular";
+        };
+        bold = {
+          family = "Hack Nerd Font";
+          style = "Bold";
+        };
+        italic = {
+          family = "Hack Nerd Font";
+          style = "Italic";
+        };
+        bold_italic = {
+          family = "Hack Nerd Font";
+          style = "Bold Italic";
+        };
+        size = 22.0;
       };
       env.TERM = "xterm-256color";
       shell = {

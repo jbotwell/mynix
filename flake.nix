@@ -53,6 +53,17 @@
       ];
     };
 
+    homeConfigurations = {
+      "john@work" = home-manager.lib.homeManagerConfiguration {
+        pkgs = import nixpkgs {
+          system = "aarch64-darwin";
+          config.allowUnfree = true;
+        };
+        extraSpecialArgs = {inherit inputs;};
+        modules = [./hosts/work/john.nix];
+      };
+    };
+
     formatter = nixpkgs.alejandra;
   };
 }

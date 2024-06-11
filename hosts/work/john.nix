@@ -12,7 +12,7 @@ in {
     ../../modules/home-manager/tmux.nix
   ];
 
-  home.packages = [inputs.my-nixvim.packages."x86_64-linux".default];
+  home.packages = [inputs.my-nixvim.packages."aarch64-darwin".default];
 
   home = {inherit username homeDirectory;};
 
