@@ -346,11 +346,11 @@
         "nixpkgs": "nixpkgs"
       },
       "locked": {
-        "lastModified": 1717931644,
-        "narHash": "sha256-Sz8Wh9cAiD5FhL8UWvZxBfnvxETSCVZlqWSYWaCPyu0=",
+        "lastModified": 1718141734,
+        "narHash": "sha256-cA+6l8ZCZ7MXGijVuY/1f55+wF/RT4PlTR9+g4bx86w=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "3d65009effd77cb0d6e7520b68b039836a7606cf",
+        "rev": "892f76bd0aa09a0f7f73eb41834b8a904b6d0fad",
         "type": "github"
       },
       "original": {
@@ -402,22 +402,6 @@
         "type": "github"
       }
     },
-    "model-nvim": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1716704003,
-        "narHash": "sha256-uZu0WVRF7J1MASG/oVsfc78a8IdoL4lioH2GPn98vfU=",
-        "owner": "gsuuon",
-        "repo": "model.nvim",
-        "rev": "c1d15b34c35b565828bc30c44b7741f8f69d4a1c",
-        "type": "github"
-      },
-      "original": {
-        "owner": "gsuuon",
-        "repo": "model.nvim",
-        "type": "github"
-      }
-    },
     "my-bash-it": {
       "flake": false,
       "locked": {
@@ -437,17 +421,17 @@
     "my-nixvim": {
       "inputs": {
         "flake-parts": "flake-parts",
-        "model-nvim": "model-nvim",
         "nixpkgs": "nixpkgs_2",
         "nixvim": "nixvim",
-        "parrot-nvim": "parrot-nvim"
+        "parrot-nvim": "parrot-nvim",
+        "vim-ai": "vim-ai"
       },
       "locked": {
-        "lastModified": 1718138247,
-        "narHash": "sha256-7+lNPTfa+xNKoAzB7gs8L/K0lnAhYhFTm+k9qBLkA4k=",
+        "lastModified": 1718172280,
+        "narHash": "sha256-YEHiQUw6ClbgDAGgrLkuE7l2fbkrpF7ZPgoM6R3+VLo=",
         "owner": "jbotwell",
         "repo": "nixvim",
-        "rev": "c83769eeb7b34fcf2ce1b30e01c7e9a3b018acd3",
+        "rev": "a9b4fc3b64cee41107ddd54ea0fe7ac39c558196",
         "type": "github"
       },
       "original": {
@@ -752,6 +736,22 @@
       "original": {
         "owner": "numtide",
         "repo": "treefmt-nix",
+        "type": "github"
+      }
+    },
+    "vim-ai": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1718090244,
+        "narHash": "sha256-W0Xov86RiI3GD+XVVFGWnbrSGJ70rJybA+lrIzscCdM=",
+        "owner": "madox2",
+        "repo": "vim-ai",
+        "rev": "f5163548a5c53cfd19e186d2214533e9ed658f03",
+        "type": "github"
+      },
+      "original": {
+        "owner": "madox2",
+        "repo": "vim-ai",
         "type": "github"
       }
     }
