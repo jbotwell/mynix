@@ -1,14 +1,15 @@
 {pkgs, ...}: {
-  stylix.image = assets/test_image.png;
+  stylix.enable = true;
+  stylix.image = assets/spacedream.png;
   stylix.polarity = "dark";
-  stylix.cursor.package = pkgs.vimix-cursors;
-  stylix.cursor.name = "Vimix Cursors";
+  stylix.cursor.package = pkgs.bibata-cursors;
+  stylix.cursor.name = "Bibata-Modern-Ice";
   stylix.fonts = {
     sizes = {
-      desktop = 20;
-      terminal = 20;
-      popups = 20;
-      applications = 20;
+      desktop = 18;
+      terminal = 18;
+      popups = 18;
+      applications = 18;
     };
     serif = {
       package = pkgs.noto-fonts;
