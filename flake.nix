@@ -58,6 +58,9 @@
         pkgs = import nixpkgs {
           system = "aarch64-darwin";
           config.allowUnfree = true;
+          config.permittedInsecurePackages = [
+            "electron-25.9.0"
+          ];
         };
         extraSpecialArgs = {inherit inputs;};
         modules = [./hosts/work/john.nix];
