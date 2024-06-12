@@ -6,10 +6,10 @@
   stylix.cursor.name = "Borealis-cursors";
   stylix.fonts = {
     sizes = {
-      desktop = 15;
-      terminal = 15;
-      popups = 15;
-      applications = 15;
+      desktop = 20;
+      terminal = 20;
+      popups = 20;
+      applications = 20;
     };
     serif = {
       package = pkgs.noto-fonts;

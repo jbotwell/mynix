@@ -3,9 +3,7 @@
     anki
     calibre
     firefox
-    obsidian
     libreoffice
-    nyxt
     quickemu
     signal-desktop
     slack

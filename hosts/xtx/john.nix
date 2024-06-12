@@ -14,6 +14,7 @@ in {
     ../../modules/home-manager/misc-graphical.nix
     ../../modules/home-manager/misc-terminal.nix
     ../../modules/home-manager/tmux.nix
+    ../../modules/home-manager/vim-ai-roles.nix
   ];
 
   home.packages = [inputs.my-nixvim.packages."x86_64-linux".default];
