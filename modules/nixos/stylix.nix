@@ -1,9 +1,8 @@
 {pkgs, ...}: {
-  stylix.image = assets/spacedream.png;
-  # stylix.image = assets/wp9734246-free-science-fiction-wallpapers.png;
+  stylix.image = assets/test_image.png;
   stylix.polarity = "dark";
-  stylix.cursor.package = pkgs.borealis-cursors;
-  stylix.cursor.name = "Borealis-cursors";
+  stylix.cursor.package = pkgs.vimix-cursors;
+  stylix.cursor.name = "Vimix Cursors";
   stylix.fonts = {
     sizes = {
       desktop = 20;
