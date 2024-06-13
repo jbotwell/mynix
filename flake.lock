@@ -1,5 +1,21 @@
 {
   "nodes": {
+    "aider-input": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1718217026,
+        "narHash": "sha256-a6IWtCqoU7Wk3HrmEMzrU9YRCjvklSQlbgy7Dmj/vFE=",
+        "owner": "paul-gauthier",
+        "repo": "aider",
+        "rev": "a07492b90a9772bacdad0cfc5fc26b52cfb11907",
+        "type": "github"
+      },
+      "original": {
+        "owner": "paul-gauthier",
+        "repo": "aider",
+        "type": "github"
+      }
+    },
     "base16": {
       "inputs": {
         "fromYaml": "fromYaml"
@@ -203,6 +219,24 @@
     },
     "flake-parts_2": {
       "inputs": {
+        "nixpkgs-lib": "nixpkgs-lib_2"
+      },
+      "locked": {
+        "lastModified": 1717285511,
+        "narHash": "sha256-iKzJcpdXih14qYVcZ9QC9XuZYnPc6T8YImb6dX166kw=",
+        "owner": "hercules-ci",
+        "repo": "flake-parts",
+        "rev": "2a55567fcf15b1b1c7ed712a2c6fadaec7412ea8",
+        "type": "github"
+      },
+      "original": {
+        "owner": "hercules-ci",
+        "repo": "flake-parts",
+        "type": "github"
+      }
+    },
+    "flake-parts_3": {
+      "inputs": {
         "nixpkgs-lib": [
           "my-nixvim",
           "nixvim",
@@ -341,6 +375,22 @@
         "type": "github"
       }
     },
+    "grep-ast": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1716221007,
+        "narHash": "sha256-xeHT8Zp1NyLeK2864DsFpNoxrct/EcUEbG+d33Gc/LQ=",
+        "owner": "paul-gauthier",
+        "repo": "grep-ast",
+        "rev": "3cf620091364e95e501fa2fd1125cc9fae7971e5",
+        "type": "github"
+      },
+      "original": {
+        "owner": "paul-gauthier",
+        "repo": "grep-ast",
+        "type": "github"
+      }
+    },
     "home-manager": {
       "inputs": {
         "nixpkgs": "nixpkgs"
@@ -402,6 +452,27 @@
         "type": "github"
       }
     },
+    "my-aider": {
+      "inputs": {
+        "aider-input": "aider-input",
+        "flake-parts": "flake-parts",
+        "grep-ast": "grep-ast",
+        "nixpkgs": "nixpkgs_2"
+      },
+      "locked": {
+        "lastModified": 1718241459,
+        "narHash": "sha256-CjDajYHg3Qp+rFWlo2K5QL1OKunlsbx4WQy1kfNGiFM=",
+        "owner": "jbotwell",
+        "repo": "nixaider",
+        "rev": "3bfe0fa49ab00e85e7dd43a096da695bdf10610e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "jbotwell",
+        "repo": "nixaider",
+        "type": "github"
+      }
+    },
     "my-bash-it": {
       "flake": false,
       "locked": {
@@ -420,8 +491,8 @@
     },
     "my-nixvim": {
       "inputs": {
-        "flake-parts": "flake-parts",
-        "nixpkgs": "nixpkgs_2",
+        "flake-parts": "flake-parts_2",
+        "nixpkgs": "nixpkgs_3",
         "nixvim": "nixvim",
         "parrot-nvim": "parrot-nvim",
         "vim-ai": "vim-ai"
@@ -490,6 +561,18 @@
         "url": "https://github.com/NixOS/nixpkgs/archive/eb9ceca17df2ea50a250b6b27f7bf6ab0186f198.tar.gz"
       }
     },
+    "nixpkgs-lib_2": {
+      "locked": {
+        "lastModified": 1717284937,
+        "narHash": "sha256-lIbdfCsf8LMFloheeE6N31+BMIeixqyQWbSr2vk79EQ=",
+        "type": "tarball",
+        "url": "https://github.com/NixOS/nixpkgs/archive/eb9ceca17df2ea50a250b6b27f7bf6ab0186f198.tar.gz"
+      },
+      "original": {
+        "type": "tarball",
+        "url": "https://github.com/NixOS/nixpkgs/archive/eb9ceca17df2ea50a250b6b27f7bf6ab0186f198.tar.gz"
+      }
+    },
     "nixpkgs-stable": {
       "locked": {
         "lastModified": 1717880976,
@@ -508,6 +591,22 @@
     },
     "nixpkgs_2": {
       "locked": {
+        "lastModified": 1718160348,
+        "narHash": "sha256-9YrUjdztqi4Gz8n3mBuqvCkMo4ojrA6nASwyIKWMpus=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "57d6973abba7ea108bac64ae7629e7431e0199b6",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs_3": {
+      "locked": {
         "lastModified": 1716948383,
         "narHash": "sha256-SzDKxseEcHR5KzPXLwsemyTR/kaM9whxeiJohbL04rs=",
         "owner": "nixos",
@@ -522,7 +621,7 @@
         "type": "github"
       }
     },
-    "nixpkgs_3": {
+    "nixpkgs_4": {
       "locked": {
         "lastModified": 1716769173,
         "narHash": "sha256-7EXDb5WBw+d004Agt+JHC/Oyh/KTUglOaQ4MNjBbo5w=",
@@ -538,7 +637,7 @@
         "type": "github"
       }
     },
-    "nixpkgs_4": {
+    "nixpkgs_5": {
       "locked": {
         "lastModified": 1718160348,
         "narHash": "sha256-9YrUjdztqi4Gz8n3mBuqvCkMo4ojrA6nASwyIKWMpus=",
@@ -554,7 +653,7 @@
         "type": "github"
       }
     },
-    "nixpkgs_5": {
+    "nixpkgs_6": {
       "locked": {
         "lastModified": 1717774105,
         "narHash": "sha256-HV97wqUQv9wvptiHCb3Y0/YH0lJ60uZ8FYfEOIzYEqI=",
@@ -570,7 +669,7 @@
         "type": "github"
       }
     },
-    "nixpkgs_6": {
+    "nixpkgs_7": {
       "locked": {
         "lastModified": 1714912032,
         "narHash": "sha256-clkcOIkg8G4xuJh+1onLG4HPMpbtzdLv4rHxFzgsH9c=",
@@ -590,12 +689,12 @@
       "inputs": {
         "devshell": "devshell",
         "flake-compat": "flake-compat",
-        "flake-parts": "flake-parts_2",
+        "flake-parts": "flake-parts_3",
         "flake-root": "flake-root",
         "git-hooks": "git-hooks",
         "home-manager": "home-manager_2",
         "nix-darwin": "nix-darwin",
-        "nixpkgs": "nixpkgs_3",
+        "nixpkgs": "nixpkgs_4",
         "treefmt-nix": "treefmt-nix"
       },
       "locked": {
@@ -647,9 +746,10 @@
     "root": {
       "inputs": {
         "home-manager": "home-manager",
+        "my-aider": "my-aider",
         "my-bash-it": "my-bash-it",
         "my-nixvim": "my-nixvim",
-        "nixpkgs": "nixpkgs_4",
+        "nixpkgs": "nixpkgs_5",
         "pkgs23": "pkgs23",
         "sops-nix": "sops-nix",
         "stylix": "stylix"
@@ -657,7 +757,7 @@
     },
     "sops-nix": {
       "inputs": {
-        "nixpkgs": "nixpkgs_5",
+        "nixpkgs": "nixpkgs_6",
         "nixpkgs-stable": "nixpkgs-stable"
       },
       "locked": {
@@ -686,7 +786,7 @@
         "flake-compat": "flake-compat_3",
         "gnome-shell": "gnome-shell",
         "home-manager": "home-manager_3",
-        "nixpkgs": "nixpkgs_6"
+        "nixpkgs": "nixpkgs_7"
       },
       "locked": {
         "lastModified": 1718122552,

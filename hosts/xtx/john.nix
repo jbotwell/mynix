@@ -5,6 +5,7 @@
   configHome = "${homeDirectory}/${configName}";
 in {
   imports = [
+    ../../modules/home-manager/aider.nix
     ../../modules/home-manager/alacritty.nix
     ../../modules/home-manager/bash.nix
     ../../modules/home-manager/emacs.nix
