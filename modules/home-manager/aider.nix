@@ -3,7 +3,7 @@
   pkgs,
   ...
 }: let
-  aider = inputs.aider-flake.packages.${pkgs.system}.default;
+  aider = inputs.my-aider.packages.${pkgs.system}.default;
 in {
   home.packages = [
     aider
