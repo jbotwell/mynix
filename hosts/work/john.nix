@@ -9,6 +9,7 @@ in {
     ../../modules/home-manager/bash-work.nix
     ../../modules/home-manager/fzf.nix
     ../../modules/home-manager/git.nix
+    ../../modules/home-manager/misc-terminal.nix
     ../../modules/home-manager/tmux.nix
   ];
 
