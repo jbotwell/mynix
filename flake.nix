@@ -7,8 +7,10 @@
     home-manager.url = "github:nix-community/home-manager";
     stylix.url = "github:danth/stylix";
     sops-nix.url = "github:Mic92/sops-nix";
-    my-nixvim.url = "github:jbotwell/nixvim";
 
+    # my stuff
+    my-nixvim.url = "github:jbotwell/nixvim";
+    my-aider.url = "github:jbotwell/nixaider";
     my-bash-it = {
       url = "github:jbotwell/my_bash_it";
       flake = false;
@@ -58,6 +60,9 @@
         pkgs = import nixpkgs {
           system = "aarch64-darwin";
           config.allowUnfree = true;
+          config.permittedInsecurePackages = [
+            "electron-25.9.0"
+          ];
         };
         extraSpecialArgs = {inherit inputs;};
         modules = [./hosts/work/john.nix];

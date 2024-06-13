@@ -1,15 +1,15 @@
 {pkgs, ...}: {
+  stylix.enable = true;
   stylix.image = assets/spacedream.png;
-  # stylix.image = assets/wp9734246-free-science-fiction-wallpapers.png;
   stylix.polarity = "dark";
-  stylix.cursor.package = pkgs.borealis-cursors;
-  stylix.cursor.name = "Borealis-cursors";
+  stylix.cursor.package = pkgs.bibata-cursors;
+  stylix.cursor.name = "Bibata-Modern-Ice";
   stylix.fonts = {
     sizes = {
-      desktop = 15;
-      terminal = 15;
-      popups = 15;
-      applications = 15;
+      desktop = 18;
+      terminal = 18;
+      popups = 18;
+      applications = 18;
     };
     serif = {
       package = pkgs.noto-fonts;

@@ -3,9 +3,8 @@
     anki
     calibre
     firefox
-    obsidian
     libreoffice
-    nyxt
+    pkgs23.obsidian
     quickemu
     signal-desktop
     slack

@@ -21,6 +21,7 @@
     ../../modules/nixos/trezor.nix
     ../../modules/nixos/ui.nix
     ../../modules/nixos/users.nix
+    ../../overlays.nix
   ];
 
   boot.loader.systemd-boot.enable = true;

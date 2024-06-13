@@ -1,5 +1,6 @@
 {inputs, ...}: {
   home.file.".bash_it".source = inputs.my-bash-it;
+
   programs.bash = {
     enable = true;
     shellAliases = {
@@ -9,9 +10,10 @@
       gsv = "git status -v";
       mini = "export TERM=ansi && ssh john@mini";
       nixfmtall = "find ~/code/mynix -type f -print0 | xargs -0 alejandra";
-      manf = ''
-        manix "" | grep '^# ' | sed 's/^# (.*) (.*/1/;s/ (.*//;s/^# //' | fzf --preview="manix '{}'" | xargs manix'';
+      manf = ''manix "" | grep '^# ' | sed 's/^# (.*) (.*/1/;s/ (.*//;s/^# //' | fzf --preview="manix '{}'" | xargs manix'';
+      pu = ''protonup -d "~/.steam/root/compatibilitytools.d/"'';
     };
+
     sessionVariables = {
       BASH_IT = "/home/john/.bash_it";
       BASH_IT_THEME = "bobby";
@@ -23,6 +25,7 @@
       PPLX_API_KEY = "$(cat /run/secrets/pplx_key)";
       EDITOR = "vim";
     };
+
     initExtra = ''
       # cheatsheets
       # usage: `ch git~worktree` for tools`

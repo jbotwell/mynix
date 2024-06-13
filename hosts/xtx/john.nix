@@ -5,6 +5,7 @@
   configHome = "${homeDirectory}/${configName}";
 in {
   imports = [
+    ../../modules/home-manager/aider.nix
     ../../modules/home-manager/alacritty.nix
     ../../modules/home-manager/bash.nix
     ../../modules/home-manager/emacs.nix
@@ -14,6 +15,8 @@ in {
     ../../modules/home-manager/misc-graphical.nix
     ../../modules/home-manager/misc-terminal.nix
     ../../modules/home-manager/tmux.nix
+    ../../modules/home-manager/vim-ai-roles.nix
+    ../../overlays.nix
   ];
 
   home.packages = [inputs.my-nixvim.packages."x86_64-linux".default];
