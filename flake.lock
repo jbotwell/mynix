@@ -396,11 +396,11 @@
         "nixpkgs": "nixpkgs"
       },
       "locked": {
-        "lastModified": 1718141734,
-        "narHash": "sha256-cA+6l8ZCZ7MXGijVuY/1f55+wF/RT4PlTR9+g4bx86w=",
+        "lastModified": 1718243258,
+        "narHash": "sha256-abBpj2VU8p6qlRzTU8o22q68MmOaZ4v8zZ4UlYl5YRU=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "892f76bd0aa09a0f7f73eb41834b8a904b6d0fad",
+        "rev": "8d5e27b4807d25308dfe369d5a923d87e7dbfda3",
         "type": "github"
       },
       "original": {
@@ -491,42 +491,18 @@
     },
     "my-nixvim": {
       "inputs": {
-<<<<<<< HEAD
-        "flake-parts": "flake-parts",
-        "model-nvim": "model-nvim",
-        "nixpkgs": "nixpkgs_2",
-||||||| c2f3b64
-        "code-gpt": "code-gpt",
-        "flake-parts": "flake-parts",
-        "nixpkgs": "nixpkgs_2",
-=======
         "flake-parts": "flake-parts_2",
         "nixpkgs": "nixpkgs_3",
->>>>>>> 4cc6de1411c481697d048918536b7a8e88d8dee8
         "nixvim": "nixvim",
         "parrot-nvim": "parrot-nvim",
         "vim-ai": "vim-ai"
       },
       "locked": {
-<<<<<<< HEAD
-        "lastModified": 1717058065,
-        "narHash": "sha256-Bs87dWPcPRnBT7o12xqHXCSjhHL5qQl7F/kB9VN+Qo4=",
-||||||| c2f3b64
-        "lastModified": 1716873651,
-        "narHash": "sha256-CMdST6iyi1rIL+MC8ERZbSAuUx0f8vzAx1Vb6AE/uCw=",
-=======
         "lastModified": 1718239927,
         "narHash": "sha256-iQesaIDp6yx01U8i5bdK3QIKnkK7x5m0BzuKTPmPD00=",
->>>>>>> 4cc6de1411c481697d048918536b7a8e88d8dee8
         "owner": "jbotwell",
         "repo": "nixvim",
-<<<<<<< HEAD
-        "rev": "149962c3741f36d47574a7b3db82eb20e979bb52",
-||||||| c2f3b64
-        "rev": "39250c392e2c440d933c1f7faa200671340707e1",
-=======
         "rev": "c0b21554eb6a830a1079fcd58b0e48a52536677e",
->>>>>>> 4cc6de1411c481697d048918536b7a8e88d8dee8
         "type": "github"
       },
       "original": {
