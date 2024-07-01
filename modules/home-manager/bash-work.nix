@@ -11,11 +11,10 @@
       FLAKE = "/Users/john_otwell/code/mynix";
       EDITOR = "vim";
       PATH = "$PATH:/opt/homebrew/bin:/Users/john_otwell/Library/Python/3.9/bin";
-      OPENAI_API_KEY = "$(pass big-oai)";
+      OPENAI_API_KEY = "$(pass oai-new)";
       AZURE_API_KEY = "$(pass oai-new)";
       AZURE_API_VERSION = "2023-05-15";
       AZURE_API_BASE = "$(pass oai-endpoint)";
-      OPENAI_API_ENDPOINT = "$(pass oai-endpoint)";
       OPENROUTER_API_KEY = "$(pass openrouter-api-key)";
       ANTHROPIC_API_KEY = "$(pass anthropic-appi-key)";
       PPLX_API_KEY = "$(pass perplexity-api-key)";
