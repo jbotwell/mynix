@@ -15,6 +15,7 @@
       AZURE_API_KEY = "$(pass oai-new)";
       AZURE_API_VERSION = "2023-05-15";
       AZURE_API_BASE = "$(pass oai-endpoint)";
+      OPENAI_API_ENDPOINT = "$(pass oai-endpoint)";
       OPENROUTER_API_KEY = "$(pass openrouter-api-key)";
       ANTHROPIC_API_KEY = "$(pass anthropic-appi-key)";
       PPLX_API_KEY = "$(pass perplexity-api-key)";
