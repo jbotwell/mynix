@@ -16,7 +16,6 @@ in {
     ../../modules/home-manager/misc-terminal.nix
     ../../modules/home-manager/tmux.nix
     ../../modules/home-manager/vale.nix
-    ../../modules/home-manager/vim-ai-roles.nix
     ../../overlays.nix
   ];
 
