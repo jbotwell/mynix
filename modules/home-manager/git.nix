@@ -31,7 +31,7 @@ in {
       core.editor = "vim";
       merge.conflictStyle = "diff3";
       diff.colorMoved = "default";
-      mergetool.vimdiff = true;
+      merge.tool = "nvimdiff";
       pull.rebase = false;
       init.defaultBranch = "main";
       delta.side-by-side = true;
