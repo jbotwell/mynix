@@ -1,5 +1,13 @@
-{inputs, ...}: {
+{
+  inputs,
+  pkgs,
+  ...
+}: {
   home.file.".bash_it".source = inputs.my-bash-it;
+
+  home.packages = with pkgs; [
+    thefuck
+  ];
 
   programs.bash = {
     enable = true;

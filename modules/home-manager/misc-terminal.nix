@@ -33,7 +33,6 @@
     dog
 
     # others
-    thefuck
     nmap
     ffmpeg
     pass
