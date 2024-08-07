@@ -12,7 +12,6 @@ in {
     ../../modules/home-manager/alacritty.nix
     ../../modules/home-manager/bash.nix
     ../../modules/home-manager/dotnet.nix
-    ../../modules/home-manager/emacs.nix
     ../../modules/home-manager/fzf.nix
     ../../modules/home-manager/git.nix
     ../../modules/home-manager/haskell.nix

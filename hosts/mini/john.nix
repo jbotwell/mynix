@@ -6,12 +6,10 @@
 in {
   imports = [
     ../../modules/home-manager/bash.nix
-    ../../modules/home-manager/emacs.nix
     ../../modules/home-manager/fzf.nix
     ../../modules/home-manager/git.nix
     ../../modules/home-manager/htop.nix
     ../../modules/home-manager/misc-terminal.nix
-    # ../../modules/home-manager/neovim.nix
   ];
 
   home = {inherit username homeDirectory;};

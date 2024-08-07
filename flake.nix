@@ -10,7 +10,6 @@
 
     # my stuff
     my-nixvim.url = "github:jbotwell/nixvim";
-    my-aider.url = "github:jbotwell/nixaider";
     pywhis.url = "github:jbotwell/pywhis";
     my-bash-it = {
       url = "github:jbotwell/my_bash_it";

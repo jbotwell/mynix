@@ -1,13 +1,6 @@
-{
-  inputs,
-  pkgs,
-  ...
-}: let
-  aider = inputs.my-aider.packages.${pkgs.system}.default;
-  pywhis = inputs.pywhis.packages.${pkgs.system}.default;
+{pkgs, ...}: let
 in {
-  home.packages = [
-    aider
-    pywhis
-  ];
+  # home.packages = [
+  #   pkgs.aider
+  # ];
 }
