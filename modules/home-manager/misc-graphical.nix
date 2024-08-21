@@ -5,7 +5,6 @@
     firefox
     libreoffice
     pkgs23.obsidian
-    quickemu
     signal-desktop
     slack
     ungoogled-chromium
