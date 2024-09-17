@@ -13,7 +13,7 @@ in {
   ];
 
   systemd.services.transmission.serviceConfig.ExecStartPre =
-    lib.mkDefault "${pkgs.transmission}/bin/transmission-daemon -f --log-error";
+    lib.mkDefault "${pkgs.coreutils}/bin/sleep 20";
 
   services.transmission = {
     enable = true;
