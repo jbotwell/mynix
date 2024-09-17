@@ -1,6 +1,6 @@
 {pkgs, ...}: let
 in {
-  # home.packages = [
-  #   pkgs.aider
-  # ];
+  home.packages = [
+    pkgs.aider-chat
+  ];
 }

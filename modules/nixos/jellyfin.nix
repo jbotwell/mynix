@@ -8,6 +8,8 @@
       User = "john";
       ExecStart = "${pkgs.jellyfin}/bin/jellyfin --service";
       Restart = "always";
+      StandardOutput = "syslog";
+      StandardError = "syslog";
     };
   };
 

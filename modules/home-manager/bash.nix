@@ -12,13 +12,13 @@
   programs.bash = {
     enable = true;
     shellAliases = {
-      aider = "nix run nix run git+https://src.thehellings.com/greg/aider-flake";
       bashbare = "bash --noprofile --norc";
       gsv = "git status -v";
       manf = ''manix "" | grep '^# ' | sed 's/^# (.*) (.*/1/;s/ (.*//;s/^# //' | fzf --preview="manix '{}'" | xargs manix'';
       mini = "export TERM=ansi && ssh john@mini";
       nixfmtall = "find ~/code/mynix -type f -print0 | xargs -0 alejandra";
       pu = ''protonup -d "~/.steam/root/compatibilitytools.d/"'';
+      pywhis = "nix run github:jbotwell/pywhis";
       xc = "xclip -sel clip";
     };
 

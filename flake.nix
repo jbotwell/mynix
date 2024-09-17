@@ -10,7 +10,6 @@
 
     # my stuff
     my-nixvim.url = "github:jbotwell/nixvim";
-    pywhis.url = "github:jbotwell/pywhis";
     my-bash-it = {
       url = "github:jbotwell/my_bash_it";
       flake = false;
@@ -31,6 +30,8 @@
       fwNixos = ./hosts/fw/configuration.nix;
       miniHome = ./hosts/mini/john.nix;
       miniNixos = ./hosts/mini/configuration.nix;
+      awnixHome = ./hosts/awnix/john.nix;
+      awnixNixos = ./hosts/awnix/configuration.nix;
       mkSystem = hm-module: otherModules:
         nixpkgs.lib.nixosSystem {
           inherit specialArgs;
@@ -47,6 +48,7 @@
             ++ otherModules;
         };
     in {
+      awnix = mkSystem awnixHome [awnixNixos];
       fw = mkSystem fwHome [fwNixos stylix.nixosModules.stylix];
       mini = mkSystem miniHome [miniNixos];
       xtx = mkSystem xtxHome [
