@@ -1,12 +1,16 @@
-{pkgs, ...}: {
+{
+  inputs,
+  pkgs,
+  ...
+}: {
   imports = [
-    # ./hardware-configuration.nix
+    ./hardware-configuration.nix
     ../shared/nixos-server.nix
     ../shared/john-server.nix
-    # ../../modules/nixos/syncthing-lead.nix
-    # ../../modules/nixos/lnd.nix
-    # ../../modules/nixos/rss.nix
-    "${pkgs}/nixos/modules/virtualisation/amazon-image.nix"
+    ../../modules/nixos/syncthing-lead.nix
+    ../../modules/nixos/lnd.nix
+    ../../modules/nixos/rss.nix
+    "${inputs.nixpkgs}/nixos/modules/virtualisation/amazon-image.nix"
   ];
 
   environment.systemPackages = with pkgs; [git vim wget];
