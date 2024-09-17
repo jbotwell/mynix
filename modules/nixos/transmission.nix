@@ -8,7 +8,10 @@ in {
     "d ${home}/.config/transmission-daemon 0755 john users"
   ];
 
-  systemd.services.transmission-daemon.after = lib.mkDefault ["network.target"];
+  systemd.services.transmission = {
+    after = ["network-online.target"];
+    wants = ["network-online.target"];
+  };
 
   services.transmission = {
     enable = true;
