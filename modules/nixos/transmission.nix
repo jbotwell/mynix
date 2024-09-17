@@ -1,4 +1,4 @@
-{...}: let
+{pkgs, ...}: let
   home = "/mnt/data/transmission";
 in {
   systemd.tmpfiles.rules = [
@@ -7,6 +7,22 @@ in {
     "d ${home}/.incomplete 0755 john users"
     "d ${home}/.config/transmission-daemon 0755 john users"
   ];
+
+  systemd.services.transmission = {
+    wantedBy = ["multi-user.target"];
+    after = ["network.target"];
+    description = "Transmission";
+    serviceConfig = {
+      Type = "simple";
+      User = "john";
+      ExecStartPre = "${pkgs.coreutils}/bin/sleep 30";
+      ExecStart = "${pkgs.transmission}/bin/transmission-daemon -f --log-error";
+      Restart = "always";
+      StandardOutput = "syslog";
+      StandardError = "syslog";
+    };
+  };
+
   services.transmission = {
     enable = true;
     user = "john";
