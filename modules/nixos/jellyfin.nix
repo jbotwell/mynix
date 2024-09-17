@@ -6,7 +6,6 @@
     serviceConfig = {
       Type = "simple";
       User = "john";
-      ExecStartPre = "${pkgs.coreutils}/bin/sleep 20";
       ExecStart = "${pkgs.jellyfin}/bin/jellyfin --service";
       Restart = "always";
       StandardOutput = "syslog";

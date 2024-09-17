@@ -1,8 +1,4 @@
-{
-  pkgs,
-  lib,
-  ...
-}: let
+{lib, ...}: let
   home = "/mnt/data/transmission";
 in {
   systemd.tmpfiles.rules = [
@@ -12,8 +8,7 @@ in {
     "d ${home}/.config/transmission-daemon 0755 john users"
   ];
 
-  systemd.services.transmission.serviceConfig.ExecStartPre =
-    lib.mkDefault "${pkgs.coreutils}/bin/sleep 20";
+  systemd.services.transmission.after = lib.mkDefault ["network.target"];
 
   services.transmission = {
     enable = true;
