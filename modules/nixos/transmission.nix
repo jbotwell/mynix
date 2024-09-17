@@ -1,4 +1,8 @@
-{pkgs, ...}: let
+{
+  pkgs,
+  lib,
+  ...
+}: let
   home = "/mnt/data/transmission";
 in {
   systemd.tmpfiles.rules = [
@@ -8,7 +12,7 @@ in {
     "d ${home}/.config/transmission-daemon 0755 john users"
   ];
 
-  systemd.services.transmission = {
+  systemd.services.transmission = lib.mkDefault {
     wantedBy = ["multi-user.target"];
     after = ["network.target"];
     description = "Transmission";
