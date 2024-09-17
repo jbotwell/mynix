@@ -8,6 +8,7 @@
     ../../modules/nixos/jellyfin.nix
     ../../modules/nixos/lnd.nix
     ../../modules/nixos/locale.nix
+    ../../modules/nixos/rss.nix
     ../../modules/nixos/sops.nix
     ../../modules/nixos/syncthing-lead.nix
     ../../modules/nixos/transmission.nix
