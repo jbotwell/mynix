@@ -9,6 +9,7 @@
     ../../modules/nixos/syncthing-lead.nix
     ../../modules/nixos/lnd.nix
     ../../modules/nixos/rss.nix
+    ../../modules/nixos/users.nix
     "${inputs.nixpkgs}/nixos/modules/virtualisation/amazon-image.nix"
   ];
 
