@@ -12,20 +12,8 @@ in {
     "d ${home}/.config/transmission-daemon 0755 john users"
   ];
 
-  systemd.services.transmission = lib.mkDefault {
-    wantedBy = ["multi-user.target"];
-    after = ["network.target"];
-    description = "Transmission";
-    serviceConfig = {
-      Type = "simple";
-      User = "john";
-      ExecStartPre = "${pkgs.coreutils}/bin/sleep 30";
-      ExecStart = "${pkgs.transmission}/bin/transmission-daemon -f --log-error";
-      Restart = "always";
-      StandardOutput = "syslog";
-      StandardError = "syslog";
-    };
-  };
+  systemd.services.transmission.serviceConfig.ExecStartPre =
+    lib.mkDefault "${pkgs.transmission}/bin/transmission-daemon -f --log-error";
 
   services.transmission = {
     enable = true;
