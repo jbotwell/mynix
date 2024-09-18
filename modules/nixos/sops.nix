@@ -18,5 +18,6 @@
     openrouter_key.owner = me;
     pplx_key.owner = me;
     anthropic_key.owner = me;
+    ttrss_key.owner = me;
   };
 }
