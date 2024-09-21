@@ -7,6 +7,7 @@
     home-manager.url = "github:nix-community/home-manager";
     stylix.url = "github:danth/stylix";
     sops-nix.url = "github:Mic92/sops-nix";
+    nix-bitcoin.url = "github:fort-nix/nix-bitcoin/release";
 
     # my stuff
     my-nixvim.url = "github:jbotwell/nixvim";
@@ -20,6 +21,7 @@
     nixpkgs,
     home-manager,
     stylix,
+    nix-bitcoin,
     ...
   } @ inputs: {
     nixosConfigurations = let
@@ -51,6 +53,8 @@
       xtx = mkSystem xtxHome [
         xtxNixos
         stylix.nixosModules.stylix
+        nix-bitcoin.nixosModules.default
+        (nix-bitcoin + "/modules/presets/secure-node.nix")
       ];
     };
 
