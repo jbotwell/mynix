@@ -25,6 +25,17 @@
     ...
   } @ inputs: {
     nixosConfigurations = let
+      bitcoinConfig = {
+        nix-bitcoin.generateSecrets = true;
+
+        services.bitcoind.enable = true;
+        services.clightning.enable = true;
+
+        nix-bitcoin.operator = {
+          enable = true;
+          name = "john";
+        };
+      };
       specialArgs = {inherit inputs;};
       xtxHome = ./hosts/xtx/john.nix;
       xtxNixos = ./hosts/xtx/configuration.nix;
@@ -53,8 +64,9 @@
       xtx = mkSystem xtxHome [
         xtxNixos
         stylix.nixosModules.stylix
-        nix-bitcoin.nixosModules.default
-        (nix-bitcoin + "/modules/presets/secure-node.nix")
+        (nix-bitcoin.nixosModules.default
+          (nix-bitcoin + "/modules/presets/secure-node.nix")
+          bitcoinConfig)
       ];
     };
 
