@@ -66,7 +66,8 @@
       fw = mkSystem fwHome [fwNixos stylix.nixosModules.stylix];
       mini = mkSystem miniHome [
         miniNixos
-        (nix-bitcoin.nixosModules.default bitcoinConfig)
+        nix-bitcoin.nixosModules.default
+	bitcoinConfig
       ];
       xtx = mkSystem xtxHome [
         xtxNixos
