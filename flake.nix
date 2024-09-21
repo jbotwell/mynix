@@ -30,6 +30,7 @@
 
         services.bitcoind.enable = true;
         services.bitcoind.dataDir = /mnt/data/bitcoind;
+        services.electrs.enable = true;
         services.lnd.enable = true;
         services.rtl.enable = true;
         services.rtl.nodes.lnd.enable = true;
