@@ -30,6 +30,7 @@
 
         services.bitcoind.enable = true;
         services.clightning.enable = true;
+        services.rtl.enable = true;
 
         nix-bitcoin.operator = {
           enable = true;
