@@ -66,7 +66,7 @@
         xtxNixos
         stylix.nixosModules.stylix
         (nix-bitcoin.nixosModules.default
-          (nix-bitcoin + "/modules/presets/secure-node.nix")
+          # (nix-bitcoin + "/modules/presets/secure-node.nix")
           bitcoinConfig)
       ];
     };
