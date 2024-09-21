@@ -48,6 +48,12 @@
         curl cht.sh/$1~$2 | less -r
       }
 
+      hmacsha() {
+        salt=$(openssl rand -hex 15)
+        password=$1
+        hmac=$(echo -n "$password" | openssl dgst -sha256 -hmac "$salt" -hex | cut -d ' ' -f2); echo "$salt\$$hmac"
+      }
+
       eval "$(thefuck --alias)"
 
       set -o vi

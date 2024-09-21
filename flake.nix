@@ -29,8 +29,10 @@
         nix-bitcoin.generateSecrets = true;
 
         services.bitcoind.enable = true;
-        services.clightning.enable = true;
+        services.bitcoind.dataDir = /mnt/data/bitcoind;
+        services.lnd.enable = true;
         services.rtl.enable = true;
+        services.rtl.nodes.lnd.enable = true;
 
         nix-bitcoin.operator = {
           enable = true;
@@ -61,13 +63,13 @@
         };
     in {
       fw = mkSystem fwHome [fwNixos stylix.nixosModules.stylix];
-      mini = mkSystem miniHome [miniNixos];
+      mini = mkSystem miniHome [
+        miniNixos
+        (nix-bitcoin.nixosModules.default bitcoinConfig)
+      ];
       xtx = mkSystem xtxHome [
         xtxNixos
         stylix.nixosModules.stylix
-        (nix-bitcoin.nixosModules.default
-          # (nix-bitcoin + "/modules/presets/secure-node.nix")
-          bitcoinConfig)
       ];
     };
 

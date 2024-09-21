@@ -41,5 +41,6 @@
     nh
     ast-grep
     alejandra
+    openssl
   ];
 }
