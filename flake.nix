@@ -27,9 +27,9 @@
     nixosConfigurations = let
       bitcoinConfig = {
         systemd.tmpfiles.rules = [
-          "d /mnt/data/bitcoind 0755 bitcoin bitcoin"
+         "d /mnt/data/bitcoind 0770 bitcoin bitcoin"
         ];
-        services.bitcoind.dataDir = /mnt/data/bitcoind;
+        services.bitcoind.dataDir = "/mnt/data/bitcoind";
 
         nix-bitcoin.generateSecrets = true;
 
