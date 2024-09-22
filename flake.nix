@@ -26,10 +26,14 @@
   } @ inputs: {
     nixosConfigurations = let
       bitcoinConfig = {
+        systemd.tmpfiles.rules = [
+          "d /mnt/data/bitcoind 0755 bitcoin bitcoin"
+        ];
+        services.bitcoind.dataDir = /mnt/data/bitcoind;
+
         nix-bitcoin.generateSecrets = true;
 
         services.bitcoind.enable = true;
-        services.bitcoind.dataDir = /mnt/data/bitcoind;
         services.electrs.enable = true;
         services.lnd.enable = true;
         services.rtl.enable = true;
@@ -67,7 +71,7 @@
       mini = mkSystem miniHome [
         miniNixos
         nix-bitcoin.nixosModules.default
-	bitcoinConfig
+        bitcoinConfig
       ];
       xtx = mkSystem xtxHome [
         xtxNixos
