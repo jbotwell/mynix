@@ -10,6 +10,7 @@ in {
     ../../modules/home-manager/bash.nix
     ../../modules/home-manager/fzf.nix
     ../../modules/home-manager/git.nix
+    ../../modules/home-manager/helix.nix
     ../../modules/home-manager/htop.nix
     ../../modules/home-manager/misc-graphical.nix
     ../../modules/home-manager/misc-terminal.nix
