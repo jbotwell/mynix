@@ -6,10 +6,10 @@
   stylix.cursor.name = "Bibata-Modern-Ice";
   stylix.fonts = {
     sizes = {
-      desktop = 18;
-      terminal = 18;
-      popups = 18;
-      applications = 18;
+      desktop = 22;
+      terminal = 22;
+      popups = 22;
+      applications = 22;
     };
     serif = {
       package = pkgs.noto-fonts;
@@ -22,13 +22,13 @@
     };
 
     monospace = {
-      package = pkgs.noto-fonts;
-      name = "Noto Sans Mono";
+      package = pkgs.nerdfonts;
+      name = "mononoki Nerd Font";
     };
 
     emoji = {
-      package = pkgs.noto-fonts;
-      name = "Noto Color Emoji";
+      package = pkgs.nerdfonts;
+      name = "mononoki Nerd Font";
     };
   };
 }
