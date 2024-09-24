@@ -8,6 +8,11 @@
     stylix.url = "github:danth/stylix";
     sops-nix.url = "github:Mic92/sops-nix";
     nix-bitcoin.url = "github:fort-nix/nix-bitcoin/release";
+    naersk.url = "github:nix-community/naersk";
+    lsp-ai = {
+      url = "github:SilasMarvin/lsp-ai";
+      flake = false;
+    };
 
     # my stuff
     my-nixvim.url = "github:jbotwell/nixvim";
@@ -27,7 +32,7 @@
     nixosConfigurations = let
       bitcoinConfig = {
         systemd.tmpfiles.rules = [
-         "d /mnt/data/bitcoind 0770 bitcoin bitcoin"
+          "d /mnt/data/bitcoind 0770 bitcoin bitcoin"
         ];
         services.bitcoind.dataDir = "/mnt/data/bitcoind";
 
