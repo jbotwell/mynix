@@ -7,12 +7,13 @@
   ];
 
   programs.helix.settings = {
-    theme = "molokai";
-    editor.line-number = "relative";
-    editor.cursor-shape.insert = "bar";
-    editor.cursor-shape.normal = "block";
-    editor.cursor-shape.select = "underline";
-    editor.file-picker.hidden = false;
+    editor = {
+      line-number = "relative";
+      cursor-shape.insert = "bar";
+      cursor-shape.normal = "block";
+      cursor-shape.select = "underline";
+      file-picker.hidden = false;
+    };
   };
 
   programs.helix.languages = {
