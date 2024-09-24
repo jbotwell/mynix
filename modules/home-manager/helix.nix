@@ -4,6 +4,9 @@
     # helix-specific lsp's
     helix-gpt
     markdown-oxide
+
+    # other lsp's
+    marksman
   ];
 
   programs.helix.settings = {
@@ -20,23 +23,13 @@
     language = [
       {
         name = "markdown";
-        # language-servers = [ "marksman", "markdown-oxide", "hx-lsp" ];
-        language-servers = ["hx-lsp"];
+        language-servers = ["marksman" "markdown-oxide"];
       }
     ];
-
-    language-server.hx-lsp = with pkgs; {
-      command = "${hx-lsp}/bin/hx-lsp";
-    };
 
     language-server.typescript-language-server = with pkgs.nodePackages; {
       command = "${typescript-language-server}/bin/typescript-language-server";
       args = ["--stdio" "--tsserver-path=${typescript}/lib/node_modules/typescript/lib"];
     };
-  };
-
-  home.file.".config/helix/snippets" = {
-    source = ./snippets;
-    recursive = true;
   };
 }
