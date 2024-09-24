@@ -17,6 +17,10 @@
       cursor-shape.select = "underline";
       file-picker.hidden = false;
     };
+
+    keys.normal = {
+      C-b = "increment";
+    };
   };
 
   programs.helix.languages = {
