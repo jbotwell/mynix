@@ -1,0 +1,15 @@
+{
+  "Test Snippet": {
+    "prefix": [
+      "test",
+      "snptest"
+    ],
+    "body": [
+      "This snippet works",
+      "With multiple lines",
+      "and ${1:insert1}",
+      "and ${2:insert2}"
+    ],
+    "description": "Snippet to test the snippet feature"
+  }
+}
