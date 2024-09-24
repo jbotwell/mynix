@@ -3,15 +3,11 @@
     anki
     calibre
     firefox
-    libreoffice
     pkgs23.obsidian
     signal-desktop
     slack
     ungoogled-chromium
-    vscode
     vlc
-    wireshark
     zathura
-    zoom-us
   ];
 }
