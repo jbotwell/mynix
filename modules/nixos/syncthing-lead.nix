@@ -4,6 +4,7 @@
   sync = "${dataDir}/sync";
   org = "${dataDir}/org";
   ob = "${dataDir}/ob";
+  photos = "${dataDir}/photos";
 in {
   systemd.tmpfiles.rules = [
     "d ${dataDir} 0755 john users"
@@ -11,6 +12,7 @@ in {
     "d ${sync} 0755 john users"
     "d ${org} 0755 john users"
     "d ${ob} 0755 john users"
+    "d ${photos} 0755 john users"
   ];
 
   networking.firewall.allowedTCPPorts = [8384 22000];
@@ -59,7 +61,7 @@ in {
             devices = ["pixel" "pixel6" "fw" "samsung-tab" "spg" "xtx"];
           };
           "photos" = {
-            path = ob;
+            path = photos;
             devices = ["pixel"];
           };
         };
