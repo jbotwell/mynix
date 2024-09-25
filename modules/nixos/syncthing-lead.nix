@@ -29,8 +29,11 @@ in {
           "fw" = {
             id = "DKL2Q7P-2O4H3YZ-X7NOI3U-O5WUQPE-QARONKC-RDEXRVD-T67LGLE-JBAVAAT";
           };
-          "pixel" = {
+          "pixel6" = {
             id = "YPUJXVS-X2SSFOY-XI2UDIV-GUXTGYI-TH2T5Z3-DOGRRZG-SN24UUV-CTMY7QZ";
+          };
+          "pixel" = {
+            id = "HGRGSOD-OCWFSVV-ELPXLTY-VQS4VSF-RZGDZCH-INZC2K3-CWX4RZ5-I6N5RAY";
           };
           "samsung-tab" = {
             id = "U4BLU3O-VGCST4Z-YFJ6NLY-UA2MT2S-AI3TAAR-KHU54VO-EBLYPDQ-EQ26LAY";
@@ -45,15 +48,19 @@ in {
         folders = {
           "sync" = {
             path = sync;
-            devices = ["pixel" "fw" "samsung-tab" "spg" "xtx"];
+            devices = ["pixel" "pixel6" "fw" "samsung-tab" "spg" "xtx"];
           };
           "org" = {
             path = org;
-            devices = ["pixel" "fw" "samsung-tab" "spg" "xtx"];
+            devices = ["pixel" "pixel6" "fw" "samsung-tab" "spg" "xtx"];
           };
           "ob" = {
             path = ob;
-            devices = ["pixel" "fw" "samsung-tab" "spg" "xtx"];
+            devices = ["pixel" "pixel6" "fw" "samsung-tab" "spg" "xtx"];
+          };
+          "photos" = {
+            path = ob;
+            devices = ["pixel"];
           };
         };
         gui = {

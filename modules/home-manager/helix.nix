@@ -23,7 +23,7 @@ in {
     marksman
   ];
 
-  home.file.".config/helix/languages.toml".file = ./languages.toml;
+  home.file.".config/helix/languages.toml".source = ./languages.toml;
 
   programs.helix.settings = {
     editor = {
