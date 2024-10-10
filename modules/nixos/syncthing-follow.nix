@@ -27,6 +27,10 @@
             path = "/home/john/ob";
             devices = ["mini"];
           };
+          "share" = {
+            path = "/home/john/share";
+            devices = ["mini"];
+          };
         };
       };
     };
