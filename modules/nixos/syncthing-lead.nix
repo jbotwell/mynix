@@ -70,9 +70,10 @@ in {
             devices = ["pixel"];
           };
           "share" = {
-	    path = share;
-	    devices = ["pixel" "pixel8" "xtx"];				
+            path = share;
+            devices = ["pixel" "pixel8" "xtx"];
           };
+        };
         gui = {
           user = "john.otwell";
           # bcrypt
@@ -81,5 +82,4 @@ in {
       };
     };
   };
-};
 }
