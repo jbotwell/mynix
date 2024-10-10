@@ -40,7 +40,7 @@ in {
             id = "YPUJXVS-X2SSFOY-XI2UDIV-GUXTGYI-TH2T5Z3-DOGRRZG-SN24UUV-CTMY7QZ";
           };
           "pixel8" = {
-            id = "Y3TES-75I3N5R-DBDV3GJ-ZNM3IOM-YTDCV4Y-7GESXNZ-FV4EUVP-C66CVAS";
+            id = "Y3TES7W-75I3N5R-DBDV3GJ-ZNM3IOM-YTDCV4Y-7GESXNZ-FV4EUVP-C66CVAS";
           };
           "samsung-tab" = {
             id = "U4BLU3O-VGCST4Z-YFJ6NLY-UA2MT2S-AI3TAAR-KHU54VO-EBLYPDQ-EQ26LAY";
@@ -69,7 +69,10 @@ in {
             path = photos;
             devices = ["pixel"];
           };
-        };
+          "share" = {
+	    path = share;
+	    devices = ["pixel" "pixel8" "xtx"];				
+          };
         gui = {
           user = "john.otwell";
           # bcrypt
@@ -78,4 +81,5 @@ in {
       };
     };
   };
+};
 }
