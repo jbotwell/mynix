@@ -9,6 +9,7 @@
     sops-nix.url = "github:Mic92/sops-nix";
     nix-bitcoin.url = "github:fort-nix/nix-bitcoin/release";
     naersk.url = "github:nix-community/naersk";
+
     lsp-ai = {
       url = "github:SilasMarvin/lsp-ai";
       flake = false;
