@@ -54,7 +54,7 @@ in {
           };
           "org" = {
             path = org;
-            devices = ["pixel" "pixel6" "fw" "samsung-tab" "spg" "xtx"];
+            devices = ["pixel6" "fw" "samsung-tab" "spg" "xtx"];
           };
           "ob" = {
             path = ob;
