@@ -15,6 +15,11 @@
       flake = false;
     };
 
+    scls = {
+      url = "github:estin/simple-completion-language-server";
+      flake = false;
+    };
+
     # my stuff
     my-nixvim.url = "github:jbotwell/nixvim";
     my-bash-it = {

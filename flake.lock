@@ -813,8 +813,25 @@
         "nix-bitcoin": "nix-bitcoin",
         "nixpkgs": "nixpkgs_6",
         "pkgs23": "pkgs23",
+        "scls": "scls",
         "sops-nix": "sops-nix",
         "stylix": "stylix"
+      }
+    },
+    "scls": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1728370506,
+        "narHash": "sha256-SESiYrdPruQg4gV92OTcrKSClh3xyo5wkQ3NdN7e30M=",
+        "owner": "estin",
+        "repo": "simple-completion-language-server",
+        "rev": "b1d39467ef2780266e5fe5ee9b7b49083adf08b3",
+        "type": "github"
+      },
+      "original": {
+        "owner": "estin",
+        "repo": "simple-completion-language-server",
+        "type": "github"
       }
     },
     "sops-nix": {

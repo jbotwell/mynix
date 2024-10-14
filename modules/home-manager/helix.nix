@@ -8,7 +8,10 @@
     src = inputs.lsp-ai;
     OPENSSL_NO_VENDOR = 1;
   };
-  scls = inputs.scls.defaultPackage.${pkgs.system};
+  scls = naersk.buildPackage {
+    src = inputs.scls;
+    OPENSSL_NO_VENDOR = 1;
+  };
   sclsCmd = "${scls}/bin/simple-completion-language-server";
 in {
   programs.helix.enable = true;
@@ -21,6 +24,9 @@ in {
     # md
     markdown-oxide
     marksman
+
+    # formatters
+    nixfmt-rfc-style
   ];
 
   programs.helix.settings = {
@@ -57,12 +63,27 @@ in {
           "scls"
         ];
       }
+      {
+        name = "nix";
+        language-servers = [
+          "nil"
+          "lsp-ai"
+          "scls"
+        ];
+        formatter = {
+          command = "nixfmt"
+        }
+      }
     ];
 
     language-server = {
       lsp-ai = {
         command = "${lsp-ai}/bin/lsp-ai";
         config = import ./lsp-ai.nix;
+      };
+
+      nil = {
+        command = "${pkgs.nil}/bin/nil";
       };
 
       scls = {
