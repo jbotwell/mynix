@@ -45,6 +45,18 @@ in {
         j = "goto_line_start";
         k = "goto_line_end";
       };
+      space = {
+        w = {
+          j = "jump_view_left";
+          k = "jump_view_right";
+          l = "jump_view_up";
+          h = "jump_view_down";
+          J = "swap_view_left";
+          K = "swap_view_right";
+          L = "swap_view_up";
+          H = "swap_view_down";
+        };
+      };
       j = "move_char_left";
       k = "move_char_right";
       l = "move_visual_line_up";
@@ -71,8 +83,8 @@ in {
           "scls"
         ];
         formatter = {
-          command = "nixfmt"
-        }
+          command = "nixfmt";
+        };
       }
     ];
 
