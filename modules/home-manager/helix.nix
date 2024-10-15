@@ -2,8 +2,9 @@
   pkgs,
   inputs,
   ...
-}: let
-  naersk = pkgs.callPackage inputs.naersk {};
+}:
+let
+  naersk = pkgs.callPackage inputs.naersk { };
   lsp-ai = naersk.buildPackage {
     src = inputs.lsp-ai;
     OPENSSL_NO_VENDOR = 1;
@@ -13,7 +14,8 @@
     OPENSSL_NO_VENDOR = 1;
   };
   sclsCmd = "${scls}/bin/simple-completion-language-server";
-in {
+in
+{
   programs.helix.enable = true;
 
   programs.helix.extraPackages = with pkgs; [
@@ -46,6 +48,7 @@ in {
         k = "goto_line_end";
       };
       space = {
+        m = ":format";
         w = {
           j = "jump_view_left";
           k = "jump_view_right";
@@ -104,7 +107,10 @@ in {
 
       typescript-language-server = with pkgs.nodePackages; {
         command = "${typescript-language-server}/bin/typescript-language-server";
-        args = ["--stdio" "--tsserver-path=${typescript}/lib/node_modules/typescript/lib"];
+        args = [
+          "--stdio"
+          "--tsserver-path=${typescript}/lib/node_modules/typescript/lib"
+        ];
       };
     };
   };

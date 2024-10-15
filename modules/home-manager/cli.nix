@@ -1,5 +1,4 @@
-{ pkgs, ...}: {
-
+{pkgs, ...}: {
   # TODO zellij
   # TODO kitty
   # TODO pet

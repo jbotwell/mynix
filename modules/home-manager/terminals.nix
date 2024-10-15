@@ -1,5 +1,4 @@
-{ pkgs, ... }: {
-
+{pkgs, ...}: {
   home.packages = with pkgs; [
     oils-for-unix
     zellij
@@ -40,11 +39,11 @@
     enable = true;
     settings = {
       term = "xterm-256color";
-      shell = "${pkgs.nushell}/bin/nu";    
+      shell = "${pkgs.nushell}/bin/nu";
     };
 
-   extraConfig = ''
-     launch --type=os-window ${pkgs.zellij}/bin/zellij
-   '';
+    extraConfig = ''
+      launch --type=os-window ${pkgs.zellij}/bin/zellij
+    '';
   };
 }
